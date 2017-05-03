@@ -11,15 +11,27 @@ namespace Hk.Services.Application1.Api
     [RoutePrefix("api/productapi")]
     public class ProductApiController : ApiController
     {
+        #region "Members"
         IProductService _iProductService;
-        //IApiManager _iApiManager;
+        #endregion
 
-        public ProductApiController(IProductService iProductService) //, IApiManager iApiManager)
+        #region "Constructor"
+        /// <summary>
+        /// Constructor injecting product service
+        /// </summary>
+        /// <param name="iProductService"></param>
+        public ProductApiController(IProductService iProductService)
         {
             _iProductService = iProductService;
-            //_iApiManager = iApiManager;
         }
+        #endregion
 
+        #region "Get Methods"
+        /// <summary>
+        /// Find method accepting predicate
+        /// </summary>
+        /// <param name="predicate"></param>
+        /// <returns></returns>
         [Route("find/{predicate}")]
         [HttpGet]
         public IEnumerable<Product> Find(Expression<Func<Product, bool>> predicate)
@@ -27,6 +39,11 @@ namespace Hk.Services.Application1.Api
             return _iProductService.Find(predicate);
         }
 
+        /// <summary>
+        /// Get Product by ID
+        /// </summary>
+        /// <param name="id">Product Identifier</param>
+        /// <returns>Returns single product</returns>
         [Route("Get/{id}")]
         [HttpGet]
         public Product Get(int id)
@@ -34,12 +51,21 @@ namespace Hk.Services.Application1.Api
             return _iProductService.Get(id);
         }
 
+        /// <summary>
+        /// Get Product asynchronosly by product identifier
+        /// </summary>
+        /// <param name="id">Product Identifier</param>
+        /// <returns>Returns single product</returns>
         [Route("GetAsync/{id}")]
         public async Task<Product> GetAsync(int id)
         {
             return await _iProductService.GetAsync(id);
         }
 
+        /// <summary>
+        /// Get All Products list
+        /// </summary>
+        /// <returns>Returns list of products</returns>
         [Route("GetAllProducts")]
         [HttpGet]
         public IEnumerable<Product> GetAll()
@@ -49,6 +75,10 @@ namespace Hk.Services.Application1.Api
             return productData;
         }
 
+        /// <summary>
+        /// Get all products list asynchronosly
+        /// </summary>
+        /// <returns>Returns list of products</returns>
         [Route("GetAllProductsAsync")]
         [HttpGet]
         public async Task<IEnumerable<Product>> GetAllAsync()
@@ -56,6 +86,11 @@ namespace Hk.Services.Application1.Api
             return await _iProductService.GetAllAsync();
         }
 
+        /// <summary>
+        /// Get all products by filter
+        /// </summary>
+        /// <param name="includeProperties"></param>
+        /// <returns>Returns list of products</returns>
         [Route("GetAllByFilters/{includeProperties}")]
         [HttpGet]
         public IEnumerable<Product> GetAllByFilters(params Expression<Func<Product, object>>[] includeProperties)
@@ -63,6 +98,11 @@ namespace Hk.Services.Application1.Api
             return _iProductService.GetAllByFilters(includeProperties);
         }
 
+        /// <summary>
+        /// Get list of products based on product category identifier
+        /// </summary>
+        /// <param name="categoryId">Catergory Identifiere</param>
+        /// <returns>Returns list of products</returns>
         [Route("GetProductsByCategory/{categoryId}")]
         [HttpGet]
         public IEnumerable<Product> GetProductsByCategory(int categoryId)
@@ -70,13 +110,25 @@ namespace Hk.Services.Application1.Api
             return _iProductService.GetProductsByCategory(categoryId);
         }
 
+        /// <summary>
+        /// Get list of products based on supplier identifier
+        /// </summary>
+        /// <param name="supplierId">Supplier Identifier</param>
+        /// <returns>Returns list of products</returns>
         [Route("GetProductsBySupplier/{supplierId}")]
         [HttpGet]
         public IEnumerable<Product> GetProductsBySupplier(int supplierId)
         {
             return _iProductService.GetProductsBySupplier(supplierId);
         }
+        #endregion
 
+        #region "Add Methods"
+        /// <summary>
+        /// Adding new product
+        /// </summary>
+        /// <param name="entity">Product entity</param>
+        /// <returns>Returns success or failure</returns>
         [Route("AddProduct")]
         [HttpPost]
         public bool Add(Product entity)
@@ -90,5 +142,6 @@ namespace Hk.Services.Application1.Api
             _iProductService.Insert(entity);
             return true;
         }
+        #endregion
     }
 }

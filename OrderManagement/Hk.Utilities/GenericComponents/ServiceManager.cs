@@ -1,15 +1,14 @@
 ﻿using Hk.Utilities.Interfaces;
-using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Net.Http;
-using System.Threading.Tasks;
 
 namespace Hk.Utilities.GenericComponents
 {
-    public class ApiManagerService : IApiManager
+    public class ServiceManager : IServiceManager
     {
+        #region "Members"
         ISerializer _iSerializer;
 
         private string GetInternalWebServiceUrl
@@ -19,13 +18,17 @@ namespace Hk.Utilities.GenericComponents
                 return ConfigurationManager.AppSettings["WebServiceURL"].ToString();
             }
         }
+        #endregion
 
-        public ApiManagerService(ISerializer iSerializer)
+        #region "Constructor"
+        public ServiceManager(ISerializer iSerializer)
         {
             _iSerializer = iSerializer;
         }
+        #endregion
 
-        public async Task<T> GetAsync<T>(string controller, string action = null, Dictionary<string, string> data = null)
+        #region "Methods"
+        public T GetAsync<T>(string controller, string action = null, Dictionary<string, string> data = null)
         {
             string apiParameters = controller + (!string.IsNullOrEmpty(action) ? "/" + action : "");
             if (data != null)
@@ -49,20 +52,20 @@ namespace Hk.Utilities.GenericComponents
                         new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json")
                     );
 
-                //HttpResponseMessage response = await httpClient.GetAsync(serviceUrl).Result;
-                HttpResponseMessage response = await httpClient.GetAsync(serviceUrl);
+                HttpResponseMessage response = httpClient.GetAsync(serviceUrl).Result;
+                //HttpResponseMessage response = await httpClient.GetAsync(serviceUrl);
 
                 if (response.StatusCode != System.Net.HttpStatusCode.OK)
                 {
                     throw new Exception(response.ReasonPhrase, new Exception(response.Content.ReadAsStringAsync().Result));
                 }
-                //return Deserialize<T>(response);
-                return _iSerializer.DeserializeObject<T>(response.ToString(), false);
+                return _iSerializer.DeserializeHttpResponse<T>(response);
+                //return _iSerializer.DeserializeObject<T>(response.ToString(), false);
             }
 
         }
 
-        public async Task<T> PostAsync<T>(string controller, string action, object data)
+        public T PostAsync<T>(string controller, string action, object data)
         {
             HttpClientHandler handler = new HttpClientHandler()
             {
@@ -74,22 +77,17 @@ namespace Hk.Utilities.GenericComponents
                 string serviceUrl = GetInternalWebServiceUrl + controller + "/" + action;
                 httpClient.DefaultRequestHeaders.Accept.Clear();
 
-                //HttpResponseMessage response = httpClient.PostAsJsonAsync(serviceUrl, data).Result;
-                HttpResponseMessage response = await httpClient.PostAsJsonAsync(serviceUrl, data);
+                HttpResponseMessage response = httpClient.PostAsJsonAsync(serviceUrl, data).Result;
+                //HttpResponseMessage response = await httpClient.PostAsJsonAsync(serviceUrl, data);
 
                 if (response.StatusCode != System.Net.HttpStatusCode.OK)
                 {
                     throw new Exception(response.ReasonPhrase, new Exception(response.Content.ReadAsStringAsync().Result));
                 }
-                //return Deserialize<T>(response);
-                return _iSerializer.DeserializeObject<T>(response.ToString(), false);
+                return _iSerializer.DeserializeHttpResponse<T>(response);
+                //return _iSerializer.DeserializeObject<T>(response.ToString(), false);
             }
         }
-
-        private T Deserialize<T>(HttpResponseMessage response)
-        {
-            var deserialized = JsonConvert.DeserializeObject<T>(response.Content.ReadAsStringAsync().Result);
-            return deserialized;
-        }
+        #endregion
     }
 }

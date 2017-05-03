@@ -1,7 +1,5 @@
 ﻿using Hk.Utilities.Interfaces;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
@@ -10,13 +8,27 @@ namespace MultiProjectSample.Api
 {
     public class BaseApiController : ApiController
     {
+        #region "Members"
         ISerializer _serializer;
+        #endregion
 
+        #region "Constructor"
+        /// <summary>
+        /// Base Api Constructor
+        /// </summary>
+        /// <param name="serializer">Injecting ISerializer</param>
         public BaseApiController(ISerializer serializer)
         {
             _serializer = serializer;
         }
+        #endregion
 
+        #region "Methods"
+        /// <summary>
+        /// Converting the Object to HttpResponseMessage
+        /// </summary>
+        /// <param name="contents">Object Content</param>
+        /// <returns>Returns JSON Results</returns>
         protected HttpResponseMessage OkResponse(object contents)
         {
             try
@@ -34,6 +46,11 @@ namespace MultiProjectSample.Api
             }
         }
 
+        /// <summary>
+        /// Converting Exception to Http Response Message
+        /// </summary>
+        /// <param name="ex">Exception</param>
+        /// <returns>Returns Json Result</returns>
         protected HttpResponseMessage ErrorResponse(Exception ex)
         {
             var response = Request.CreateResponse(HttpStatusCode.OK);
@@ -47,6 +64,7 @@ namespace MultiProjectSample.Api
                 "application/json");
             return response;
         }
+        #endregion
 
     }
 }

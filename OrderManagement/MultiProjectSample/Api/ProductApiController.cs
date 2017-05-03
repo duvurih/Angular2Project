@@ -11,18 +11,18 @@ namespace MultiProjectSample.Api
     [RoutePrefix("ProductApiWeb")]
     public class ProductApiController : BaseApiController
     {
-        private IApiManager _iApiManager;
+        private IServiceManager _iServiceApiManager;
 
-        public ProductApiController(ISerializer serializer, IApiManager iApiManager) : base(serializer)
+        public ProductApiController(ISerializer serializer, IServiceManager iServiceApiManager) : base(serializer)
         {
-            _iApiManager = iApiManager;
+            _iServiceApiManager = iServiceApiManager;
         }
 
         [Route("Find/{predicate}")]
         [HttpGet]
         public HttpResponseMessage Find(Expression<Func<Product, bool>> predicate)
         {
-            return OkResponse(_iApiManager.GetAsync<Product>("ProductApi", "Find", null));
+            return OkResponse(_iServiceApiManager.GetAsync<Product>("ProductApi", "Find", null));
         }
 
         [Route("Get/{id}")]
@@ -31,7 +31,7 @@ namespace MultiProjectSample.Api
         {
             Dictionary<string, string> apiParams = new Dictionary<string, string>();
             apiParams.Add("id", id);
-            return OkResponse(_iApiManager.GetAsync<Product>("productapi", "Get", apiParams));
+            return OkResponse(_iServiceApiManager.GetAsync<Product>("productapi", "Get", apiParams));
         }
 
         [Route("GetAllProducts")]
@@ -39,7 +39,7 @@ namespace MultiProjectSample.Api
         public HttpResponseMessage GetAll()
         {
             //return OkResponse(_iApiManager.GetAsync<Product>("productapi", "GetAllProducts", null));
-            IEnumerable<Product> productData = _iApiManager.GetAsync<IEnumerable<Product>>("productapi", "GetAllProducts", null).Result;
+            IEnumerable<Product> productData = _iServiceApiManager.GetAsync<IEnumerable<Product>>("productapi", "GetAllProducts", null);
             return OkResponse(productData);
         }
 
@@ -49,7 +49,7 @@ namespace MultiProjectSample.Api
         {
             Dictionary<string, string> apiParams = new Dictionary<string, string>();
             apiParams.Add("includeProperties", includeProperties.ToString());
-            return OkResponse(_iApiManager.GetAsync<Product>("productapi", "GetAllByFilters", apiParams));
+            return OkResponse(_iServiceApiManager.GetAsync<Product>("productapi", "GetAllByFilters", apiParams));
         }
 
         [Route("GetProductsByCategory/{categoryId}")]
@@ -58,7 +58,7 @@ namespace MultiProjectSample.Api
         {
             Dictionary<string, string> apiParams = new Dictionary<string, string>();
             apiParams.Add("categoryId", categoryId);
-            return OkResponse(_iApiManager.GetAsync<Product>("productapi", "GetProductsByCategory", apiParams));
+            return OkResponse(_iServiceApiManager.GetAsync<Product>("productapi", "GetProductsByCategory", apiParams));
         }
 
         [Route("GetProductsBySupplier/{supplierId}")]
@@ -67,14 +67,14 @@ namespace MultiProjectSample.Api
         {
             Dictionary<string, string> apiParams = new Dictionary<string, string>();
             apiParams.Add("categoryId", supplierId);
-            return OkResponse(_iApiManager.GetAsync<Product>("productapi", "GetProductsBySupplier", apiParams));
+            return OkResponse(_iServiceApiManager.GetAsync<Product>("productapi", "GetProductsBySupplier", apiParams));
         }
 
         [Route("AddProduct")]
         [HttpPost]
         public bool Add(Product entity)
         {
-            _iApiManager.PostAsync<Product>("productapi", "Add", entity);
+            _iServiceApiManager.PostAsync<Product>("productapi", "Add", entity);
             return true;
         }
     }

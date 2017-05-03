@@ -7,12 +7,12 @@ namespace Hk.Application1.Services.Common
 {
     public class eMailConnectorEventService<T> : ISubscriberService<T>
     {
-        IApiManager _iApiManager;
+        IServiceManager _iServiceApiManager;
         public IPublisherService<T> _iPublisherService;
 
-        public eMailConnectorEventService(IApiManager iApiManager, IPublisherService<T> iPublisherService)
+        public eMailConnectorEventService(IServiceManager iServiceApiManager, IPublisherService<T> iPublisherService)
         {
-            _iApiManager = iApiManager;
+            _iServiceApiManager = iServiceApiManager;
             _iPublisherService = iPublisherService;
         }
 
@@ -23,9 +23,9 @@ namespace Hk.Application1.Services.Common
                 );
             status.Wait();
         }
-        private async Task<bool> SendEmail(T smsContent)
+        private bool SendEmail(T smsContent)
         {
-            var responseResult = await _iApiManager.PostAsync<T>("smsapi", "sendSms", smsContent);
+            var responseResult = _iServiceApiManager.PostAsync<T>("smsapi", "sendSms", smsContent);
             return responseResult == null ? true : false;
         }
     }

@@ -7,12 +7,12 @@ namespace Hk.Application1.Services.Common
 {
     public class SmsConnectorEventService<T> : ISubscriberService<T>
     {
-        IApiManager _iApiManager;
+        IServiceManager _iServiceApiManager;
         public IPublisherService<T> _iPublisherService;
 
-        public SmsConnectorEventService(IApiManager iApiManager, IPublisherService<T> iPublisherService)
+        public SmsConnectorEventService(IServiceManager iServiceApiManager, IPublisherService<T> iPublisherService)
         {
-            _iApiManager = iApiManager;
+            _iServiceApiManager = iServiceApiManager;
             _iPublisherService = iPublisherService;
         }
 
@@ -23,9 +23,10 @@ namespace Hk.Application1.Services.Common
                 );
             status.Wait();
         }
-        private async Task<bool> SendSms(T smsContent)
+
+        private bool SendSms(T smsContent)
         {
-            var responseResult = await _iApiManager.PostAsync<T>("smsapi", "sendSms", smsContent);
+            var responseResult = _iServiceApiManager.PostAsync<T>("smsapi", "sendSms", smsContent);
             return responseResult == null ? true : false;
         }
     }

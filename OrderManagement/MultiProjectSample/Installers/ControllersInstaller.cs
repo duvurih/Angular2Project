@@ -26,7 +26,7 @@ namespace MultiProjectSample.Installers
                 .LifestyleTransient());
 
             //Registering Generic Components
-            container.Register(Component.For<IApiManager>().ImplementedBy<ApiManagerService>().LifestylePerWebRequest());
+            container.Register(Component.For<IServiceManager>().ImplementedBy<ServiceManager>().LifestylePerWebRequest());
             container.Register(Component.For<ISerializer>().ImplementedBy<JSONSerializer>().LifestylePerWebRequest());
             container.Register(Component.For<ICrypto>().ImplementedBy<CryptoService>().LifestylePerWebRequest());
 

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Net.Http;
 
 namespace Hk.Utilities.Interfaces
 {
@@ -24,6 +20,14 @@ namespace Hk.Utilities.Interfaces
         /// <param name="jsonString">JSON string</param>
         /// <param name="expand">Use Type information and Null values</param>
         T DeserializeObject<T>(string jsonString, bool expand = false);
+
+        /// <summary>
+        /// Deserialize HttpResponseMessage
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="response"></param>
+        /// <returns></returns>
+        T DeserializeHttpResponse<T>(HttpResponseMessage response);
 
         #endregion
     }

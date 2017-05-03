@@ -33,7 +33,7 @@ namespace Hk.Services.Application1.Installer
             container.Register(Component.For<IUnitOfWork>().ImplementedBy<UnitOfWork>().LifestylePerWebRequest());
             container.Register(Component.For<IProductRepository>().ImplementedBy<ProductRepository>().LifestylePerWebRequest());
             container.Register(Component.For<ISerializer>().ImplementedBy<JSONSerializer>().LifestylePerWebRequest());
-            container.Register(Component.For<IApiManager>().ImplementedBy<ApiManagerService>().LifestylePerWebRequest());
+            container.Register(Component.For<IServiceManager>().ImplementedBy<ServiceManager>().LifestylePerWebRequest());
             container.Register(Component.For<ICrypto>().ImplementedBy<CryptoService>().LifestylePerWebRequest());
 
             //Registering Services

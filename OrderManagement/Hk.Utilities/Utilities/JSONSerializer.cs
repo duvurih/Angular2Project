@@ -1,11 +1,7 @@
 ﻿using Hk.Utilities.Interfaces;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Net.Http;
 
 namespace Hk.Utilities.Utilities
 {
@@ -20,7 +16,9 @@ namespace Hk.Utilities.Utilities
         #endregion
 
         #region Constructors
-
+        /// <summary>
+        /// Constructor
+        /// </summary>
         public JSONSerializer()
         {
             settingsDefault = new JsonSerializerSettings
@@ -63,6 +61,18 @@ namespace Hk.Utilities.Utilities
         public T DeserializeObject<T>(string jsonString, bool expand = false)
         {
             return JsonConvert.DeserializeObject<T>(jsonString, expand ? settingsExpanded : settingsDefault);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="response"></param>
+        /// <returns></returns>
+        public T DeserializeHttpResponse<T>(HttpResponseMessage response)
+        {
+            var deserialized = JsonConvert.DeserializeObject<T>(response.Content.ReadAsStringAsync().Result);
+            return deserialized;
         }
 
         #endregion
