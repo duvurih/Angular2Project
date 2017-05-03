@@ -1,0 +1,16 @@
+﻿@import "_colors.scss";
+@import "_fonts.scss";
+
+body {
+    background: $color-gray-dark-black;
+    font-family: $font-family-roboto, $font-family-arial, $font-family-helvetica, $font-family-sansserif;
+    font-size: $font-size-body;
+}
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+    color: $color-black;
+    font-family: $font-family-roboto, $font-family-arial, $font-family-helvetica, $font-family-sansserif;
+    font-weight: 700;
+    line-height: 1.1;
+    text-align: left;
+}

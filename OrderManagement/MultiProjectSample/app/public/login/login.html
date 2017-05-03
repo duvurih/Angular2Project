@@ -1,0 +1,31 @@
+﻿<div class="container-fluid" id="main-container">
+    <div class="row">
+        <div class="col-sm-5 col-md-4">
+            <div class="panel">
+                <div class="panel-heading static-heading text-center">Registered user login</div>
+                <div class="panel-body panel-form">
+                    <form [formGroup]="loginForm" (ngSubmit)="login()">
+                        <div *ngIf="authenticationFailure" class="row">
+                            <div class="col-lg-12 col-md-12 alert alert-danger alert-site" role="alert">{{ authenticationMessage }}</div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group">
+                                <label class="control-label" for="username">Username</label>
+                                <input id="username" formControlName="username" title="Username" type="text" maxlength="104" class="form-control" placeholder="Username" #username autofocus>
+                                <small class="val-error">Username is required.</small>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group">
+                                <label class="control-label" for="password">Password</label>
+                                <input id="password" formControlName="password"  title="Password" type="password" maxlength="127" class="form-control" placeholder="Password">
+                                <small class="val-error">Password is required.</small>
+                            </div>
+                        </div>
+                        <button id="btnLogin" class="btn btn-lg btn-site pull-right" type="submit">Login &nbsp;<span class="fa fa-sign-in"></span></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
