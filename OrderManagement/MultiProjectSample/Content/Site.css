@@ -3,11 +3,61 @@ body {
   font-family: "Roboto Condensed", Arial, Helvetica, sans-serif;
   font-size: 15px; }
 
+.continer {
+  padding-right: 10px;
+  padding-left: 10px;
+  margin-right: 5px;
+  margin-left: 5px;
+  width: inherit; }
+
+.navbar-inverse {
+  background-color: #5b5d6b; }
+
+.navbar-inverse .navbar-nav > li > a {
+  color: #fff; }
+
+.sidebar {
+  background: #203513;
+  color: #f5f5f5; }
+  .sidebar .sidebar-heading {
+    background: #009fe3;
+    color: #0f0;
+    font-size: 25px;
+    text-align: center; }
+  .sidebar .sidebar-main-item {
+    background: #307171;
+    color: #fff;
+    text-align: center; }
+    .sidebar .sidebar-main-item a {
+      background: #307171;
+      color: #fff;
+      text-align: center; }
+    .sidebar .sidebar-main-item ul {
+      margin: 0px;
+      padding: 0px;
+      list-style-type: none; }
+      .sidebar .sidebar-main-item ul li {
+        background: none;
+        padding: 0px;
+        list-style-type: none; }
+  .sidebar .sidebar-sub-item {
+    background: #fff;
+    color: #000; }
+    .sidebar .sidebar-sub-item a {
+      background: #fff;
+      color: #000; }
+    .sidebar .sidebar-sub-item ul {
+      margin: 0px;
+      padding: 0px;
+      list-style-type: none; }
+      .sidebar .sidebar-sub-item ul li {
+        background: none;
+        padding: 0px;
+        list-style-type: none; }
+
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   color: #000;
   font-family: "Roboto Condensed", Arial, Helvetica, sans-serif;
   font-weight: 700;
   line-height: 1.1;
   text-align: left; }
-
-/*# sourceMappingURL=Site.css.map */

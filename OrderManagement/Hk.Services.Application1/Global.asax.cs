@@ -1,8 +1,7 @@
 ﻿using Castle.MicroKernel.Resolvers.SpecializedResolvers;
 using Castle.Windsor;
 using Castle.Windsor.Installer;
-using Hk.Services.Application1.Installer;
-using Hk.Services.Application1.Plumbing;
+using Hk.Services.Application1.IoC;
 using Newtonsoft.Json;
 using System.Web.Http;
 using System.Web.Mvc;
@@ -62,10 +61,10 @@ namespace Hk.Services.Application1
                 Formatting = Newtonsoft.Json.Formatting.Indented,
                 ObjectCreationHandling = ObjectCreationHandling.Replace,
                 TypeNameHandling = TypeNameHandling.Objects,
-                ReferenceLoopHandling= Newtonsoft.Json.ReferenceLoopHandling.Ignore
+                ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
             };
             configuration.Formatters.JsonFormatter.UseDataContractJsonSerializer = false;
-            
+
             #endregion
 
             #region XML Settings

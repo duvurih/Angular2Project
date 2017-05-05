@@ -7,10 +7,76 @@ body {
     font-size: $font-size-body;
 }
 
+.continer{
+    padding-right:10px;
+    padding-left:10px;
+    margin-right:5px;
+    margin-left:5px;
+    width:inherit;
+}
+
+.navbar-inverse{
+    background-color:#5b5d6b;
+}
+
+.navbar-inverse .navbar-nav > li > a{
+    color:$color-white;
+}
+
+.sidebar{
+    background:$color-sidebar-background;
+    color:$color-sidebar-header-text;
+
+    .sidebar-heading{
+        background:$color-cyan;
+        color:$color-green;
+        font-size:25px;
+        text-align:center;  
+    }
+    .sidebar-main-item{
+        background:$color-sidebar-mainitem-background;
+        color:$color-white;
+        text-align:center;
+        a{
+            background:$color-sidebar-mainitem-background;
+            color:$color-white;
+            text-align:center;
+        }
+        ul{
+            margin:0px;
+            padding:0px;
+            list-style-type:none;
+            li{
+                background:none;
+                padding:0px;
+                list-style-type:none;
+            }
+        }
+    }
+    .sidebar-sub-item{
+        background:$color-white;
+        color:$color-black;
+       a{
+            background:$color-white;
+            color:$color-black;
+        }
+       ul{
+           margin:0px;
+           padding:0px;
+           list-style-type:none;
+           li{
+               background:none;
+               padding:0px;
+               list-style-type:none;
+           }
+       }
+    }
+}
+
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     color: $color-black;
     font-family: $font-family-roboto, $font-family-arial, $font-family-helvetica, $font-family-sansserif;
-    font-weight: 700;
+    font-weight: $font-weight-header;
     line-height: 1.1;
     text-align: left;
 }

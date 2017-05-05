@@ -33,16 +33,16 @@ namespace Hk.Services.TTAuthService.Models
             {
                 new InMemoryUser
                 {
-                    Username = "bob",
+                    Username = "admin",
                     Password = "secret",
                     Subject = "1",
 
                     Claims = new[]
                     {
-                        new Claim(Constants.ClaimTypes.GivenName, "Bob"),
-                        new Claim(Constants.ClaimTypes.FamilyName, "Smith"),
-                        new Claim(Constants.ClaimTypes.Role, "Geek"),
-                        new Claim(Constants.ClaimTypes.Role, "Foo")
+                        new Claim(Constants.ClaimTypes.GivenName, "Hari"),
+                        new Claim(Constants.ClaimTypes.FamilyName, "Krishna"),
+                        new Claim(Constants.ClaimTypes.Role, "Admin"),
+                        new Claim(Constants.ClaimTypes.Role, "Manager")
                     }
                 }
             };

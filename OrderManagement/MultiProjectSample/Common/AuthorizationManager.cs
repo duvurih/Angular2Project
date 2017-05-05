@@ -22,9 +22,9 @@ namespace MultiProjectSample.Common
             switch (context.Action.First().Value)
             {
                 case "Read":
-                    return Eval(context.Principal.HasClaim("role", "Geek"));
+                    return Eval(context.Principal.HasClaim("role", "Admin"));
                 case "Write":
-                    return Eval(context.Principal.HasClaim("role", "Operator"));
+                    return Eval(context.Principal.HasClaim("role", "Manager"));
                 default:
                     return Nok();
             }

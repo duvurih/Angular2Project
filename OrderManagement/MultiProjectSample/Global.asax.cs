@@ -1,8 +1,7 @@
 ﻿using Castle.MicroKernel.Resolvers.SpecializedResolvers;
 using Castle.Windsor;
 using Castle.Windsor.Installer;
-using MultiProjectSample.Installers;
-using MultiProjectSample.Plubming;
+using MultiProjectSample.IoC;
 using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;

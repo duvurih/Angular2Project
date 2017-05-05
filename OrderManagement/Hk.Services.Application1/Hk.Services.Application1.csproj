@@ -202,8 +202,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Installer\ControllersInstaller.cs" />
-    <Compile Include="Plumbing\WindsorControllerFactory.cs" />
+    <Compile Include="IoC\ControllersInstaller.cs" />
+    <Compile Include="IoC\WindsorControllerFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

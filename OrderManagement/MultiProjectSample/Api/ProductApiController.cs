@@ -8,6 +8,7 @@ using System.Web.Http;
 
 namespace MultiProjectSample.Api
 {
+    [Authorize]
     [RoutePrefix("ProductApiWeb")]
     public class ProductApiController : BaseApiController
     {
@@ -33,6 +34,7 @@ namespace MultiProjectSample.Api
             apiParams.Add("id", id);
             return OkResponse(_iServiceApiManager.GetAsync<Product>("productapi", "Get", apiParams));
         }
+
 
         [Route("GetAllProducts")]
         [HttpGet]

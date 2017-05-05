@@ -1,24 +1,21 @@
-﻿using Castle.MicroKernel.Lifestyle;
+﻿using Castle.MicroKernel;
+using Castle.MicroKernel.Lifestyle;
 using Castle.MicroKernel.Registration;
 using Castle.MicroKernel.SubSystems.Configuration;
 using Castle.Windsor;
-using Hk.Application1.Core.Interfaces;
-using Hk.Application1.Core.ModelsHk.Application1.Services.Products;
-using Hk.Application1.Data.Models;
-using Hk.Application1.Repository.GenericRepository;
-using Hk.Application1.Repository.Interface;
-using Hk.Application1.Repository.Repositories;
 using Hk.Utilities.GenericComponents;
 using Hk.Utilities.Interfaces;
 using Hk.Utilities.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Web;
 using System.Web.Http;
 using System.Web.Http.Dependencies;
 using System.Web.Mvc;
+using System.Web.Routing;
 
-namespace Hk.Services.Application1.Installer
+namespace MultiProjectSample.IoC
 {
     public class ControllersInstaller : IWindsorInstaller
     {
@@ -28,18 +25,12 @@ namespace Hk.Services.Application1.Installer
                 .BasedOn<IController>()
                 .LifestyleTransient());
 
-            //Registering Repositories
-            container.Register(Component.For<DatabaseContext>().LifeStyle.PerWebRequest);
-            container.Register(Component.For<IUnitOfWork>().ImplementedBy<UnitOfWork>().LifestylePerWebRequest());
-            container.Register(Component.For<IProductRepository>().ImplementedBy<ProductRepository>().LifestylePerWebRequest());
-            container.Register(Component.For<ISerializer>().ImplementedBy<JSONSerializer>().LifestylePerWebRequest());
+            //Registering Generic Components
             container.Register(Component.For<IServiceManager>().ImplementedBy<ServiceManager>().LifestylePerWebRequest());
+            container.Register(Component.For<ISerializer>().ImplementedBy<JSONSerializer>().LifestylePerWebRequest());
             container.Register(Component.For<ICrypto>().ImplementedBy<CryptoService>().LifestylePerWebRequest());
 
             //Registering Services
-            container.Register(Component.For<IProductService>().ImplementedBy<ProductService>().LifestylePerWebRequest());
-            //container.Register(Component.For<ISubscriberService>().ImplementedBy<eMailConnectorEventService>().LifestylePerWebRequest());
-            //container.Register(Component.For<ISubscriberService>().ImplementedBy<SmsConnectorEventService>().LifestylePerWebRequest());
 
         }
     }
@@ -65,7 +56,7 @@ namespace Hk.Services.Application1.Installer
             return _container.Kernel.HasComponent(serviceType) ? _container.Resolve(serviceType) : null;
         }
 
-        public IEnumerable<object> GetServices(Type serviceType)
+        IEnumerable<object> IDependencyScope.GetServices(Type serviceType)
         {
             if (!_container.Kernel.HasComponent(serviceType))
             {
@@ -79,6 +70,7 @@ namespace Hk.Services.Application1.Installer
         {
             _container.Dispose();
         }
+
     }
 
     public class WindsorDependencyScope : IDependencyScope
@@ -95,6 +87,14 @@ namespace Hk.Services.Application1.Installer
         public object GetService(Type serviceType)
         {
             return _container.Kernel.HasComponent(serviceType) ? _container.Resolve(serviceType) : null;
+            //if (_container.Kernel.HasComponent(serviceType))
+            //{
+            //    return _container.Resolve(serviceType);
+            //}
+            //else
+            //{
+            //    return null;
+            //}
         }
 
         public IEnumerable<object> GetServices(Type serviceType)
@@ -114,6 +114,34 @@ namespace Hk.Services.Application1.Installer
         {
             container.Register(Classes.FromThisAssembly().BasedOn<ApiController>().LifestylePerWebRequest());
         }
+    }
+
+    public class WindsorControllerFactory : DefaultControllerFactory
+    {
+        private readonly IKernel kernel;
+
+        public WindsorControllerFactory(IKernel kernel)
+        {
+            this.kernel = kernel;
+        }
+
+        public override void ReleaseController(IController controller)
+        {
+            kernel.ReleaseComponent(controller);
+        }
+
+        protected override IController GetControllerInstance(RequestContext requestContext, Type controllerType)
+        {
+            if (controllerType == null)
+            {
+                throw new HttpException(404, string.Format("The controller for path '{0}' could not be found", requestContext.HttpContext.Request.Path));
+            }
+            if (kernel.HasComponent(controllerType))
+                return (IController)kernel.Resolve(controllerType);
+
+            return base.GetControllerInstance(requestContext, controllerType);
+        }
+
     }
 
     #endregion

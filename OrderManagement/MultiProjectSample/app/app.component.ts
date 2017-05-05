@@ -6,7 +6,6 @@ import './rxjs-operators';
 @Component({
     selector: 'my-app',
     template: `
-        <h1>Hello {{name}}</h1>
         <router-outlet></router-outlet>
         `,
 })
@@ -14,5 +13,5 @@ export class AppComponent {
     constructor(private viewContainerRef: ViewContainerRef) {
         this.viewContainerRef = viewContainerRef;
     }
-    name = 'Workflow Application';
+    name = 'Angular v2.4 Application';
 }

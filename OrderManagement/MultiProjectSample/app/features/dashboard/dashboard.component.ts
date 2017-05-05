@@ -1,5 +1,7 @@
-﻿import { Component, OnInit } from '@angular/core';
+﻿//Importing angular core
+import { Component, OnInit } from '@angular/core';
 
+//Importing data services
 import { DataContextService } from '../../services/datacontext.service';
 
 
