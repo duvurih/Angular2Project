@@ -249,6 +249,8 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\images\ClassDiagram1.png" />
+    <Content Include="Content\images\HighLevelContext.png" />
     <Content Include="Content\Site-mobile.css" />
     <Content Include="Content\Site.css" />
     <Content Include="favicon.ico" />
@@ -303,7 +305,6 @@
   <ItemGroup>
     <Folder Include="app\layout\exceptionpages\" />
     <Folder Include="App_Data\" />
-    <Folder Include="Content\images\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
