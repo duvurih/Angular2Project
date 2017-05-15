@@ -29,10 +29,11 @@ namespace MultiProjectSample.Controllers
             return View();
         }
 
-        public ActionResult Logout()
+        public JsonResult Logout()
         {
             Request.GetOwinContext().Authentication.SignOut();
-            return RedirectToAction("Index");
+            //return RedirectToAction("Index");
+            return Json(true);
         }
     }
 }

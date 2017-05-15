@@ -1,35 +1,35 @@
-﻿//Importing angular core
-import { Component, OnInit } from '@angular/core';
+﻿// importing angular core
+import { Component, OnInit } from "@angular/core";
 
-//Importing data services
-import { DataContextService } from '../../services/datacontext.service';
+// importing data services
+import { DataContextService } from "../../services/datacontext.service";
 
 
 @Component({
-    selector: 'dashboard',
-    templateUrl: `app/features/dashboard/dashboard.html`,
+    selector: "dashboard",
+    templateUrl: "app/features/dashboard/dashboard.html",
 })
 export class DashboardComponent implements OnInit {
 
-    //initializing variables
-    public products: any = [];
+    // initializing variables
+    public settings: any = [];
 
-    //constuctor
+    // constuctor
     constructor(
         private dataContextService: DataContextService) {
     }
 
-    //Initialization methods
-    ngOnInit() {
-        this.loadAllProducts();
+    // initialization methods
+    ngOnInit():void {
+        this.loadAllSettings();
     }
 
 
-    //method implementation
-    loadAllProducts() {
-        this.dataContextService.httpGet('ProductApiWeb/GetAllProducts', null)
-            .subscribe((resultData:any) => {
-                this.products = resultData;
-        });
+    // method implementation
+    loadAllSettings():any {
+        // this.dataContextService.httpGet("CategoryApiWeb/GetAllCategories", null)
+        //    .subscribe((resultData:any) => {
+        //        this.products = resultData;
+        // });
     }
 }

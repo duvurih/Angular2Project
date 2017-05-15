@@ -217,6 +217,7 @@
   <ItemGroup>
     <Compile Include="Api\AccountApiController.cs" />
     <Compile Include="Api\BaseApiController.cs" />
+    <Compile Include="Api\CategoryApiController.cs" />
     <Compile Include="Api\ProductApiController.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -237,6 +238,8 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\common\table-component.html" />
+    <Content Include="app\features\category\categorycatalog.html" />
     <Content Include="app\features\dashboard\dashboard.html" />
     <Content Include="app\features\product\productslist.html" />
     <Content Include="app\features\sidebar\sidebar.html" />
@@ -298,9 +301,9 @@
     <Content Include="tsconfig.json" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="app\common\" />
     <Folder Include="app\layout\exceptionpages\" />
     <Folder Include="App_Data\" />
+    <Folder Include="Content\images\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
@@ -311,10 +314,12 @@
   <ItemGroup>
     <TypeScriptCompile Include="app\app.component.ts" />
     <TypeScriptCompile Include="app\app.module.ts" />
+    <TypeScriptCompile Include="app\common\table.component.ts" />
     <TypeScriptCompile Include="app\config\config.component.ts" />
     <TypeScriptCompile Include="app\config\crypto.component.ts" />
     <TypeScriptCompile Include="app\config\routing.component.ts" />
     <TypeScriptCompile Include="app\environments\environment.ts" />
+    <TypeScriptCompile Include="app\features\category\categorycatalog.component.ts" />
     <TypeScriptCompile Include="app\features\dashboard\dashboard.component.ts" />
     <TypeScriptCompile Include="app\features\product\productslist.component.ts" />
     <TypeScriptCompile Include="app\features\sidebar\sidebar.component.ts" />

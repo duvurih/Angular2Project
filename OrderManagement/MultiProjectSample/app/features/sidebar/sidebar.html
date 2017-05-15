@@ -1,14 +1,13 @@
-﻿<div class="sidebar">
+﻿<div class="sidebar hidden-sm hidden-xs">
     <div class="sidebar-heading expanded" data-toggle="collapse" data-target="#sidebar" role="button" aria-expanded="true">
         <span>Navigation</span>
     </div>
     <div class="sidebar-main-item collapse in" id="sidebar" aria-expanded="true">
         <ul>
             <li id="li-0" class="sidebar-main-item">
-                <a href="#nav-0" role="button" aria-expanded="true">
-                    <span class="suffix fa fa-angle-up"></span>
-                    <span>My Favourites</span>
-                </a>
+                <span>
+                    <i class="suffix glyphicon glyphicon-briefcase" aria-hidden="true"></i> My Favourites
+                </span>
                 <div class="sidebar-sub-item">
                     <ul>
                         <li selected="selected"><a>My Item 1</a></li>
@@ -18,41 +17,38 @@
                 </div>
             </li>
             <li id="li-1" class="sidebar-main-item">
-                <a href="#nav-1" role="button">
-                    <span class="suffix fa fa-angle-down"></span>
-                    <span>Customers</span>
-                </a>
+                <span>
+                    <i class="fa fa-user-circle" aria-hidden="true"></i> Customers
+                </span>
                 <div class="sidebar-sub-item">
                     <ul>
-                        <li><a>Customers</a></li>
-                        <li><a>Add Customer</a></li>
-                        <li><a>Search Customer</a></li>
+                        <li><a [routerLink]="['/viewCustomersList']">Customers</a></li>
+                        <li><a [routerLink]="['/addCustomer']">Add Customer</a></li>
+                        <li><a [routerLink]="['/searchCustomer']">Search Customer</a></li>
                     </ul>
                 </div>
             </li>
             <li id="li-2" class="sidebar-main-item">
-                <a href="#nav-2" role="button">
-                    <span class="suffix fa fa-angle-down"></span>
-                    <span>Products</span>
-                </a>
+                <span>
+                    <i class="fa fa-cubes" aria-hidden="true"></i> Products
+                </span>
                 <div class="sidebar-sub-item">
                     <ul>
-                        <li><a>Products</a></li>
-                        <li><a>Add Product</a></li>
-                        <li><a>Search Customer</a></li>
+                        <li><a [routerLink]="['/viewProductsList']">Products</a></li>
+                        <li><a [routerLink]="['/addProduct']">Add Product</a></li>
+                        <li><a [routerLink]="['/searchProduct']">Search Product</a></li>
                     </ul>
                 </div>
             </li>
             <li id="li-3" class="sidebar-main-item">
-                <a href="#nav-3" role="button">
-                    <span class="suffix fa fa-angle-down"></span>
-                    <span>Suppliers</span>
-                </a>
+                <span>
+                    <i class="fa fa-user" aria-hidden="true"></i> Suppliers
+                </span>
                 <div class="sidebar-sub-item">
                     <ul>
-                        <li><a>Suppliers</a></li>
-                        <li><a>Add Supplier</a></li>
-                        <li><a>Search Supplier</a></li>
+                        <li><a [routerLink]="['/viewSuppliersList']">Suppliers</a></li>
+                        <li><a [routerLink]="['/addSupplier']">Add Supplier</a></li>
+                        <li><a [routerLink]="['/searchSupplier']">Search Supplier</a></li>
                     </ul>
                 </div>
             </li>

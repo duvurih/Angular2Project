@@ -81,6 +81,7 @@
     <Compile Include="GenericRepository\DIsposable.cs" />
     <Compile Include="GenericRepository\Repository.cs" />
     <Compile Include="GenericRepository\UnitOfWork.cs" />
+    <Compile Include="Repositories\CategoryRepository.cs" />
     <Compile Include="Repositories\ProductRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

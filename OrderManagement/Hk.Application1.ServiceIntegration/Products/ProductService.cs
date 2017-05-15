@@ -13,20 +13,20 @@ namespace Hk.Application1.Core.ModelsHk.Application1.Services.Products
     {
         IProductRepository _iProductRepository;
         IUnitOfWork _unitOfWork;
-        IServiceManager _iApiManager;
+        IServiceManager _iServiceManager;
         //IPublisherService<SMSInformation> _iPublisherService;
 
         public ProductService(
             IProductRepository iProductRepository,
             IUnitOfWork unitOfWork,
-            IServiceManager iApiManager
+            IServiceManager iServiceManager
             //IPublisherService<SMSInformation> iPublisherService
             )
             : base(iProductRepository)
         {
             _iProductRepository = iProductRepository;
             _unitOfWork = unitOfWork;
-            _iApiManager = iApiManager;
+            _iServiceManager = iServiceManager;
             //_iPublisherService = iPublisherService;
         }
 

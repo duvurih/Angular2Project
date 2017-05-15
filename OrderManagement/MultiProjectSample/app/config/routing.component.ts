@@ -1,29 +1,22 @@
-﻿import { Routes, RouterModule } from '@angular/router';
+﻿import { ModuleWithProviders } from "@angular/core";
+import { Routes, RouterModule } from "@angular/router";
 
-import { LoginComponent } from '../public/login/login.component';
-import { DashboardComponent } from '../features/dashboard/dashboard.component';
-import { AuthCheckActivator } from '../services/authcheck.service';
+import { LoginComponent } from "../public/login/login.component";
+import { DashboardComponent } from "../features/dashboard/dashboard.component";
+// import { AuthCheckActivator } from "../services/authcheck.service";
+import { ProductsListComponent } from "../features/product/productslist.component";
 
 const mainRoutes: Routes = [
-    {
-        path: '',
-        redirectTo: '/dashboard',
-        pathMatch: 'full'
-    },
-    {
-        path: 'login',
-        component: LoginComponent
-    },
-    {
-        path: 'dashboard',
-        component: DashboardComponent
-        //canActivate: [AuthCheckActivator]
-    },
-    { path: '**', component: LoginComponent }
+    { path: "login", component: LoginComponent},
+    { path: "dashboard", component: DashboardComponent},
+    { path: "viewProductsList", component: ProductsListComponent },
+    // redirects
+    { path: "", redirectTo: "/dashboard", pathMatch: "full"},
+    { path: "**", component: LoginComponent }
 ];
 
 const appRoutes: Routes = [
     ...mainRoutes
 ];
 
-export const routing = RouterModule.forRoot(appRoutes);
+export const routing: ModuleWithProviders = RouterModule.forRoot(appRoutes);

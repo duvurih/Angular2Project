@@ -1,0 +1,20 @@
+﻿<div id="cardstack" class="row card-stack">
+    <table>
+        <thead>
+            <tr>
+                <th>Category ID</th>
+                <th>Category Name</th>
+                <th>Category Description</th>
+                <th>Category Picture</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let productCategory of productCategories">
+                <td>{{productCategory.categoryID}}</td>
+                <td>{{productCategory.categoryName}}</td>
+                <td>{{productCategory.description}}</td>
+                <td><img [src]="'data:image/jpg;base64,'+productCategory.picture" /></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

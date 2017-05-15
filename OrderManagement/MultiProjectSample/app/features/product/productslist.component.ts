@@ -1,16 +1,33 @@
-﻿import { Component, Input } from '@angular/core';
+﻿// importing angular core
+import { Component } from "@angular/core";
 
+// importing data services
+import { DataContextService } from "../../services/datacontext.service";
 @Component({
-    selector: 'productslist',
-    templateUrl: `app/features/product/productslist.html`,
+    selector: "productslist",
+    templateUrl: "app/features/product/productslist.html",
 })
 export class ProductsListComponent {
 
-    //input variables
-    @Input() products: any=[];
+    // initializing variables
+    public products: any = [];
 
-    //constuctor
-    constructor() {
+    // constuctor
+    constructor(
+        private dataContextService: DataContextService) {
     }
 
+    // initialization methods
+    ngOnInit():void {
+        this.loadAllProducts();
+    }
+
+
+    // method implementation
+    loadAllProducts():any {
+        this.dataContextService.httpGet("ProductApiWeb/GetAllProducts", null)
+            .subscribe((resultData: any) => {
+                this.products = resultData;
+            });
+    }
 }

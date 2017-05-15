@@ -57,6 +57,7 @@ namespace Hk.Services.Application1.Api
         /// <param name="id">Product Identifier</param>
         /// <returns>Returns single product</returns>
         [Route("GetAsync/{id}")]
+        [HttpGet]
         public async Task<Product> GetAsync(int id)
         {
             return await _iProductService.GetAsync(id);

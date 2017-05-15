@@ -27,7 +27,7 @@
             'crypto-js': 'npm:crypto-js/crypto-js.js',
             'moment': 'npm:moment/',
             'lodash': 'npm:lodash/lodash.js',
-            'ngx-bootstrap': 'npm:ngx-bootstrap',
+            'ng2-bootstrap': 'npm:ng2-bootstrap',
             'symbol-observable': 'npm:symbol-observable'
         },
         // packages tells the System loader how to load when no filename and/or no extension
@@ -37,7 +37,7 @@
                 defaultExtension: 'js'
             },
             rxjs: { defaultExtension: 'js' },
-            'ngx-bootstrap': { main: 'ng2-bootstrap.js', defaultExtension: 'js' },
+            'ng2-bootstrap': {format:'cjs', main: 'bundles/ng2-bootstrap.umd.js', defaultExtension: 'js' },
             'moment':{main:'moment.js',defaultExtension:'js'},
             'symbol-observable': { main: 'index.js', defaultExtension: 'js' }
         }
