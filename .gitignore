@@ -28,3 +28,5 @@
 /OrderManagement/MultiProjectSample/node_modules
 /OrderManagement/MultiProjectSample/obj/Debug
 /OrderManagement/packages
+/OrderManagement/DatabaseProject/DatabaseProject.dbmdl
+/OrderManagement/DatabaseProject/DatabaseProject.jfm

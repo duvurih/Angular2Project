@@ -250,6 +250,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\images\ClassDiagram1.png" />
+    <Content Include="Content\images\Database Model.png" />
     <Content Include="Content\images\HighLevelContext.png" />
     <Content Include="Content\Site-mobile.css" />
     <Content Include="Content\Site.css" />
@@ -274,6 +275,8 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="bower.json" />
     <Content Include="Content\Site-mobile.scss" />
+    <Content Include="Content\images\System Context.pptx" />
+    <Content Include="Content\StartUML\Database Model.mdj" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
