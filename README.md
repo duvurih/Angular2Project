@@ -17,7 +17,7 @@ Angular 2 + Web API + Entity Framework + SQL Server + DI + Responsive Design
 7. Castle Windsor for Dependency Injection
 8. Entity Framework v6.0
 
-# Class Diagram -
+# Class Diagram:
 1. Generic Repositories
 2. Generic Services 
 ![alt text](https://github.com/duvurih/Angular2Project/blob/master/OrderManagement/MultiProjectSample/Content/images/ClassDiagram1.png)
