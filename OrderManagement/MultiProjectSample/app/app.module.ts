@@ -1,7 +1,7 @@
 ﻿import './rxjs-operators';
 
 // standard Angular2 modules
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA  } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
@@ -13,6 +13,9 @@ import { DatepickerModule } from 'ng2-bootstrap';
 import { ModalModule } from 'ng2-bootstrap';
 import { ProgressbarModule } from 'ng2-bootstrap';
 import { TimepickerModule } from 'ng2-bootstrap';
+
+// importing common components
+import { TableComponent } from './common/table.component';
 
 // importing configurations
 import { CryptoComponent } from './config/crypto.component';
@@ -42,11 +45,12 @@ import { CategoryCatalogComponent } from './features/category/categorycatalog.co
         Ng2BootstrapModule,
         ModalModule,
         ProgressbarModule,
-        PaginationModule,
+        PaginationModule.forRoot(),
         TimepickerModule,
         routing
     ],
     declarations: [
+        TableComponent,
         AppComponent,
         LoginComponent,
         DashboardComponent,
@@ -60,6 +64,7 @@ import { CategoryCatalogComponent } from './features/category/categorycatalog.co
         AuthCheckActivator,
         DataContextService
     ],
+    schemas: [CUSTOM_ELEMENTS_SCHEMA],
     bootstrap: [AppComponent]
 })
 export class AppModule { }

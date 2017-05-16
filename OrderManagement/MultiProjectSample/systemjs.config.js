@@ -28,6 +28,7 @@
             'moment': 'npm:moment/',
             'lodash': 'npm:lodash/lodash.js',
             'ng2-bootstrap': 'npm:ng2-bootstrap',
+            'ng2-table':'npm:ng2-table',
             'symbol-observable': 'npm:symbol-observable'
         },
         // packages tells the System loader how to load when no filename and/or no extension
@@ -38,7 +39,8 @@
             },
             rxjs: { defaultExtension: 'js' },
             'ng2-bootstrap': {format:'cjs', main: 'bundles/ng2-bootstrap.umd.js', defaultExtension: 'js' },
-            'moment':{main:'moment.js',defaultExtension:'js'},
+            'moment': { main: 'moment.js', defaultExtension: 'js' },
+            'ng2-table':{defaultExtension:'js'},
             'symbol-observable': { main: 'index.js', defaultExtension: 'js' }
         }
     });

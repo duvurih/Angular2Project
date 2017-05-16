@@ -1,5 +1,5 @@
 ﻿<div id="cardstack" class="row card-stack">
-    <table>
+    <!--<table>
         <thead>
             <tr>
                 <th>Product ID</th>
@@ -14,5 +14,6 @@
                 <td>{{product.unitPrice}}</td>
             </tr>
         </tbody>
-    </table>
+    </table>-->
+    <ngtable [columns]="columns" [data]="products" [config]="config"></ngtable>
 </div>

@@ -49,34 +49,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Configurations\Alphabetical_list_of_productMap.cs" />
     <Compile Include="Configurations\CategoryConfiguration.cs" />
-    <Compile Include="Configurations\Category_Sales_for_1997Map.cs" />
-    <Compile Include="Configurations\Current_Product_ListMap.cs" />
     <Compile Include="Configurations\CustomerConfiguration.cs" />
-    <Compile Include="Configurations\CustomerDemographicConfiguration.cs" />
-    <Compile Include="Configurations\Customer_and_Suppliers_by_CityMap.cs" />
-    <Compile Include="Configurations\EmployeeConfiguration.cs" />
     <Compile Include="Configurations\EntityBaseConfiguration.cs" />
-    <Compile Include="Configurations\InvoiceConfiguration.cs" />
     <Compile Include="Configurations\OrderConfiguration.cs" />
-    <Compile Include="Configurations\Orders_QryMap.cs" />
     <Compile Include="Configurations\Order_DetailConfiguration.cs" />
-    <Compile Include="Configurations\Order_Details_ExtendedMap.cs" />
-    <Compile Include="Configurations\Order_SubtotalMap.cs" />
     <Compile Include="Configurations\ProductConfiguration.cs" />
-    <Compile Include="Configurations\Products_Above_Average_PriceMap.cs" />
-    <Compile Include="Configurations\Products_by_CategoryMap.cs" />
-    <Compile Include="Configurations\Product_Sales_for_1997Map.cs" />
-    <Compile Include="Configurations\RegionConfiguration.cs" />
-    <Compile Include="Configurations\Sales_by_CategoryMap.cs" />
-    <Compile Include="Configurations\Sales_Totals_by_AmountMap.cs" />
-    <Compile Include="Configurations\ShipperConfiguration.cs" />
-    <Compile Include="Configurations\Summary_of_Sales_by_QuarterMap.cs" />
-    <Compile Include="Configurations\Summary_of_Sales_by_YearMap.cs" />
     <Compile Include="Configurations\SupplierConfiguration.cs" />
-    <Compile Include="Configurations\sysdiagramMap.cs" />
-    <Compile Include="Configurations\TerritoryConfiguration.cs" />
     <Compile Include="DatabaseContext\DatabaseContext.cs" />
     <Compile Include="GenericRepository\DIsposable.cs" />
     <Compile Include="GenericRepository\Repository.cs" />

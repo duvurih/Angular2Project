@@ -30,3 +30,5 @@
 /OrderManagement/packages
 /OrderManagement/DatabaseProject/DatabaseProject.dbmdl
 /OrderManagement/DatabaseProject/DatabaseProject.jfm
+/OrderManagement/DatabaseProject/bin/Debug
+/OrderManagement/DatabaseProject/obj/Debug

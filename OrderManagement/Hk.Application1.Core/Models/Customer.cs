@@ -7,7 +7,6 @@ namespace Hk.Application1.Core.Models
         public Customer()
         {
             this.Orders = new List<Order>();
-            this.CustomerDemographics = new List<CustomerDemographic>();
         }
 
         public string CustomerID { get; set; }
@@ -22,6 +21,5 @@ namespace Hk.Application1.Core.Models
         public string Phone { get; set; }
         public string Fax { get; set; }
         public virtual ICollection<Order> Orders { get; set; }
-        public virtual ICollection<CustomerDemographic> CustomerDemographics { get; set; }
     }
 }

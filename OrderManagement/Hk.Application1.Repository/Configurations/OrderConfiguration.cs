@@ -40,7 +40,6 @@ namespace Hk.Application1.Repository.Configurations
             this.Property(t => t.OrderDate).HasColumnName("OrderDate");
             this.Property(t => t.RequiredDate).HasColumnName("RequiredDate");
             this.Property(t => t.ShippedDate).HasColumnName("ShippedDate");
-            this.Property(t => t.ShipVia).HasColumnName("ShipVia");
             this.Property(t => t.Freight).HasColumnName("Freight");
             this.Property(t => t.ShipName).HasColumnName("ShipName");
             this.Property(t => t.ShipAddress).HasColumnName("ShipAddress");
@@ -53,12 +52,6 @@ namespace Hk.Application1.Repository.Configurations
             this.HasOptional(t => t.Customer)
                 .WithMany(t => t.Orders)
                 .HasForeignKey(d => d.CustomerID);
-            this.HasOptional(t => t.Employee)
-                .WithMany(t => t.Orders)
-                .HasForeignKey(d => d.EmployeeID);
-            this.HasOptional(t => t.Shipper)
-                .WithMany(t => t.Orders)
-                .HasForeignKey(d => d.ShipVia);
 
         }
     }

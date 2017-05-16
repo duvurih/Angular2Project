@@ -49,33 +49,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Mapping\Alphabetical_list_of_productMap.cs" />
     <Compile Include="Mapping\CategoryMap.cs" />
-    <Compile Include="Mapping\Category_Sales_for_1997Map.cs" />
-    <Compile Include="Mapping\Current_Product_ListMap.cs" />
-    <Compile Include="Mapping\CustomerDemographicMap.cs" />
     <Compile Include="Mapping\CustomerMap.cs" />
-    <Compile Include="Mapping\Customer_and_Suppliers_by_CityMap.cs" />
-    <Compile Include="Mapping\EmployeeMap.cs" />
-    <Compile Include="Mapping\InvoiceMap.cs" />
     <Compile Include="Mapping\OrderMap.cs" />
-    <Compile Include="Mapping\Orders_QryMap.cs" />
     <Compile Include="Mapping\Order_DetailMap.cs" />
-    <Compile Include="Mapping\Order_Details_ExtendedMap.cs" />
-    <Compile Include="Mapping\Order_SubtotalMap.cs" />
     <Compile Include="Mapping\ProductMap.cs" />
-    <Compile Include="Mapping\Products_Above_Average_PriceMap.cs" />
-    <Compile Include="Mapping\Products_by_CategoryMap.cs" />
-    <Compile Include="Mapping\Product_Sales_for_1997Map.cs" />
-    <Compile Include="Mapping\RegionMap.cs" />
-    <Compile Include="Mapping\Sales_by_CategoryMap.cs" />
-    <Compile Include="Mapping\Sales_Totals_by_AmountMap.cs" />
-    <Compile Include="Mapping\ShipperMap.cs" />
-    <Compile Include="Mapping\Summary_of_Sales_by_QuarterMap.cs" />
-    <Compile Include="Mapping\Summary_of_Sales_by_YearMap.cs" />
     <Compile Include="Mapping\SupplierMap.cs" />
-    <Compile Include="Mapping\sysdiagramMap.cs" />
-    <Compile Include="Mapping\TerritoryMap.cs" />
     <Compile Include="NORTHWNDContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
