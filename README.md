@@ -1,12 +1,15 @@
 # Angular2Project
 Angular 2 + Web API + Entity Framework + SQL Server + DI + Responsive Design
 
-# High Level System Context and Deployment Model
-![alt text](https://github.com/duvurih/Angular2Project/blob/master/OrderManagement/MultiProjectSample/Content/images/HighLevelContext.png)
-
 # Scope of Work:
 1. Products, Categories, Suppliers
 2. Order Management
+
+# High Level System Context and Deployment Model
+![alt text](https://github.com/duvurih/Angular2Project/blob/master/OrderManagement/MultiProjectSample/Content/images/HighLevelContext.png)
+
+# Database Model
+![alt text](https://github.com/duvurih/Angular2Project/blob/master/OrderManagement/MultiProjectSample/Content/images/Database%20Model.png)
 
 # Technology Stack:
 1. Microsoft ASP.NET MVC 5.0
