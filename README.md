@@ -19,6 +19,7 @@ Angular 2 + Web API + Entity Framework + SQL Server + DI + Responsive Design
 5. Bootstrap
 7. Castle Windsor for Dependency Injection
 8. Entity Framework v6.0
+9. AutoMapper v6.0.2
 
 # Class Diagram:
 1. Generic Repositories
