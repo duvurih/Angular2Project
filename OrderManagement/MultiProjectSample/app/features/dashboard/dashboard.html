@@ -1,16 +1,19 @@
-﻿<div class="container-fluid" id="main-layout-container">
-    <div class="row">
-        <div class="col-xl-10">
-            <topbar></topbar>
+﻿<div [@flyInOut]="'in'">
+    <div class="container-fluid" id="main-layout-container">
+        <div class="row">
+            <div class="col-xl-10">
+                <topbar></topbar>
+            </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-md-2 col-xl-2">
-            <sidebar>Loading sidebar....</sidebar>
-        </div>
-        <div class="col-md-10 col-xl-10">
-            <!--<productslist [products]="products" ></productslist>-->
-            <category-catalog></category-catalog>
+        <div class="row">
+            <div class="col-md-2 col-xl-2">
+                <sidebar>Loading sidebar....</sidebar>
+            </div>
+            <div class="col-md-10 col-xl-10">
+                <!--<productslist [products]="products" ></productslist>-->
+                <!--<category-catalog></category-catalog>-->
+                <router-outlet></router-outlet>
+            </div>
         </div>
     </div>
 </div>

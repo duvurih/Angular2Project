@@ -52,6 +52,7 @@
   <ItemGroup>
     <Compile Include="GenericComponents\ServiceManager.cs" />
     <Compile Include="GenericComponents\GenericService.cs" />
+    <Compile Include="Interfaces\IAmAutoMapperProfile.cs" />
     <Compile Include="Interfaces\IServiceManager.cs" />
     <Compile Include="Interfaces\ICrypto.cs" />
     <Compile Include="Interfaces\IGenericService.cs" />

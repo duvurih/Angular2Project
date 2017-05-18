@@ -1,5 +1,5 @@
 ﻿<div id="cardstack" class="row card-stack">
-    <table>
+    <!--<table>
         <thead>
             <tr>
                 <th>Category ID</th>
@@ -16,5 +16,8 @@
                 <td><img [src]="'data:image/jpg;base64,'+productCategory.picture" /></td>
             </tr>
         </tbody>
-    </table>
+    </table>-->
+    <div *ngFor="let productCategory of productCategories" class="col-ms-6 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+        <category-item [categoryItem]="productCategory"></category-item>
+    </div>
 </div>

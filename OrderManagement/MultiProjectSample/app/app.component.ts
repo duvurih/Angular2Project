@@ -6,7 +6,7 @@ import './rxjs-operators';
 @Component({
     selector: 'my-app',
     template: `
-        <router-outlet></router-outlet>
+        <dashboard></dashboard>
         `,
 })
 export class AppComponent {

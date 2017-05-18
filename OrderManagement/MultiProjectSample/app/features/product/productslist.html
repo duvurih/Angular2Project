@@ -1,19 +1,22 @@
-﻿<div id="cardstack" class="row card-stack">
-    <!--<table>
-        <thead>
-            <tr>
-                <th>Product ID</th>
-                <th>Product Name</th>
-                <th>Unit Price</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let product of products">
-                <td>{{product.productID}}</td>
-                <td>{{product.productName}}</td>
-                <td>{{product.unitPrice}}</td>
-            </tr>
-        </tbody>
-    </table>-->
-    <ngtable [columns]="columns" [data]="products" [config]="config"></ngtable>
+﻿<div [@flyInOut]="'in'">
+    <div id="cardstack" class="row card-stack">
+        <table>
+            <thead>
+                <tr>
+                    <th>Product ID</th>
+                    <th>Product Name</th>
+                    <th>Unit Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let product of products">
+                    <td>{{product.productID}}</td>
+                    <td>{{product.productName}}</td>
+                    <td>{{product.unitPrice}}</td>
+                    <td><button class="btn btn-primary" (click)="viewProductDetials(product.productID)">View</button></td>
+                </tr>
+            </tbody>
+        </table>
+        <!--<ngtable [columns]="columns" [data]="products" [config]="config"></ngtable>-->
+    </div>
 </div>

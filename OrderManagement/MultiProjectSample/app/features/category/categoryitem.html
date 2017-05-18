@@ -1,0 +1,9 @@
+﻿<div id="categoryItem{{ categoryItem.categoryID }}" class="card-block">
+    <div class="card-image">
+        <!--<img [src]="'data:image/jpeg;base64,'+ categoryItem.picture | safeHtml" class="img-responsive" alt="{{ categoryItem.categoryName }}" height="250" width="300" />-->
+        <img [category-image]="categoryItem.picture" class="img-responsive" alt="{{ categoryItem.categoryName }}" width="250" height="300" />
+    </div>
+    <div class="card-title">
+        <h4>{{ categoryItem.categoryName }}</h4>
+    </div>
+</div>

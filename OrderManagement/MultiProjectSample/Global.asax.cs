@@ -1,6 +1,7 @@
 ﻿using Castle.MicroKernel.Resolvers.SpecializedResolvers;
 using Castle.Windsor;
 using Castle.Windsor.Installer;
+using MultiProjectSample.App_Start;
 using MultiProjectSample.IoC;
 using System.Web.Http;
 using System.Web.Mvc;
@@ -28,6 +29,7 @@ namespace MultiProjectSample
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             ConfigureWindsor(GlobalConfiguration.Configuration);
+            AutoMapperConfiguration.Configuration();
         }
 
         protected void Application_End()

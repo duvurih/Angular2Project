@@ -1,5 +1,7 @@
-﻿using Hk.Application1.Core.Models;
+﻿using AutoMapper;
+using Hk.Application1.Core.Models;
 using Hk.Utilities.Interfaces;
+using MultiProjectSample.Models.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
@@ -59,7 +61,8 @@ namespace MultiProjectSample.Api
         public HttpResponseMessage GetAll()
         {
             IEnumerable<Category> categoryData = _iServiceApiManager.GetAsync<IEnumerable<Category>>("categoryapi", "GetAllCategories", null);
-            return OkResponse(categoryData);
+            IEnumerable<CategoryModel> categoryModel = Mapper.Map<IEnumerable<Category>, IEnumerable<CategoryModel>>(categoryData);
+            return OkResponse(categoryModel);
         }
 
         public Task<IEnumerable<Category>> GetAllAsync()
