@@ -264,6 +264,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\images\ClassDiagram1.png" />
     <Content Include="Content\images\Database Model.png" />
+    <Content Include="Content\images\HighLevelBusinessContext.png" />
     <Content Include="Content\images\HighLevelContext.png" />
     <Content Include="Content\Site-mobile.css" />
     <Content Include="Content\Site.css" />
