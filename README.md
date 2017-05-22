@@ -10,10 +10,10 @@ Work Items
 ----------------------------
 Dashboard | Products | Suppliers | Customers | Categories | Orders | Search |
 --------- | ---------|-----------|-----------|------------|--------|--------|
-- [x] Main Dashboard | - [x] List of Products | - [ ] List of Suppliers | - [ ] List of Customers | - [x] View Categories | - [ ] View Orders |  - [ ] Search Criteria Screen
-- [x] Top Menu | - [x] View Product | - [ ] View Supplier | - [ ] View Customer | - [x] View Category | - [ ] View Order |  - [ ] Search Results
-- [x] Side Menu | - [x] Edit Product | - [ ] Edit Supplier | - [ ] Edit Customer | - [ ] Edit Category | - [ ] Edit Order |  - [ ] Navigate Search Results
-- [x] Dashboard Items | - [x] Add Product | - [ ] Add Supplier | - [ ] Add Customer | - [ ] Add Category | - [ ] Add Order |  
+Main Dashboard | List of Products | List of Suppliers | List of Customers | View Categories | View Orders |  Search Criteria Screen
+Top Menu | View Product | View Supplier | View Customer | View Category | View Order |  Search Results
+Side Menu | Edit Product | Edit Supplier | Edit Customer | Edit Category | Edit Order |  Navigate Search Results
+Dashboard Items | Add Product | Add Supplier | Add Customer | Add Category | Add Order |  
 
 
 # High Level Business Context
