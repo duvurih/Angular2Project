@@ -5,17 +5,6 @@ Angular 2 + Web API + Entity Framework + SQL Server + DI + Responsive Design
 1. Products, Categories, Suppliers
 2. Order Management
 
-# Tasks:
-Work Items
-----------------------------
-Dashboard | Products | Suppliers | Customers | Categories | Orders | Search |
---------- | ---------|-----------|-----------|------------|--------|--------|
-Main Dashboard | List of Products | List of Suppliers | List of Customers | View Categories | View Orders |  Search Criteria Screen
-Top Menu | View Product | View Supplier | View Customer | View Category | View Order |  Search Results
-Side Menu | Edit Product | Edit Supplier | Edit Customer | Edit Category | Edit Order |  Navigate Search Results
-Dashboard Items | Add Product | Add Supplier | Add Customer | Add Category | Add Order |  
-
-
 # High Level Business Context
 ![alt text](https://github.com/duvurih/Angular2Project/blob/master/OrderManagement/MultiProjectSample/Content/images/HighLevelBusinessContext.png)
 
@@ -40,3 +29,14 @@ Dashboard Items | Add Product | Add Supplier | Add Customer | Add Category | Add
 1. Generic Repositories
 2. Generic Services 
 ![alt text](https://github.com/duvurih/Angular2Project/blob/master/OrderManagement/MultiProjectSample/Content/images/ClassDiagram1.png)
+
+# Tasks:
+Work Items
+----------------------------
+Dashboard | Products | Suppliers | Customers | Categories | Orders | Search |
+--------- | ---------|-----------|-----------|------------|--------|--------|
+Main Dashboard | List of Products | List of Suppliers | List of Customers | View Categories | View Orders |  Search Criteria Screen
+Top Menu | View Product | View Supplier | View Customer | View Category | View Order |  Search Results
+Side Menu | Edit Product | Edit Supplier | Edit Customer | Edit Category | Edit Order |  Navigate Search Results
+Dashboard Items | Add Product | Add Supplier | Add Customer | Add Category | Add Order |  
+
