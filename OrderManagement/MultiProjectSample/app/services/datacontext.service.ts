@@ -36,29 +36,4 @@ export class DataContextService {
         return observable;
     }
 
-    // httpDownloadBlob(url: any, dataObject: any): any {
-    //    return Observable.create(observer => {
-    //        url = `./${url}`;
-    //        var xhr = new XMLHttpRequest();
-    //        xhr.open('POST', url, true);
-    //        xhr.responseType = 'arraybuffer';
-    //        xhr.setRequestHeader('Content-type', 'application/json; charset=utf-8');
-
-    //        xhr.onreadystatechange = () => {
-    //            if (xhr.readyState === 4 && xhr.status === 200) {
-    //                observer.next(xhr.response);
-    //                observer.complete();
-    //            }
-    //        }
-    //        xhr.send(JSON.stringify(dataObject));
-    //    });
-    // }
-
-    httpSearch(url: string, searchText: string) {
-        url = `./${url}`;
-        const search = new URLSearchParams();
-        search.set('inputText', searchText);
-        const obsersvable = this._http.get(url, { search: search }).map(res => res.json());
-        return obsersvable;
-    }
 }

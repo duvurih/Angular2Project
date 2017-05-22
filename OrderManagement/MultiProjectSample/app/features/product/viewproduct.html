@@ -1,1 +1,133 @@
-﻿
+﻿<div class="panel panel-primary" id="main-container">
+    <form [formGroup]="productForm" novalidate (ngSubmit)="saveProduct(productForm)">
+
+        <div class="panel-heading">
+            <h4><i class="fa fa-id-card-o" aria-hidden="true"></i> Product Information</h4>
+        </div>
+
+        <div class="panel-footer">
+            <button type="button" class="btn btn-default" (click)="cancelOpertation()">
+                <i class="fa fa-times-circle-o" aria-hidden="true"></i> Close
+            </button>
+            <button type="button" [disabled]="isEditable" class="btn btn-default" (click)="editProduct()">
+                <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit
+            </button>
+            <button type="submit" [disabled]="!productForm.valid" class="btn btn-default">
+                <i class="fa fa-floppy-o" aria-hidden="true"></i> Save
+            </button>
+            <button type="button" [disabled]="isEditable" class="btn btn-default">
+                <i class="fa fa-plus-circle" aria-hidden="true"></i> Add
+            </button>
+        </div>
+        <div class="error-panel" *ngIf="productForm.valid || !productForm.pristine">
+            <h4>Error Messages</h4>
+            <validation-messages [control]="productForm.controls.productName" [controlname]="'productName'" [validations]="validationRules"></validation-messages>
+            <validation-messages [control]="productForm.controls.unitPrice" [controlname]="'unitPrice'" [validations]="validationRules"></validation-messages>
+            <validation-messages [control]="productForm.controls.unitsInStock" [controlname]="'unitsInStock'" [validations]="validationRules"></validation-messages>
+            <validation-messages [control]="productForm.controls.unitsOnOrder" [controlname]="'unitsOnOrder'" [validations]="validationRules"></validation-messages>
+            <validation-messages [control]="productForm.controls.reorderLevel" [controlname]="'reorderLevel'" [validations]="validationRules"></validation-messages>
+        </div>
+        <hr />
+        <div class="panel-body">
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <label class="control-label">Product ID</label>
+                    </div>
+                    <div class="col-sm-8">
+                        <label class="control-label">{{product.productID}}</label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <label class="control-label">Product Name</label>
+                    </div>
+                    <div class="col-sm-8">
+                        <label class="control-label" *ngIf="!isEditable">{{product.productName}}</label>
+                        <input id="productName" formControlName="productName" type="text" class="form-control" [(ngModel)]="product.productName" *ngIf="isEditable" required />
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <label class="control-label" *ngIf="!isEditable">Category</label>
+                    </div>
+                    <div class="col-sm-8">
+                        <label class="control-label">{{product.categoryID}}</label>
+                        <!--<select class="form-control" [(ngModel)]="schedule.type" name="type">
+            <option *ngFor="let type of types" [value]="type">{{type}}</option>
+            </select>-->
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <label class="control-label">Supplier</label>
+                    </div>
+                    <div class="col-sm-8">
+                        <label class="control-label">{{product.supplierID}}</label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <label class="control-label">Unit Price</label>
+                    </div>
+                    <div class="col-sm-8">
+                        <label class="control-label" *ngIf="!isEditable">{{product.unitPrice}}</label>
+                        <input id="unitPrice" formControlName="unitPrice" type="text" class="form-control" [(ngModel)]="product.unitPrice" *ngIf="isEditable" required />
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <label class="control-label">Stock</label>
+                    </div>
+                    <div class="col-sm-8">
+                        <label class="control-label" *ngIf="!isEditable">{{product.unitsInStock}}</label>
+                        <input id="unitsInStock" formControlName="unitsInStock" type="text" class="form-control" [(ngModel)]="product.unitsInStock" *ngIf="isEditable" required />
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <label class="control-label">Orders</label>
+                    </div>
+                    <div class="col-sm-8">
+                        <label class="control-label" *ngIf="!isEditable">{{product.unitsOnOrder}}</label>
+                        <input id="unitsOnOrder" formControlName="unitsOnOrder" type="text" class="form-control" [(ngModel)]="product.unitsOnOrder" *ngIf="isEditable" required />
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <label class="control-label">Reorder Level</label>
+                    </div>
+                    <div class="col-sm-8">
+                        <label class="control-label" *ngIf="!isEditable">{{product.reorderLevel}}</label>
+                        <input id="reorderLevel" formControlName="reorderLevel" type="text" class="form-control" [(ngModel)]="product.reorderLevel" *ngIf="isEditable" required />
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <label class="control-label">Discontinued</label>
+                    </div>
+                    <div class="col-sm-8">
+                        <label class="control-label" *ngIf="!isEditable">{{product.discontinued}}</label>
+                        <input id="discontinued" formControlName="discontinued" type="checkbox" class="form-control" [(ngModel)]="product.discontinued" *ngIf="isEditable" required />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

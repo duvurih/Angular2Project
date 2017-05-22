@@ -1,5 +1,7 @@
-﻿using Hk.Application1.Core.Models;
+﻿using AutoMapper;
+using Hk.Application1.Core.Models;
 using Hk.Utilities.Interfaces;
+using MultiProjectSample.Models.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
@@ -19,6 +21,17 @@ namespace MultiProjectSample.Api
             _iServiceApiManager = iServiceApiManager;
         }
 
+        [Route("ValidationRules")]
+        [HttpGet]
+        public HttpResponseMessage ValidationRules()
+        {
+            ProductModel productModel = new ProductModel();
+            Dictionary<string, string> productValidationRules = productModel.GetValidationDefinition(typeof(ProductModel));
+            var results = new { data = productModel, validationRules = productValidationRules };
+            return OkResponse(results);
+        }
+
+
         [Route("Find/{predicate}")]
         [HttpGet]
         public HttpResponseMessage Find(Expression<Func<Product, bool>> predicate)
@@ -32,7 +45,9 @@ namespace MultiProjectSample.Api
         {
             Dictionary<string, string> apiParams = new Dictionary<string, string>();
             apiParams.Add("id", id);
-            return OkResponse(_iServiceApiManager.GetAsync<Product>("productapi", "Get", apiParams));
+            Product productData = _iServiceApiManager.GetAsync<Product>("productapi", "Get", apiParams);
+            ProductModel productModel = Mapper.Map<Product, ProductModel>(productData);
+            return OkResponse(productModel);
         }
 
 
@@ -60,7 +75,8 @@ namespace MultiProjectSample.Api
         {
             Dictionary<string, string> apiParams = new Dictionary<string, string>();
             apiParams.Add("categoryId", categoryId);
-            return OkResponse(_iServiceApiManager.GetAsync<Product>("productapi", "GetProductsByCategory", apiParams));
+            IEnumerable<Product> productData = _iServiceApiManager.GetAsync<IEnumerable<Product>>("productapi", "GetProductsByCategory", apiParams);
+            return OkResponse(productData);
         }
 
         [Route("GetProductsBySupplier/{supplierId}")]

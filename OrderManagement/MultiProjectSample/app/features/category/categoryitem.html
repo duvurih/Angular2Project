@@ -1,9 +1,28 @@
-﻿<div id="categoryItem{{ categoryItem.categoryID }}" class="card-block">
-    <div class="card-image">
+﻿<div id="categoryItem{{ categoryItem.categoryID }}" class="card">
+    <div class="card-title">
+        <h4>{{ categoryItem.categoryName }}</h4>
+    </div>
+    <div class="card-content">
+        <ul>
+            <li>
+                <a href="#link{{categoryItem.categoryID}}" class="expander collapsed" data-toggle="collapse" role="button">
+                    <span>Products &nbsp;</span>
+                    <span class="suffix fa fa-angle-down"></span>
+                </a>
+                <div id="link{{categoryItem.categoryID}}" class="collapse" aria-expanded="true">
+                    <ul>
+                        <li><a href="#topinfo" [routerLink]="['/viewCategoryProducts/', categoryItem.categoryID]">View Products</a></li>
+                        <li><a href="#topinfo" [routerLink]="['/likecategories/', categoryItem.categoryID]">Like Category <i class="fa fa-thumbs-o-up" aria-hidden="true"></i></a></li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="card-image img-fluid">
         <!--<img [src]="'data:image/jpeg;base64,'+ categoryItem.picture | safeHtml" class="img-responsive" alt="{{ categoryItem.categoryName }}" height="250" width="300" />-->
         <img [category-image]="categoryItem.picture" class="img-responsive" alt="{{ categoryItem.categoryName }}" width="250" height="300" />
     </div>
-    <div class="card-title">
-        <h4>{{ categoryItem.categoryName }}</h4>
+    <div class="card-footer">
+        <small>{{categoryItem.description}}</small>
     </div>
 </div>

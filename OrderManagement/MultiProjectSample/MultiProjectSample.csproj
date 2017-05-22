@@ -250,12 +250,15 @@
   <ItemGroup>
     <Content Include="app\common\modal-common.html" />
     <Content Include="app\common\table-component.html" />
+    <Content Include="app\common\validation-component.html" />
     <Content Include="app\features\category\categorycatalog.html" />
     <Content Include="app\features\category\categoryitem.html" />
+    <Content Include="app\features\customer\customerlist.html" />
     <Content Include="app\features\dashboard\dashboard.html" />
     <Content Include="app\features\product\productslist.html" />
     <Content Include="app\features\product\viewproduct.html" />
     <Content Include="app\features\sidebar\sidebar.html" />
+    <Content Include="app\features\supplier\supplierlist.html" />
     <Content Include="app\features\topbar\topbar.html" />
     <Content Include="app\public\login\login.html" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -333,6 +336,7 @@
     <TypeScriptCompile Include="app\app.module.ts" />
     <TypeScriptCompile Include="app\common\modal.component.ts" />
     <TypeScriptCompile Include="app\common\table.component.ts" />
+    <TypeScriptCompile Include="app\common\validation.component.ts" />
     <TypeScriptCompile Include="app\config\config.component.ts" />
     <TypeScriptCompile Include="app\config\crypto.component.ts" />
     <TypeScriptCompile Include="app\config\exceptionhandler.component.ts" />
@@ -340,10 +344,12 @@
     <TypeScriptCompile Include="app\environments\environment.ts" />
     <TypeScriptCompile Include="app\features\category\categorycatalog.component.ts" />
     <TypeScriptCompile Include="app\features\category\categoryitem.component.ts" />
+    <TypeScriptCompile Include="app\features\customer\customerlist.component.ts" />
     <TypeScriptCompile Include="app\features\dashboard\dashboard.component.ts" />
     <TypeScriptCompile Include="app\features\product\productslist.component.ts" />
     <TypeScriptCompile Include="app\features\product\viewproduct.component.ts" />
     <TypeScriptCompile Include="app\features\sidebar\sidebar.component.ts" />
+    <TypeScriptCompile Include="app\features\supplier\supplierlist.component.ts" />
     <TypeScriptCompile Include="app\features\topbar\topbar.component.ts" />
     <TypeScriptCompile Include="app\main.ts" />
     <TypeScriptCompile Include="app\public\login\login.component.ts" />
@@ -351,6 +357,7 @@
     <TypeScriptCompile Include="app\services\auth.service.ts" />
     <TypeScriptCompile Include="app\services\authcheck.service.ts" />
     <TypeScriptCompile Include="app\services\datacontext.service.ts" />
+    <TypeScriptCompile Include="app\services\validation.service.ts" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />

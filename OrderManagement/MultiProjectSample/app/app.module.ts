@@ -18,6 +18,7 @@ import { TimepickerModule } from 'ng2-bootstrap';
 
 // importing common components
 import { TableComponent } from './common/table.component';
+import { ValidationMessages } from './common/validation.component';
 
 // importing configurations
 import { CryptoComponent } from './config/crypto.component';
@@ -28,6 +29,7 @@ import { GenericExceptionHandler } from './config/exceptionhandler.component';
 import { AuthService } from './services/auth.service';
 import { AuthCheckActivator } from './services/authcheck.service';
 import { DataContextService } from './services/datacontext.service';
+import { ValidationService } from './services/validation.service';
 
 // application components
 import { AppComponent } from './app.component';
@@ -38,6 +40,9 @@ import { TopbarComponent } from './features/topbar/topbar.component';
 import { ProductsListComponent } from './features/product/productslist.component';
 import { CategoryCatalogComponent } from './features/category/categorycatalog.component';
 import { ProfileImageDirective, SafeHtml, CategoryItemComponent } from './features/category/categoryitem.component';
+import { ViewProductComponent } from "./features/product/viewproduct.component";
+import { CustomersListComponent } from "./features/customer/customerlist.component";
+import { SuppliersListComponent } from "./features/supplier/supplierlist.component";
 
 @NgModule({
     imports: [
@@ -55,6 +60,7 @@ import { ProfileImageDirective, SafeHtml, CategoryItemComponent } from './featur
     ],
     declarations: [
         TableComponent,
+        ValidationMessages,
         AppComponent,
         LoginComponent,
         DashboardComponent,
@@ -64,13 +70,17 @@ import { ProfileImageDirective, SafeHtml, CategoryItemComponent } from './featur
         CategoryCatalogComponent,
         CategoryItemComponent,
         SafeHtml,
-        ProfileImageDirective
+        ProfileImageDirective,
+        ViewProductComponent,
+        CustomersListComponent,
+        SuppliersListComponent
     ],
     providers: [
         { provide: LocationStrategy, useClass: HashLocationStrategy },
         AuthService,
         AuthCheckActivator,
         DataContextService,
+        ValidationService,
         { provide: ErrorHandler, useClass: GenericExceptionHandler }
 
     ],

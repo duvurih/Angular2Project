@@ -6,18 +6,30 @@ import { DashboardComponent } from "../features/dashboard/dashboard.component";
 // import { AuthCheckActivator } from "../services/authcheck.service";
 import { ProductsListComponent } from "../features/product/productslist.component";
 import { CategoryCatalogComponent } from "../features/category/categorycatalog.component";
+import { ViewProductComponent } from "../features/product/viewproduct.component";
+import { CustomersListComponent } from "../features/customer/customerlist.component";
+import { SuppliersListComponent } from "../features/supplier/supplierlist.component";
 
 const mainRoutes: Routes = [
     { path: "login", component: LoginComponent},
     { path: "dashboard", component: DashboardComponent},
     { path: "viewProductsList", component: ProductsListComponent },
+    { path: "viewCategoryProducts/:id", component: ProductsListComponent },
+    { path: "viewProduct/:id", component: ViewProductComponent },
+    { path: "viewCustomersList", component: CustomersListComponent },
+    { path: "viewSuppliersList", component: SuppliersListComponent },
+
     // redirects
     // { path: "", redirectTo: "/dashboard", pathMatch: "full"},
     { path: "**", component: CategoryCatalogComponent }
 ];
 
+const childRoutes: Routes = [
+];
+
 const appRoutes: Routes = [
-    ...mainRoutes
+    ...mainRoutes,
+    ...childRoutes
 ];
 
 export const routing: ModuleWithProviders = RouterModule.forRoot(appRoutes);

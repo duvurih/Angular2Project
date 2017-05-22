@@ -103,3 +103,182 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     line-height: 1.1;
     text-align: left;
 }
+
+.card{
+    border:solid,2px;
+    background:$color-gray-dark-gradient;
+    color:$color-white;
+    text-align:left;
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    .card-image{
+        img{
+            width:250px;
+            height:150px;
+        }
+    }
+    .card-title{
+        background:$color-gray-dark-most;
+        border: none;
+        color: $color-white;
+        padding:5px;
+        h4{
+            color:$color-white;
+        }
+    }
+    .card-content{
+        ul{
+            display:block;
+            padding:0px;
+            list-style-type:none;
+            li{
+               background:$color-gray-dark-gradient;
+               padding:0px;
+               list-style-type:none;
+                /*a{
+                    color:$color-white;
+                    fa{
+                        display:block;
+                        text-align:right;
+                    }
+                }*/
+                a,
+                a:active,
+                a:focus,
+                a:hover,
+                a:link {
+                    clear: both;
+                    display: block;
+                    padding: 8px 10px;
+                    text-decoration: none;
+                    white-space: normal;
+                }
+
+                a.expander{
+                    background: $color-gray-dark-mid;
+                    border-bottom: 1px solid $color-gray-dark-least;
+                    color: $color-white;
+                    font-size: 1.1em;
+                    position: relative;
+                    text-decoration: none;
+
+                    .fa {
+                        display: block;
+                        font-size: 1.5em;
+                        margin-left: auto;
+                        margin-right: 0;
+                        position: absolute;
+                        right: 10px;
+                        top: 8px;
+                    }
+                }
+
+                a.expander:focus,
+                a.expander:hover,
+                a.expander.expanded {
+                    color: $color-white;
+                }
+
+                ul {
+                    li {
+                        background: $color-gray-light-most1;
+                        border-bottom: 1px solid $color-gray-light-most2;
+
+                        a {
+                            color: $color-black;
+                            font-size: 1.1em;
+                            font-weight: 500;
+                            line-height: 1.42;
+                        }
+
+                        a:focus,
+                        a:hover {
+                            background: $color-white;
+                            color: $color-black;
+                            font-weight: 600;
+                        }
+                    }
+
+                    li:last-of-type {
+                        border-bottom: none;
+                    }
+
+                    li[selected] {
+                        border: none;
+                        border-bottom: 1px solid $color-gray-light-most2;
+
+                        a {
+                            background: $color-gray-light-white;
+                            color: $color-black;
+                            cursor: default;
+                            font-weight: 600;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .card-footer{
+        width:250px;
+        height:50px;
+        small{
+            text-wrap:inherit;
+            color:$color-gray-light;
+        }
+    }
+}
+
+.ng-valid[required], .ng-valid.required  {
+  border-left: 5px solid $color-validation-success;
+}
+.ng-invalid:not(form)  {
+  border-left: 5px solid $color-validation-failed;
+}
+
+.panel{
+    .panel-heading{
+        background:$color-panel-heading;
+        h1,h2,h3,h4,h5,h6{
+            color:$color-white;
+        }
+    }
+
+    .panel-footer{
+        background:$color-panel-footer;
+    }
+}
+
+.error-panel{
+    color: $color-error-text;
+    background-color: $color-error-background;
+    border-color: $color-error-border;
+    padding: 15px;
+    margin:10px;
+    margin-right:10px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+
+.error-item{
+    list-style-type:circle;
+    cursor:pointer;
+    ul{
+        padding:0px;
+        margin:0px;
+        li{
+            padding:0px;
+            margin-left:30px;
+            label{
+                padding:0px;
+                margin:0px;
+            }
+        }
+    }
+}
+
+.shortRow {
+    height: 10px!important;
+}

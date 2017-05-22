@@ -1,5 +1,6 @@
 ﻿// importing angular core
 import { Component, trigger, state, style, transition, animate } from "@angular/core";
+import { Router, ActivatedRoute, Params } from "@angular/router";
 
 // importing data services
 import { DataContextService } from "../../services/datacontext.service";
@@ -45,17 +46,37 @@ export class ProductsListComponent {
 
     // constuctor
     constructor(
-        private dataContextService: DataContextService) {}
+        private router: Router,
+        private activatedRoute: ActivatedRoute,
+        private dataContextService: DataContextService) {
+    }
 
     // initialization methods
-    ngOnInit():void {
-        this.loadAllProducts();
+    ngOnInit(): void {
+        this.activatedRoute.params.subscribe((params: Params) => {
+            /* tslint:disable:no-string-literal */
+            let categoryId: number = params["id"];
+            /* tslint:enable:no-string-literal */
+
+            if (categoryId !== undefined) {
+                this.loadProductsByCategory(categoryId);
+            } else {
+                this.loadAllProducts();
+            }
+        });
     }
 
 
     // method implementation
     loadAllProducts():any {
         this.dataContextService.httpGet("ProductApiWeb/GetAllProducts", null)
+            .subscribe((resultData: any) => {
+                this.products = resultData;
+            });
+    }
+
+    loadProductsByCategory(id:number): any {
+        this.dataContextService.httpGet("ProductApiWeb/GetProductsByCategory/" + id , null)
             .subscribe((resultData: any) => {
                 this.products = resultData;
             });
