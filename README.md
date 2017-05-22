@@ -5,7 +5,10 @@ Angular 2 + Web API + Entity Framework + SQL Server + DI + Responsive Design
 1. Products, Categories, Suppliers
 2. Order Management
 
-# High Level System Context and Deployment Model
+# High Level Business Context
+![alt text](https://github.com/duvurih/Angular2Project/blob/master/OrderManagement/MultiProjectSample/Content/images/HighLevelBusinessContext.png)
+
+# High Level Technical Context and Deployment Model
 ![alt text](https://github.com/duvurih/Angular2Project/blob/master/OrderManagement/MultiProjectSample/Content/images/HighLevelContext.png)
 
 # Database Model
