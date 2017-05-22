@@ -31,7 +31,7 @@ Angular 2 + Web API + Entity Framework + SQL Server + DI + Responsive Design
 ![alt text](https://github.com/duvurih/Angular2Project/blob/master/OrderManagement/MultiProjectSample/Content/images/ClassDiagram1.png)
 
 # Tasks:
-Work Items
+Features
 ----------------------------
 Dashboard | Products | Suppliers | Customers | Categories | Orders | Search |
 --------- | ---------|-----------|-----------|------------|--------|--------|
