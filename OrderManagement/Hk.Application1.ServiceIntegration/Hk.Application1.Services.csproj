@@ -43,8 +43,10 @@
     <Compile Include="Categories\CategoryService.cs" />
     <Compile Include="Common\eMailConnectorEventService.cs" />
     <Compile Include="Common\SmsConnectorEventService.cs" />
+    <Compile Include="Customers\CustomerService.cs" />
     <Compile Include="Products\ProductService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Suppliers\SupplierService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Hk.Application1.Core\Hk.Application1.Core.csproj">

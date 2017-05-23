@@ -1,7 +1,7 @@
 ﻿// importing angular core
-import { Component, OnInit, Input, trigger, state, style, transition, animate } from "@angular/core";
+import { Component, OnInit, trigger, state, style, transition, animate } from "@angular/core";
 import { Router, ActivatedRoute, Params } from "@angular/router";
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 
 // importing data services
 import { DataContextService } from "../../services/datacontext.service";
@@ -32,6 +32,7 @@ export class ViewProductComponent implements OnInit {
 
     // initializing variables
     public product: any = [];
+    private beforeEditProduct: any = [];
     public validationRules: any = [];
     private resultResponse: any;
     public isEditable: boolean = false;
@@ -48,15 +49,15 @@ export class ViewProductComponent implements OnInit {
     // initialization methods
     ngOnInit(): void {
         this.productForm = this._formBuilder.group({
-            'productID': [''],
-            'productName': ['', [Validators.required, Validators.minLength(3), Validators.maxLength(40)]],
-            'categoryID': ['', [Validators.required]],
-            'supplierID': ['', [Validators.required]],
-            'unitPrice': ['', [Validators.required]],
-            'unitsInStock': ['', [Validators.required]],
-            'unitsOnOrder': ['', [Validators.required]],
-            'reorderLevel': ['', [Validators.required]],
-            'discontinued': ['']
+            "productID": [""],
+            "productName": ["", [Validators.required, Validators.minLength(3), Validators.maxLength(40)]],
+            "categoryID": ["", [Validators.required]],
+            "supplierID": ["", [Validators.required]],
+            "unitPrice": ["", [Validators.required]],
+            "unitsInStock": ["", [Validators.required]],
+            "unitsOnOrder": ["", [Validators.required]],
+            "reorderLevel": ["", [Validators.required]],
+            "discontinued": [""]
         });
 
         this.getValidationRules();
@@ -85,10 +86,12 @@ export class ViewProductComponent implements OnInit {
     }
 
     editProduct(): void {
+        this.beforeEditProduct = this.product;
         this.isEditable = true;
     }
 
     cancelOpertation(): void {
+        this.product = this.beforeEditProduct;
         this.isEditable = false;
     }
 

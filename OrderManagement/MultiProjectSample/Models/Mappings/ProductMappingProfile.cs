@@ -5,14 +5,14 @@ using MultiProjectSample.Models.Models;
 
 namespace MultiProjectSample.Models.Mappings
 {
-    public class ProductMappintProfile : Profile, IAmAutoMapperProfile
+    public class ProductMappingProfile : Profile, IAmAutoMapperProfile
     {
         public override string ProfileName
         {
             get { return "ProductMappintProfile"; }
         }
 
-        public ProductMappintProfile()
+        public ProductMappingProfile()
         {
             CreateMap<Product, ProductModel>()
                  .ForMember(vm => vm.ProductID, map => map.MapFrom(m => m.ProductID))

@@ -14,7 +14,9 @@ namespace MultiProjectSample.App_Start
             Mapper.Initialize(m =>
             {
                 m.AddProfile<CategoryMappingProfile>();
-                m.AddProfile<ProductMappintProfile>();
+                m.AddProfile<ProductMappingProfile>();
+                m.AddProfile<CustomerMappingProfile>();
+                m.AddProfile<SupplierMappingProfile>();
             });
             Mapper.AssertConfigurationIsValid();
         }

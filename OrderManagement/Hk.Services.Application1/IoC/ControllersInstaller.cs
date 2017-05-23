@@ -9,6 +9,8 @@ using Hk.Application1.Repository.GenericRepository;
 using Hk.Application1.Repository.Interface;
 using Hk.Application1.Repository.Repositories;
 using Hk.Application1.Services.Categories;
+using Hk.Application1.Services.Customers;
+using Hk.Application1.Services.Suppliers;
 using Hk.Utilities.GenericComponents;
 using Hk.Utilities.Interfaces;
 using Hk.Utilities.Utilities;
@@ -34,6 +36,8 @@ namespace Hk.Services.Application1.IoC
             container.Register(Component.For<IUnitOfWork>().ImplementedBy<UnitOfWork>().LifestylePerWebRequest());
             container.Register(Component.For<IProductRepository>().ImplementedBy<ProductRepository>().LifestylePerWebRequest());
             container.Register(Component.For<ICategoryRepository>().ImplementedBy<CategoryRepository>().LifestylePerWebRequest());
+            container.Register(Component.For<ICustomerRepository>().ImplementedBy<CustomerRepository>().LifestylePerWebRequest());
+            container.Register(Component.For<ISupplierRepository>().ImplementedBy<SupplierRepository>().LifestylePerWebRequest());
 
             container.Register(Component.For<ISerializer>().ImplementedBy<JSONSerializer>().LifestylePerWebRequest());
             container.Register(Component.For<IServiceManager>().ImplementedBy<ServiceManager>().LifestylePerWebRequest());
@@ -42,6 +46,8 @@ namespace Hk.Services.Application1.IoC
             //Registering Services
             container.Register(Component.For<IProductService>().ImplementedBy<ProductService>().LifestylePerWebRequest());
             container.Register(Component.For<ICategoryService>().ImplementedBy<CategoryService>().LifestylePerWebRequest());
+            container.Register(Component.For<ICustomerService>().ImplementedBy<CustomerService>().LifestylePerWebRequest());
+            container.Register(Component.For<ISupplierService>().ImplementedBy<SupplierService>().LifestylePerWebRequest());
             //container.Register(Component.For<ISubscriberService>().ImplementedBy<eMailConnectorEventService>().LifestylePerWebRequest());
             //container.Register(Component.For<ISubscriberService>().ImplementedBy<SmsConnectorEventService>().LifestylePerWebRequest());
 

@@ -222,7 +222,9 @@
     <Compile Include="Api\AccountApiController.cs" />
     <Compile Include="Api\BaseApiController.cs" />
     <Compile Include="Api\CategoryApiController.cs" />
+    <Compile Include="Api\CustomerApiController.cs" />
     <Compile Include="Api\ProductApiController.cs" />
+    <Compile Include="Api\SupplierApiController.cs" />
     <Compile Include="App_Start\AutoMapperConfiguration.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -240,10 +242,14 @@
     <Compile Include="IoC\ControllersInstaller.cs" />
     <Compile Include="IoC\WindsorControllerFactory.cs" />
     <Compile Include="Models\Mappings\CategoryMappingProfile.cs" />
-    <Compile Include="Models\Mappings\ProductMappintProfile.cs" />
+    <Compile Include="Models\Mappings\CustomerMappingProfile.cs" />
+    <Compile Include="Models\Mappings\ProductMappingProfile.cs" />
+    <Compile Include="Models\Mappings\SupplierMappingProfile.cs" />
     <Compile Include="Models\Models\BaseModel.cs" />
     <Compile Include="Models\Models\CategoryModel.cs" />
+    <Compile Include="Models\Models\CustomerModel.cs" />
     <Compile Include="Models\Models\ProductModel.cs" />
+    <Compile Include="Models\Models\SupplierModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>

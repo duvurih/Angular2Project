@@ -30,6 +30,7 @@
             'ng2-bootstrap': 'npm:ng2-bootstrap',
             'ng2-table': 'npm:ng2-table',
             'ng2-modal': 'npm:ng2-modal',
+            'ng2-page-scroll': 'npm:ng2-page-scroll',
             'symbol-observable': 'npm:symbol-observable'
         },
         // packages tells the System loader how to load when no filename and/or no extension
@@ -43,6 +44,7 @@
             'moment': { main: 'moment.js', defaultExtension: 'js' },
             'ng2-table': { defaultExtension: 'js' },
             'ng2-modal': { main: 'index.js', defaultExtension: 'js' },
+            'ng2-page-scroll': { main: 'bundles/ng2-page-scroll.umd.js', defaultExtension: 'js' },
             'symbol-observable': { main: 'index.js', defaultExtension: 'js' }
         }
     });

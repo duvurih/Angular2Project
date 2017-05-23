@@ -44,9 +44,11 @@
     <Compile Include="Common\PublisherService.cs" />
     <Compile Include="Common\SubscriberService.cs" />
     <Compile Include="Interfaces\ICategoryService.cs" />
+    <Compile Include="Interfaces\ICustomerService.cs" />
     <Compile Include="Interfaces\IProductService.cs" />
     <Compile Include="Interfaces\IPublisherService.cs" />
     <Compile Include="Interfaces\ISubscriberService.cs" />
+    <Compile Include="Interfaces\ISupplierService.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\Order.cs" />

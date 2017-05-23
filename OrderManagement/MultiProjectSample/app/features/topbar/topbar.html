@@ -17,9 +17,9 @@
                         <span class="suffix fa fa-angle-down"></span>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">Customers</a></li>
-                        <li><a href="#">Add Customer</a></li>
-                        <li><a href="#">Search Customer</a></li>
+                        <li><a [routerLink]="['/viewCustomersList']">Customers</a></li>
+                        <li><a [routerLink]="['/addCustomer']">Add Customer</a></li>
+                        <li><a [routerLink]="['/searchCustomer']">Search Customer</a></li>
                     </ul>
                 </li>
                 <li class="dropdown">
@@ -28,9 +28,9 @@
                         <span class="suffix fa fa-angle-down"></span>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">Products</a></li>
-                        <li><a href="#">Add Product</a></li>
-                        <li><a href="#">Search Product</a></li>
+                        <li><a [routerLink]="['/viewProductsList']">Products</a></li>
+                        <li><a [routerLink]="['/addProduct']">Add Product</a></li>
+                        <li><a [routerLink]="['/searchProduct']">Search Product</a></li>
                     </ul>
                 </li>
                 <li class="dropdown">
@@ -39,9 +39,9 @@
                         <span class="suffix fa fa-angle-down"></span>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">Suppliers</a></li>
-                        <li><a href="#">Add Supplier</a></li>
-                        <li><a href="#">Search Supplier</a></li>
+                        <li><a [routerLink]="['/viewSuppliersList']">Suppliers</a></li>
+                        <li><a [routerLink]="['/addSupplier']">Add Supplier</a></li>
+                        <li><a [routerLink]="['/searchSupplier']">Search Supplier</a></li>
                     </ul>
                 </li>
                 <li><a href="#">About</a></li>

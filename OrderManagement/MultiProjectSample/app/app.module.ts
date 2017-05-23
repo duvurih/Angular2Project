@@ -15,6 +15,7 @@ import { DatepickerModule } from 'ng2-bootstrap';
 import { ModalModule } from 'ng2-bootstrap';
 import { ProgressbarModule } from 'ng2-bootstrap';
 import { TimepickerModule } from 'ng2-bootstrap';
+import { Ng2PageScrollModule } from 'ng2-page-scroll';
 
 // importing common components
 import { TableComponent } from './common/table.component';
@@ -55,6 +56,7 @@ import { SuppliersListComponent } from "./features/supplier/supplierlist.compone
         ModalModule.forRoot(),
         ProgressbarModule,
         PaginationModule.forRoot(),
+        Ng2PageScrollModule.forRoot(),
         TimepickerModule,
         routing
     ],
