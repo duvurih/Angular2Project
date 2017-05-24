@@ -143,6 +143,14 @@ namespace Hk.Services.Application1.Api
             _iProductService.Insert(entity);
             return true;
         }
+
+        [Route("UpdateProduct")]
+        [HttpPost]
+        public bool Update(Product entity)
+        {
+            _iProductService.Update(entity);
+            return true;
+        }
         #endregion
     }
 }

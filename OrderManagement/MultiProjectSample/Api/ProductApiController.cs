@@ -90,10 +90,20 @@ namespace MultiProjectSample.Api
 
         [Route("AddProduct")]
         [HttpPost]
-        public bool Add(Product entity)
+        public HttpResponseMessage Add(ProductModel entity)
         {
-            _iServiceApiManager.PostAsync<Product>("productapi", "Add", entity);
-            return true;
+            Product productData = Mapper.Map<ProductModel, Product>(entity);
+            bool response = _iServiceApiManager.PostAsync<bool>("productapi", "AddProduct", productData);
+            return OkResponse(response);
+        }
+
+        [Route("UpdateProduct")]
+        [HttpPost]
+        public HttpResponseMessage UpdateProduct(ProductModel entity)
+        {
+            Product productData = Mapper.Map<ProductModel, Product>(entity);
+            bool response = _iServiceApiManager.PostAsync<bool>("productapi", "UpdateProduct", productData);
+            return OkResponse(response);
         }
     }
 }

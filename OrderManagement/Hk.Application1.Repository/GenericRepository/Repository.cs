@@ -33,7 +33,12 @@ namespace Hk.Application1.Repository.GenericRepository
 
         public void Update(TEntity entity)
         {
-            _context.Entry<TEntity>(entity);
+            var entry = _context.Entry(entity);
+            if (entry.State == EntityState.Detached || entry.State == EntityState.Modified)
+            {
+                _context.Set<TEntity>().Attach(entity);
+                entry.State = EntityState.Modified;
+            }
         }
 
         public IEnumerable<TEntity> Find(Expression<Func<TEntity, bool>> predicate)

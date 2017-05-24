@@ -1,32 +1,6 @@
 ﻿// importing angular core
-import { Directive, Component, OnInit, Input, Pipe} from "@angular/core";
-import { BrowserModule, DomSanitizer } from "@angular/platform-browser";
-
-@Directive({
-    selector: '[category-image]',
-    host: {
-        '[src]': 'sanitizer.bypassSecurityTrustUrl(imageData)'
-    }
-})
-export class ProfileImageDirective implements OnInit {
-    imageData: any;
-    @Input('category-image') categoryPicture: any;
-
-    constructor(private sanitizer: DomSanitizer) { }
-
-    ngOnInit() {
-        this.imageData = 'data:image/png;base64,' + this.categoryPicture;
-    }
-}
-
-@Pipe({ name: "safeHtml" })
-export class SafeHtml {
-    constructor(private sanitizer: DomSanitizer) { }
-
-    transform(html:any) {
-        return this.sanitizer.bypassSecurityTrustResourceUrl(html);
-    }
-}
+import { Component, Input} from "@angular/core";
+import { DomSanitizer } from "@angular/platform-browser";
 
 @Component({
     selector: "category-item",
@@ -46,7 +20,7 @@ export class CategoryItemComponent {
     }
 
     converToBase64(imageData: any):any {
-        var base64String = btoa(String.fromCharCode.apply(null, new Uint8Array(imageData)));
+        var base64String:any = btoa(String.fromCharCode.apply(null, new Uint8Array(imageData)));
         return base64String;
     }
 
