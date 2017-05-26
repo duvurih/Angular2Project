@@ -9,6 +9,7 @@ import { CategoryCatalogComponent } from "../features/category/categorycatalog.c
 import { ViewProductComponent } from "../features/product/viewproduct.component";
 import { CustomersListComponent } from "../features/customer/customerlist.component";
 import { SuppliersListComponent } from "../features/supplier/supplierlist.component";
+import { ViewSupplierComponent } from "../features/supplier/viewsupplier.component";
 
 const mainRoutes: Routes = [
     { path: "login", component: LoginComponent},
@@ -18,6 +19,7 @@ const mainRoutes: Routes = [
     { path: "viewProduct/:id", component: ViewProductComponent },
     { path: "viewCustomersList", component: CustomersListComponent },
     { path: "viewSuppliersList", component: SuppliersListComponent },
+    { path: "viewSupplier/:id", component: ViewSupplierComponent },
 
     // redirects
     // { path: "", redirectTo: "/dashboard", pathMatch: "full"},

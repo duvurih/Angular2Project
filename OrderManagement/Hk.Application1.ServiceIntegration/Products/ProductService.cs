@@ -30,7 +30,7 @@ namespace Hk.Application1.Core.ModelsHk.Application1.Services.Products
             //_iPublisherService = iPublisherService;
         }
 
-        public override void Insert(Product entity)
+        public override Product Insert(Product entity)
         {
             var repository = _unitOfWork.GetRepository<ProductRepository, Product>();
             repository.Insert(entity);
@@ -42,6 +42,7 @@ namespace Hk.Application1.Core.ModelsHk.Application1.Services.Products
 
             _unitOfWork.SaveChanges();
             //_unitOfWork.Commit();
+            return entity;
         }
 
         public override void InsertMultiple(IEnumerable<Product> entities)
@@ -59,7 +60,9 @@ namespace Hk.Application1.Core.ModelsHk.Application1.Services.Products
 
         public override void Delete(Product entity)
         {
-            throw new NotImplementedException();
+            var repository = _unitOfWork.GetRepository<ProductRepository, Product>();
+            repository.Delete(entity);
+            _unitOfWork.SaveChanges();
         }
 
         public override void DeleteMultiple(IEnumerable<Product> entities)

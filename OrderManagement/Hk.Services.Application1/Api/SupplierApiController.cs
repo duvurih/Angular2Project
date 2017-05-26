@@ -21,11 +21,6 @@ namespace Hk.Services.Application1.Api
             _iSupplierService = iSupplierService;
         }
 
-        public void Delete(Supplier entity)
-        {
-            _iSupplierService.Delete(entity);
-        }
-
         public async Task DeleteAsync(int Id)
         {
             await _iSupplierService.DeleteAsync(Id);
@@ -103,9 +98,35 @@ namespace Hk.Services.Application1.Api
             return _iSupplierService.Single(where);
         }
 
-        public void Update(Supplier entity)
+
+        #region "Add Methods"
+        /// <summary>
+        /// Adding new supplier
+        /// </summary>
+        /// <param name="entity">Supplier entity</param>
+        /// <returns>Returns success or failure</returns>
+        [Route("AddSupplier")]
+        [HttpPost]
+        public Supplier Add(Supplier entity)
+        {
+            return _iSupplierService.Insert(entity);
+        }
+
+        [Route("UpdateSupplier")]
+        [HttpPost]
+        public bool Update(Supplier entity)
         {
             _iSupplierService.Update(entity);
+            return true;
         }
+
+        [Route("DeleteSupplier")]
+        [HttpPost]
+        public bool Delete(Supplier entity)
+        {
+            _iSupplierService.Delete(entity);
+            return true;
+        }
+        #endregion
     }
 }

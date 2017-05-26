@@ -5,6 +5,12 @@ import { Router, ActivatedRoute, Params } from "@angular/router";
 // importing data services
 import { DataContextService } from "../../services/datacontext.service";
 
+// importing models
+import { ProductModel } from "../../models/product.model";
+
+// importing url endpoints
+import { URLEndPoints } from "../../common/urlendpoints.component";
+
 @Component({
     selector: "productslist",
     templateUrl: "app/features/product/productslist.html",
@@ -31,6 +37,7 @@ export class ProductsListComponent {
 
     // initializing variables
     public products: Array<any> = [];
+    private resultResponse: any;
 
     public columns: Array<any> = [
         { title: "Product ID", name: "productID", sort:false },
@@ -69,14 +76,14 @@ export class ProductsListComponent {
 
     // method implementation
     loadAllProducts():any {
-        this.dataContextService.httpGet("ProductApiWeb/GetAllProducts", null)
+        this.dataContextService.httpGet(URLEndPoints.PRODUCT_GET_ALL_PRODUCTS, null)
             .subscribe((resultData: any) => {
                 this.products = resultData;
             });
     }
 
     loadProductsByCategory(id:number): any {
-        this.dataContextService.httpGet("ProductApiWeb/GetProductsByCategory/" + id , null)
+        this.dataContextService.httpGet(URLEndPoints.PRODUCT_GET_PRODUCT_BY_CATEGORY + id , null)
             .subscribe((resultData: any) => {
                 this.products = resultData;
             });
@@ -84,9 +91,20 @@ export class ProductsListComponent {
 
 
     viewProductDetials(productId: number):any {
-        this.dataContextService.httpGet("ProductApiWeb/GetProductByID/" + productId, null)
+        this.dataContextService.httpGet(URLEndPoints.PRODUCT_GET_PRODUCT_BY_ID + productId, null)
             .subscribe((resultData: any) => {
                 this.products = resultData;
             });
+    }
+
+    deleteProduct(productId: number): void {
+        var product:any = this.products.filter(item => item["productID"] === productId);
+        if (product.length === 1) {
+            var productData:ProductModel = new ProductModel(product[0]);
+            this.dataContextService.httpPost(URLEndPoints.PRODUCT_DELETE, productData)
+                .subscribe((resultData: any) => {
+                    this.resultResponse = resultData;
+                });
+        }
     }
 }

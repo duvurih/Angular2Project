@@ -4,6 +4,9 @@ import { Component, trigger, state, style, transition, animate } from "@angular/
 // importing data services
 import { DataContextService } from "../../services/datacontext.service";
 
+// importing url endpoints
+import { URLEndPoints } from "../../common/urlendpoints.component";
+
 @Component({
     selector: "customerslist",
     templateUrl: "app/features/customer/customerlist.html",
@@ -56,14 +59,14 @@ export class CustomersListComponent {
 
     // method implementation
     loadAllCustomers(): any {
-        this.dataContextService.httpGet("CustomerApiWeb/GetAllCustomers", null)
+        this.dataContextService.httpGet(URLEndPoints.CUSTOMER_GET_ALL_CUSTOMEMRS, null)
             .subscribe((resultData: any) => {
                 this.customers = resultData;
             });
     }
 
     viewCustomerDetials(customerId: number): any {
-        this.dataContextService.httpGet("CustomerApiWeb/GetCustomerByID/" + customerId, null)
+        this.dataContextService.httpGet(URLEndPoints.CUSTOMER_GET_CUSTOMER_BY_ID + customerId, null)
             .subscribe((resultData: any) => {
                 this.customers = resultData;
             });

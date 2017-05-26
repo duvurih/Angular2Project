@@ -20,7 +20,7 @@ namespace Hk.Utilities.Interfaces
         DEntity Single(Expression<Func<DEntity, bool>> where);
         DEntity First(Expression<Func<DEntity, bool>> where);
 
-        void Insert(DEntity entity);
+        DEntity Insert(DEntity entity);
         void InsertMultiple(IEnumerable<DEntity> entities);
 
         void Delete(DEntity entity);

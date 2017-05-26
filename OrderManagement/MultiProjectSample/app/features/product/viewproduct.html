@@ -12,7 +12,7 @@
             <button type="button" [disabled]="isEditable || isAdding" class="btn btn-default" (click)="editProduct()">
                 <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit
             </button>
-            <button type="submit" [disabled]="(!isEditable || !isAddings) && !productForm.valid" class="btn btn-default">
+            <button type="submit" [disabled]="((!isEditable) && (!isAdding)) || (!productForm.valid)" class="btn btn-default">
                 <i class="fa fa-floppy-o" aria-hidden="true"></i> Save
             </button>
             <button type="button" [disabled]="isEditable || isAdding" class="btn btn-default" (click)="addProduct(productForm.value)">
@@ -49,7 +49,7 @@
                     </div>
                     <div class="col-sm-8">
                         <label class="control-label" *ngIf="!isEditable && !isAdding">{{product.productName}}</label>
-                        <input id="productName" formControlName="productName" type="text" class="form-control" placeholder="Product Name" [(ngModel)]="product.productName" *ngIf="isEditable || isAdding" />
+                        <input id="productName" formControlName="productName" type="text" class="form-control" placeholder="Product Name" [(ngModel)]="product.productName" *ngIf="isEditable || isAdding" required/>
                     </div>
                 </div>
             </div>
@@ -63,7 +63,7 @@
                             <label class="control-label" *ngFor="let category of (categories | namefilter: setFilterCriteria('categoryID', product.categoryID))">{{category.categoryName}}</label>
                         </div>
                         <div>
-                            <select class="form-control" [(ngModel)]="product.categoryID" formControlName="categoryID" *ngIf="isEditable || isAdding">
+                            <select class="form-control" [(ngModel)]="product.categoryID" formControlName="categoryID" *ngIf="isEditable || isAdding" required>
                                 <option *ngFor="let category of categories" [value]="category.categoryID" [selected]="product.categoryID == category.categoryID">{{category.categoryName}}</option>
                             </select>
                         </div>
@@ -80,7 +80,7 @@
                             <label class="control-label" *ngFor="let supplier of (suppliers | namefilter: setFilterCriteria('supplierID', product.supplierID))">{{supplier.companyName}}</label>
                         </div>
                         <div>
-                            <select class="form-control" [(ngModel)]="product.supplierID" formControlName="supplierID" *ngIf="isEditable || isAdding">
+                            <select class="form-control" [(ngModel)]="product.supplierID" formControlName="supplierID" *ngIf="isEditable || isAdding" required>
                                 <option *ngFor="let supplier of suppliers" [value]="supplier.supplierID" [selected]="product.supplierID == supplier.supplierID">{{supplier.companyName}}</option>
                             </select>
                         </div>
@@ -94,7 +94,7 @@
                     </div>
                     <div class="col-sm-8">
                         <label class="control-label" *ngIf="!isEditable && !isAdding">{{product.quantityPerUnit}}</label>
-                        <input id="quantityPerUnit" formControlName="quantityPerUnit" type="text" class="form-control" placeholder="Quantity Per Unit" [(ngModel)]="product.quantityPerUnit" *ngIf="isEditable || isAdding" />
+                        <input id="quantityPerUnit" formControlName="quantityPerUnit" type="text" class="form-control" placeholder="Quantity Per Unit" [(ngModel)]="product.quantityPerUnit" *ngIf="isEditable || isAdding" required/>
                     </div>
                 </div>
             </div>
@@ -105,7 +105,7 @@
                     </div>
                     <div class="col-sm-8">
                         <label class="control-label" *ngIf="!isEditable && !isAdding">{{product.unitPrice}}</label>
-                        <input id="unitPrice" formControlName="unitPrice" type="text" class="form-control" placeholder="Unit Price" [(ngModel)]="product.unitPrice" *ngIf="isEditable || isAdding" />
+                        <input id="unitPrice" formControlName="unitPrice" type="text" class="form-control" placeholder="Unit Price" [(ngModel)]="product.unitPrice" *ngIf="isEditable || isAdding" required/>
                     </div>
                 </div>
             </div>
@@ -116,7 +116,7 @@
                     </div>
                     <div class="col-sm-8">
                         <label class="control-label" *ngIf="!isEditable && !isAdding">{{product.unitsInStock}}</label>
-                        <input id="unitsInStock" formControlName="unitsInStock" type="text" class="form-control" placeholder="Units in Stock" [(ngModel)]="product.unitsInStock" *ngIf="isEditable || isAdding" />
+                        <input id="unitsInStock" formControlName="unitsInStock" type="text" class="form-control" placeholder="Units in Stock" [(ngModel)]="product.unitsInStock" *ngIf="isEditable || isAdding" required/>
                     </div>
                 </div>
             </div>
@@ -127,7 +127,7 @@
                     </div>
                     <div class="col-sm-8">
                         <label class="control-label" *ngIf="!isEditable && !isAdding">{{product.unitsOnOrder}}</label>
-                        <input id="unitsOnOrder" formControlName="unitsOnOrder" type="text" class="form-control" placeholder="Units on Order" [(ngModel)]="product.unitsOnOrder" *ngIf="isEditable || isAdding" />
+                        <input id="unitsOnOrder" formControlName="unitsOnOrder" type="text" class="form-control" placeholder="Units on Order" [(ngModel)]="product.unitsOnOrder" *ngIf="isEditable || isAdding" required/>
                     </div>
                 </div>
             </div>
@@ -138,7 +138,7 @@
                     </div>
                     <div class="col-sm-8">
                         <label class="control-label" *ngIf="!isEditable && !isAdding">{{product.reorderLevel}}</label>
-                        <input id="reorderLevel" formControlName="reorderLevel" type="text" class="form-control" placeholder="Reorder Level" [(ngModel)]="product.reorderLevel" *ngIf="isEditable || isAdding" />
+                        <input id="reorderLevel" formControlName="reorderLevel" type="text" class="form-control" placeholder="Reorder Level" [(ngModel)]="product.reorderLevel" *ngIf="isEditable || isAdding" required/>
                     </div>
                 </div>
             </div>

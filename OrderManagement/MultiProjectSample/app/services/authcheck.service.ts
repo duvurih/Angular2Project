@@ -1,12 +1,12 @@
-﻿import { Injectable } from '@angular/core';
+﻿import { Injectable } from "@angular/core";
 import {
     CanActivate, Router,
     ActivatedRouteSnapshot,
     RouterStateSnapshot,
     CanActivateChild
-} from '@angular/router';
+} from "@angular/router";
 
-import { AuthService } from './auth.service';
+import { AuthService } from "./auth.service";
 
 @Injectable()
 export class AuthCheckActivator implements CanActivate, CanActivateChild  {
@@ -27,7 +27,7 @@ export class AuthCheckActivator implements CanActivate, CanActivateChild  {
         // Store the attempted URL for redirecting
         // this.authService.redirectUrl = url;
         // Navigate to the login page
-        this.router.navigate(['/login']);
+        this.router.navigate(["/login"]);
         return false;
     }
 }

@@ -1,5 +1,5 @@
 ﻿// importing angular core
-import { Component, OnInit, trigger, state, style, transition, animate } from "@angular/core";
+import { Component, ChangeDetectorRef, OnInit, trigger, state, style, transition, animate } from "@angular/core";
 import { Router, ActivatedRoute, Params } from "@angular/router";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 
@@ -8,8 +8,11 @@ import { DataContextService } from "../../services/datacontext.service";
 import { ReferenceDataService } from "../../services/referencedata.service";
 
 // importing models
-import { ProductModel } from '../../models/product.model';
-import { FilterCriteria } from '../../models/filtercriteria.model';
+import { ProductModel } from "../../models/product.model";
+import { FilterCriteria } from "../../models/filtercriteria.model";
+
+// importing url endpoints
+import { URLEndPoints } from "../../common/urlendpoints.component";
 
 @Component({
     selector: "viewproduct",
@@ -45,9 +48,6 @@ export class ViewProductComponent implements OnInit {
     public isEditable: boolean = false;
     public isAdding: boolean = false;
 
-    // filter criteria
-    //public caterogyNamefilter: FilterCriteria; 
-
     productForm: FormGroup;
 
     // constuctor
@@ -56,7 +56,8 @@ export class ViewProductComponent implements OnInit {
         private activatedRoute: ActivatedRoute,
         private _formBuilder: FormBuilder,
         private dataContextService: DataContextService,
-        private referenceDataService: ReferenceDataService
+        private referenceDataService: ReferenceDataService,
+        private changeDetectorRef: ChangeDetectorRef
     ) { }
 
     // initialization methods
@@ -69,7 +70,7 @@ export class ViewProductComponent implements OnInit {
             "productName": ["", [Validators.required, Validators.minLength(3), Validators.maxLength(40)]],
             "categoryID": ["", [Validators.required]],
             "supplierID": ["", [Validators.required]],
-            "quantityPerUnit":["",[Validators.required]],
+            "quantityPerUnit": ["", [Validators.required]],
             "unitPrice": ["", [Validators.required]],
             "unitsInStock": ["", [Validators.required]],
             "unitsOnOrder": ["", [Validators.required]],
@@ -85,68 +86,63 @@ export class ViewProductComponent implements OnInit {
         });
     }
 
-
     // method implementation
     getValidationRules(): void {
-        this.dataContextService.httpGet("ProductApiWeb/ValidationRules", null)
+        this.dataContextService.httpGet(URLEndPoints.PRODUCT_VALIDATION_RULES, null)
             .subscribe((resultData: any) => {
-                this.product = resultData.data;
+                // this.product = resultData.data;
                 this.validationRules = resultData.validationRules;
             });
     }
 
-    getProductByID(productId:number): void {
-        this.dataContextService.httpGet("ProductApiWeb/Get/" + productId, null)
+    getProductByID(productId: number): void {
+        this.dataContextService.httpGet(URLEndPoints.PRODUCT_GET_PRODUCT_BY_ID + productId, null)
             .subscribe((resultData: any) => {
                 this.product = new ProductModel(resultData);
+                //this.product = resultData;
             });
     }
 
     setFilterCriteria(columnName: string, idValue: string): any {
-        let caterogyNamefilter: FilterCriteria = { criteriaColumn: columnName, criteriaValue : idValue }; 
+        let caterogyNamefilter: FilterCriteria = { criteriaColumn: columnName, criteriaValue: idValue };
         return caterogyNamefilter;
     }
 
     addProduct(value: any): void {
         this.product = new ProductModel(value);
-        this.isAdding=true;
+        this.isAdding = true;
+        this.changeDetectorRef.detectChanges();
     }
 
     editProduct(): void {
         this.beforeEditProduct = this.product;
         this.isEditable = true;
+        this.changeDetectorRef.detectChanges();
     }
 
     cancelOpertation(): void {
         this.product = this.beforeEditProduct;
         this.isEditable = false;
-        if (this.isAdding === true) {
-            this.isAdding = false;
-            this.router.navigateByUrl('viewProductsList');
-        }
-    }
-
-    deleteProduct(productId:number): void {
-        this.dataContextService.httpGet("ProductApiWeb/DeleteProduct/" + productId , null)
-            .subscribe((resultData: any) => {
-                this.resultResponse = resultData;
-            });
+        this.isAdding = false;
+        this.router.navigateByUrl("viewProductsList");
+        this.changeDetectorRef.detectChanges();
     }
 
     saveProduct(value: any): void {
-        console.log(value);
+        //console.log(value);
         if (this.isAdding === true) {
-            this.dataContextService.httpPost("ProductApiWeb/AddProduct", this.product)
+            this.dataContextService.httpPost(URLEndPoints.PRODUCT_ADD, this.product)
                 .subscribe((resultData: any) => {
-                    this.resultResponse = resultData;
+                    this.product = new ProductModel(resultData);
                     this.isAdding = false;
                 });
         } else {
-            this.dataContextService.httpPost("ProductApiWeb/UpdateProduct", this.product)
+            this.dataContextService.httpPost(URLEndPoints.PRODUCT_UPDATE, this.product)
                 .subscribe((resultData: any) => {
                     this.resultResponse = resultData;
                     this.isEditable = false;
                 });
         }
+        //this.changeDetectorRef.detectChanges();
     }
 }

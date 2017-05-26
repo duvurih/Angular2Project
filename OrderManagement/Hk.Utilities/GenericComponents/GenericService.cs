@@ -28,7 +28,7 @@ namespace Hk.Utilities.GenericComponents
         /// Inserting new reord
         /// </summary>
         /// <param name="entity"></param>
-        public virtual void Insert(TEntity entity)
+        public virtual TEntity Insert(TEntity entity)
         {
             throw new NotImplementedException();
         }

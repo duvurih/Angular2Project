@@ -245,6 +245,8 @@
     <Compile Include="Models\Mappings\CustomerMappingProfile.cs" />
     <Compile Include="Models\Mappings\ProductMappingProfile.cs" />
     <Compile Include="Models\Mappings\SupplierMappingProfile.cs" />
+    <Compile Include="Models\Models\BaseAddressModel.cs" />
+    <Compile Include="Models\Models\BaseCommunicationModel.cs" />
     <Compile Include="Models\Models\BaseModel.cs" />
     <Compile Include="Models\Models\CategoryModel.cs" />
     <Compile Include="Models\Models\CustomerModel.cs" />
@@ -265,6 +267,7 @@
     <Content Include="app\features\product\viewproduct.html" />
     <Content Include="app\features\sidebar\sidebar.html" />
     <Content Include="app\features\supplier\supplierlist.html" />
+    <Content Include="app\features\supplier\viewsupplier.html" />
     <Content Include="app\features\topbar\topbar.html" />
     <Content Include="app\public\login\login.html" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -344,6 +347,7 @@
     <TypeScriptCompile Include="app\common\modal.component.ts" />
     <TypeScriptCompile Include="app\common\pipe.component.ts" />
     <TypeScriptCompile Include="app\common\table.component.ts" />
+    <TypeScriptCompile Include="app\common\urlendpoints.component.ts" />
     <TypeScriptCompile Include="app\common\validation.component.ts" />
     <TypeScriptCompile Include="app\config\config.component.ts" />
     <TypeScriptCompile Include="app\config\crypto.component.ts" />
@@ -358,8 +362,12 @@
     <TypeScriptCompile Include="app\features\product\viewproduct.component.ts" />
     <TypeScriptCompile Include="app\features\sidebar\sidebar.component.ts" />
     <TypeScriptCompile Include="app\features\supplier\supplierlist.component.ts" />
+    <TypeScriptCompile Include="app\features\supplier\viewsupplier.component.ts" />
     <TypeScriptCompile Include="app\features\topbar\topbar.component.ts" />
     <TypeScriptCompile Include="app\main.ts" />
+    <TypeScriptCompile Include="app\models\base.model.ts" />
+    <TypeScriptCompile Include="app\models\baseaddress.model.ts" />
+    <TypeScriptCompile Include="app\models\basecommunication.model.ts" />
     <TypeScriptCompile Include="app\models\category.model.ts" />
     <TypeScriptCompile Include="app\models\filtercriteria.model.ts" />
     <TypeScriptCompile Include="app\models\product.model.ts" />

@@ -132,7 +132,7 @@ namespace Hk.Services.Application1.Api
         /// <returns>Returns success or failure</returns>
         [Route("AddProduct")]
         [HttpPost]
-        public bool Add(Product entity)
+        public Product Add(Product entity)
         {
 
             //var smsComponent = new SmsConnectorEventService<SMSInformation>(_iApiManager);
@@ -140,8 +140,7 @@ namespace Hk.Services.Application1.Api
             //_iProductService.DataPublisher += smsComponent;
             //_iProductService.DataPublisher += emailComponent;
 
-            _iProductService.Insert(entity);
-            return true;
+            return _iProductService.Insert(entity);
         }
 
         [Route("UpdateProduct")]
@@ -149,6 +148,14 @@ namespace Hk.Services.Application1.Api
         public bool Update(Product entity)
         {
             _iProductService.Update(entity);
+            return true;
+        }
+
+        [Route("DeleteProduct")]
+        [HttpPost]
+        public bool Delete(Product entity)
+        {
+            _iProductService.Delete(entity);
             return true;
         }
         #endregion

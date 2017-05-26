@@ -1,29 +1,23 @@
-﻿export class SupplierModel {
+﻿import { BaseAddress } from "../models/baseaddress.model";
+import { BaseCommunication } from "../models/basecommunication.model";
+import { BaseModel } from "../models/base.model";
+
+export class SupplierModel extends BaseModel {
     supplierID: number;
     companyName: string;
     contactName: string;
     contactTitle: string;
-    address: string;
-    city: string;
-    region: string;
-    postalCode: number;
-    country: string;
-    phone: string;
-    fax: string;
-    homePage: string;
+    address: BaseAddress;
+    communication: BaseCommunication;
 
-    constructor(supplierData:any) {
-        this.supplierID = supplierData.supplierID;
-        this.companyName = supplierData.companyName;
-        this.contactName = supplierData.contactName;
-        this.contactTitle = supplierData.contactTitle;
-        this.address = supplierData.address;
-        this.city = supplierData.city;
-        this.region = supplierData.region;
-        this.postalCode = supplierData.postalCode;
-        this.country = supplierData.country;
-        this.phone = supplierData.phone;
-        this.fax = supplierData.fax;
-        this.homePage = supplierData.homePage;
+    constructor(supplierData: any) {
+        super();
+
+        this.supplierID = super.checkUndefinedValue(supplierData.supplierID);
+        this.companyName = super.checkUndefinedValue(supplierData.companyName);
+        this.contactName = super.checkUndefinedValue(supplierData.contactName);
+        this.contactTitle = super.checkUndefinedValue(supplierData.contactTitle);
+        this.address = new BaseAddress(supplierData.address);
+        this.communication = new BaseCommunication(supplierData.communication);
     }
 }

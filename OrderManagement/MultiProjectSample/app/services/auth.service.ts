@@ -5,9 +5,9 @@ import { DataContextService } from "./datacontext.service";
 
 @Injectable()
 export class AuthService {
-    private component: any;
+    // private component: any;
     private isLoggedin: boolean;
-    private authData: any;
+    // private authData: any;
 
     constructor(
         private dataContextService: DataContextService,
@@ -22,8 +22,8 @@ export class AuthService {
 
     loginfn(userCredentials: any):any {
         this.isLoggedin = false;
-        var _headers = new Headers();
-        var creds = "username=" + userCredentials.username + "&password=" + userCredentials.password + "&grant_type=password";
+        var _headers:any = new Headers();
+        var creds:any = "username=" + userCredentials.username + "&password=" + userCredentials.password + "&grant_type=password";
         // var creds = {
         //    username: userCredentials.username,
         //    password: userCredentials.password,

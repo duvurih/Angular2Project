@@ -4,6 +4,12 @@ import { Component, trigger, state, style, transition, animate } from "@angular/
 // importing data services
 import { DataContextService } from "../../services/datacontext.service";
 
+// importing models
+import { SupplierModel } from "../../models/supplier.model";
+
+// importing url endpoints
+import { URLEndPoints } from "../../common/urlendpoints.component";
+
 @Component({
     selector: "supplierslist",
     templateUrl: "app/features/supplier/supplierlist.html",
@@ -30,6 +36,8 @@ export class SuppliersListComponent {
 
     // initializing variables
     public suppliers: Array<any> = [];
+    private resultResponse: any;
+
 
     public columns: Array<any> = [
         { title: "Customer ID", name: "customerID", sort: false },
@@ -55,16 +63,27 @@ export class SuppliersListComponent {
 
     // method implementation
     loadAllSuppliers(): any {
-        this.dataContextService.httpGet("SupplierApiWeb/GetAllSuppliers", null)
+        this.dataContextService.httpGet(URLEndPoints.SUPPLIER_GET_ALL_SUPPLIERS, null)
             .subscribe((resultData: any) => {
                 this.suppliers = resultData;
             });
     }
 
     viewSupplierDetials(supplierId: number): any {
-        this.dataContextService.httpGet("SupplierApiWeb/GetSupplierByID/" + supplierId, null)
+        this.dataContextService.httpGet(URLEndPoints.SUPPLIER_GET_SUPPLIER_BY_ID + supplierId, null)
             .subscribe((resultData: any) => {
                 this.suppliers = resultData;
             });
+    }
+
+    deleteProduct(supplierId: number): void {
+        var product:any = this.suppliers.filter(item => item["supplierID"] === supplierId);
+        if (product.length === 1) {
+            var supplierData:SupplierModel = new SupplierModel(product[0]);
+            this.dataContextService.httpPost(URLEndPoints.SUPPLIER_DELETE, supplierData)
+                .subscribe((resultData: any) => {
+                    this.resultResponse = resultData;
+                });
+        }
     }
 }

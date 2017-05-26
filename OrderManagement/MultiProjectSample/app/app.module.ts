@@ -1,54 +1,55 @@
-﻿import './rxjs-operators';
+﻿import "./rxjs-operators";
 
 // standard Angular2 modules
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA, ErrorHandler, Optional, SkipSelf  } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
-import { LocationStrategy, HashLocationStrategy } from '@angular/common';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA, ErrorHandler, Optional, SkipSelf  } from "@angular/core";
+import { BrowserModule } from "@angular/platform-browser";
+// import { platformBrowserDynamic } from "@angular/platform-browser-dynamic";
+import { LocationStrategy, HashLocationStrategy } from "@angular/common";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { HttpModule } from "@angular/http";
 
 // ng2-bootstrap
-import { Ng2BootstrapModule } from 'ng2-bootstrap';
-import { PaginationModule } from 'ng2-bootstrap';
-import { DatepickerModule } from 'ng2-bootstrap';
-import { ModalModule } from 'ng2-bootstrap';
-import { ProgressbarModule } from 'ng2-bootstrap';
-import { TimepickerModule } from 'ng2-bootstrap';
-import { Ng2PageScrollModule } from 'ng2-page-scroll';
+import { Ng2BootstrapModule } from "ng2-bootstrap";
+import { PaginationModule } from "ng2-bootstrap";
+import { DatepickerModule } from "ng2-bootstrap";
+import { ModalModule } from "ng2-bootstrap";
+import { ProgressbarModule } from "ng2-bootstrap";
+import { TimepickerModule } from "ng2-bootstrap";
+import { Ng2PageScrollModule } from "ng2-page-scroll";
 
 // importing common components
-import { TableComponent } from './common/table.component';
-import { ValidationMessages } from './common/validation.component';
+import { TableComponent } from "./common/table.component";
+import { ValidationMessages } from "./common/validation.component";
 
 // importing pipe and directive components
-import { NameFilterPipe, DateFormatPipe, SafeHtml } from './common/pipe.component';
-import { ProfileImageDirective } from './common/directives.component';
+import { NameFilterPipe, DateFormatPipe, SafeHtml } from "./common/pipe.component";
+import { ProfileImageDirective } from "./common/directives.component";
 
 // importing configurations
-import { CryptoComponent } from './config/crypto.component';
-import { routing } from './config/routing.component';
-import { GenericExceptionHandler } from './config/exceptionhandler.component';
+// import { CryptoComponent } from "./config/crypto.component";
+import { routing } from "./config/routing.component";
+import { GenericExceptionHandler } from "./config/exceptionhandler.component";
 
 // shared services
-import { AuthService } from './services/auth.service';
-import { AuthCheckActivator } from './services/authcheck.service';
-import { DataContextService } from './services/datacontext.service';
-import { ValidationService } from './services/validation.service';
-import { ReferenceDataService } from './services/referencedata.service';
+import { AuthService } from "./services/auth.service";
+import { AuthCheckActivator } from "./services/authcheck.service";
+import { DataContextService } from "./services/datacontext.service";
+import { ValidationService } from "./services/validation.service";
+import { ReferenceDataService } from "./services/referencedata.service";
 
 // application components
-import { AppComponent } from './app.component';
-import { LoginComponent } from './public/login/login.component';
-import { DashboardComponent } from './features/dashboard/dashboard.component';
-import { SidebarComponent } from './features/sidebar/sidebar.component';
-import { TopbarComponent } from './features/topbar/topbar.component';
-import { ProductsListComponent } from './features/product/productslist.component';
-import { CategoryCatalogComponent } from './features/category/categorycatalog.component';
-import { CategoryItemComponent } from './features/category/categoryitem.component';
+import { AppComponent } from "./app.component";
+import { LoginComponent } from "./public/login/login.component";
+import { DashboardComponent } from "./features/dashboard/dashboard.component";
+import { SidebarComponent } from "./features/sidebar/sidebar.component";
+import { TopbarComponent } from "./features/topbar/topbar.component";
+import { ProductsListComponent } from "./features/product/productslist.component";
+import { CategoryCatalogComponent } from "./features/category/categorycatalog.component";
+import { CategoryItemComponent } from "./features/category/categoryitem.component";
 import { ViewProductComponent } from "./features/product/viewproduct.component";
 import { CustomersListComponent } from "./features/customer/customerlist.component";
 import { SuppliersListComponent } from "./features/supplier/supplierlist.component";
+import { ViewSupplierComponent } from "./features/supplier/viewsupplier.component";
 
 @NgModule({
     imports: [
@@ -82,7 +83,8 @@ import { SuppliersListComponent } from "./features/supplier/supplierlist.compone
         ProfileImageDirective,
         ViewProductComponent,
         CustomersListComponent,
-        SuppliersListComponent
+        SuppliersListComponent,
+        ViewSupplierComponent
     ],
     providers: [
         { provide: LocationStrategy, useClass: HashLocationStrategy },
@@ -99,6 +101,6 @@ import { SuppliersListComponent } from "./features/supplier/supplierlist.compone
 })
 export class AppModule {
     constructor( @Optional() @SkipSelf() parentModule: AppModule) {
-        //throwIfAlreadyLoaded(parentModule, 'AppModule')
+        // throwIfAlreadyLoaded(parentModule, "AppModule")
     }
 }

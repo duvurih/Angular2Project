@@ -1,5 +1,5 @@
 ﻿import { Component, OnInit, Input, Output, EventEmitter, OnChanges } from "@angular/core";
-import { ChangeDetectionStrategy } from '@angular/core';
+import { ChangeDetectionStrategy } from "@angular/core";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { Ng2TableModule } from "ng2-table/components/ng-table-module";
 import { PaginationModule } from "ng2-bootstrap";
@@ -53,11 +53,11 @@ export class TableComponent implements OnInit {
             return data;
         }
 
-        let columns = this.config.sorting.columns || [];
+        let columns:any = this.config.sorting.columns || [];
         let columnName: string = void 0;
         let sort: string = void 0;
 
-        for (let i = 0; i < columns.length; i++) {
+        for (let i:number = 0; i < columns.length; i++) {
             if (columns[i].sort !== "" && columns[i].sort !== false) {
                 columnName = columns[i].name;
                 sort = columns[i].sort;
@@ -98,13 +98,13 @@ export class TableComponent implements OnInit {
             Object.assign(this.config.sorting, config.sorting);
         }
 
-        let filteredData = this.changeFilter(this.data, this.config);
-        let sortedData = this.changeSort(filteredData, this.config);
+        let filteredData:any = this.changeFilter(this.data, this.config);
+        let sortedData:any = this.changeSort(filteredData, this.config);
         this.rows = page && config.paging ? this.changePage(page, sortedData) : sortedData;
         this.length = sortedData.length;
     }
 
-    public raiseClickEvent(row: any) {
+    public raiseClickEvent(row: any): void {
         this.elementClickEvent.emit(row);
     }
 }

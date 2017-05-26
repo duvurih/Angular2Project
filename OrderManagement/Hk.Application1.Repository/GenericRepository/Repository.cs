@@ -24,6 +24,8 @@ namespace Hk.Application1.Repository.GenericRepository
         public void Insert(TEntity entity)
         {
             _context.Set<TEntity>().Add(entity);
+            //var newData = _context.Entry(entity).GetDatabaseValues();
+
         }
 
         public void InsertMultiple(IEnumerable<TEntity> entities)
@@ -87,6 +89,7 @@ namespace Hk.Application1.Repository.GenericRepository
 
         public void Delete(TEntity entity)
         {
+            _context.Entry(entity).State = EntityState.Deleted;
             _context.Set<TEntity>().Remove(entity);
         }
 

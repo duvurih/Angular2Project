@@ -48,5 +48,33 @@ namespace MultiProjectSample.Api
             IEnumerable<Supplier> supplierData = _iServiceApiManager.GetAsync<IEnumerable<Supplier>>("supplierapi", "GetAllSuppliers", null);
             return OkResponse(supplierData);
         }
+
+        [Route("AddSupplier")]
+        [HttpPost]
+        public HttpResponseMessage Add(SupplierModel entity)
+        {
+            Supplier supplierData = Mapper.Map<SupplierModel, Supplier>(entity);
+            Supplier response = _iServiceApiManager.PostAsync<Supplier>("supplierapi", "AddSupplier", supplierData);
+            SupplierModel supplierDataResponse = Mapper.Map<Supplier, SupplierModel>(response);
+            return OkResponse(supplierDataResponse);
+        }
+
+        [Route("UpdateSupplier")]
+        [HttpPost]
+        public HttpResponseMessage UpdateSupplier(SupplierModel entity)
+        {
+            Supplier supplierData = Mapper.Map<SupplierModel, Supplier>(entity);
+            bool response = _iServiceApiManager.PostAsync<bool>("supplierapi", "UpdateSupplier", supplierData);
+            return OkResponse(response);
+        }
+
+        [Route("DeleteSupplier")]
+        [HttpPost]
+        public HttpResponseMessage DeleteSupplier(SupplierModel entity)
+        {
+            Supplier supplierData = Mapper.Map<SupplierModel, Supplier>(entity);
+            bool response = _iServiceApiManager.PostAsync<bool>("supplierapi", "DeleteSupplier", supplierData);
+            return OkResponse(response);
+        }
     }
 }

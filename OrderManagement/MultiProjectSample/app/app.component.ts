@@ -7,7 +7,7 @@ import "./rxjs-operators";
 import { ReferenceDataService } from "./services/referencedata.service";
 
 @Component({
-    selector: 'my-app',
+    selector: "my-app",
     template: `
         <dashboard></dashboard>
         `,
@@ -20,9 +20,9 @@ export class AppComponent implements OnInit {
         this.viewContainerRef = viewContainerRef;
     }
 
-    ngOnInit():void{
-        this.referenceDataService.retrieveReferenceData();    
+    ngOnInit(): void {
+        this.referenceDataService.retrieveReferenceData();
     }
 
-    name = 'Angular v2.4 Application';
+    name = "Angular v2.4 Application";
 }

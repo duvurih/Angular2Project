@@ -109,10 +109,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     background:$color-gray-dark-gradient;
     color:$color-white;
     text-align:left;
-    margin-bottom: 20px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 10px;
+    margin: 10px auto 20px auto;
     .card-image{
         img{
             width:250px;
@@ -230,7 +227,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     }
 }
 
-.ng-valid[required], .ng-valid.required  {
+.ng-valid, .ng-valid[required], .ng-valid.required  {
   border-left: 5px solid $color-validation-success;
 }
 .ng-invalid:not(form)  {
@@ -282,3 +279,4 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 .shortRow {
     height: 10px!important;
 }
+
