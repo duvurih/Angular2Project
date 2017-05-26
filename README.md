@@ -5,6 +5,9 @@ Angular 2 + Web API + Entity Framework + SQL Server + DI + Responsive Design
 1. Products, Categories, Suppliers
 2. Order Management
 
+# Views:
+![alt text](https://github.com/duvurih/Angular2Project/blob/master/OrderManagement/MultiProjectSample/Content/images/ProductsViewNavigation.gif)
+
 # High Level Business Context
 ![alt text](https://github.com/duvurih/Angular2Project/blob/master/OrderManagement/MultiProjectSample/Content/images/HighLevelBusinessContext.png)
 
@@ -40,5 +43,4 @@ Top Menu | View Product | View Supplier | View Customer | View Category | View O
 Side Menu | Edit Product | Edit Supplier | Edit Customer | Edit Category | Edit Order |  Navigate Search Results
 Dashboard Items | Add Product | Add Supplier | Add Customer | Add Category | Add Order |  
 
-# Views:
-![alt text](https://github.com/duvurih/Angular2Project/blob/master/OrderManagement/MultiProjectSample/Content/images/ProductsViewNavigation.gif)
+
