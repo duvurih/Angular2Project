@@ -40,3 +40,5 @@ Top Menu | View Product | View Supplier | View Customer | View Category | View O
 Side Menu | Edit Product | Edit Supplier | Edit Customer | Edit Category | Edit Order |  Navigate Search Results
 Dashboard Items | Add Product | Add Supplier | Add Customer | Add Category | Add Order |  
 
+# Views:
+![alt text](https://github.com/duvurih/Angular2Project/blob/master/OrderManagement/MultiProjectSample/Content/images/ProductsViewNavigation.gif)
