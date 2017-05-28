@@ -43,6 +43,7 @@
       <HintPath>..\packages\Castle.Windsor.3.4.0\lib\net45\Castle.Windsor.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
     <Reference Include="Moq, Version=4.5.30.0, Culture=neutral, PublicKeyToken=69f491c39445e920, processorArchitecture=MSIL">
       <HintPath>..\packages\Moq.4.5.30\lib\net45\Moq.dll</HintPath>
       <Private>True</Private>
@@ -81,8 +82,10 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="DataInitialization\ProductDataInitialization.cs" />
     <Compile Include="IoC\WindsorInstaller.cs" />
     <Compile Include="Repositories\ProductRepositoryTest.cs" />
+    <Compile Include="Services\ProductServiceTest.cs" />
     <Compile Include="TestInitialization\TestInitializationSettings.cs" />
     <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -121,9 +124,7 @@
       <Name>MultiProjectSample</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Services\" />
-  </ItemGroup>
+  <ItemGroup />
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>
