@@ -7,6 +7,8 @@ import { BrowserModule } from "@angular/platform-browser";
 import { LocationStrategy, HashLocationStrategy } from "@angular/common";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HttpModule } from "@angular/http";
+import { Router, Resolve, RouterStateSnapshot, ActivatedRouteSnapshot } from "@angular/router";
+
 
 // ng2-bootstrap
 import { Ng2BootstrapModule } from "ng2-bootstrap";
@@ -51,6 +53,10 @@ import { CustomersListComponent } from "./features/customer/customerlist.compone
 import { SuppliersListComponent } from "./features/supplier/supplierlist.component";
 import { ViewSupplierComponent } from "./features/supplier/viewsupplier.component";
 
+// application specific services
+import { ProductResolverService } from "./features/product/product-resolver.service";
+import { SupplierResolverService } from "./features/supplier/supplier-resolver.service";
+
 @NgModule({
     imports: [
         BrowserModule,
@@ -93,8 +99,9 @@ import { ViewSupplierComponent } from "./features/supplier/viewsupplier.componen
         DataContextService,
         ValidationService,
         ReferenceDataService,
-        { provide: ErrorHandler, useClass: GenericExceptionHandler }
-
+        { provide: ErrorHandler, useClass: GenericExceptionHandler },
+        SupplierResolverService,
+        ProductResolverService
     ],
     schemas: [CUSTOM_ELEMENTS_SCHEMA],
     bootstrap: [AppComponent]

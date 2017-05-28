@@ -1,5 +1,5 @@
 ﻿// importing angular core
-import { Component, OnInit, trigger, state, style, transition, animate } from "@angular/core";
+import { Component, ChangeDetectorRef, OnInit, trigger, state, style, transition, animate } from "@angular/core";
 import { Router, ActivatedRoute, Params } from "@angular/router";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 
@@ -52,7 +52,8 @@ export class ViewSupplierComponent implements OnInit {
         private router: Router,
         private activatedRoute: ActivatedRoute,
         private _formBuilder: FormBuilder,
-        private dataContextService: DataContextService
+        private dataContextService: DataContextService,
+        private changeDetectorRef: ChangeDetectorRef
     ) { }
 
     // initialization methods
@@ -65,11 +66,11 @@ export class ViewSupplierComponent implements OnInit {
             "contactTitle": ["", [Validators.required, Validators.minLength(1), Validators.maxLength(30)]],
             "address": ["", [Validators.required, Validators.minLength(1), Validators.maxLength(60)]],
             "city": ["", [Validators.required, Validators.minLength(1), Validators.maxLength(15)]],
-            "region": ["", [Validators.required, Validators.minLength(1), Validators.maxLength(15)]],
-            "postalCode": ["", [Validators.required, Validators.minLength(4), Validators.maxLength(4)]],
+            "region": ["", [Validators.maxLength(15)]],
+            "postalCode": ["", [Validators.required, Validators.minLength(1), Validators.maxLength(10)]],
             "country": ["", [Validators.required, Validators.minLength(1), Validators.maxLength(15)]],
-            "phone": ["", [Validators.required, Validators.minLength(8), Validators.maxLength(12)]],
-            "fax": ["", [Validators.minLength(8), Validators.maxLength(12)]],
+            "phone": ["", [Validators.minLength(8), Validators.maxLength(24)]],
+            "fax": ["", [Validators.minLength(8), Validators.maxLength(24)]],
             "homePage": ["", [Validators.maxLength(100)]]
         });
 
@@ -77,7 +78,11 @@ export class ViewSupplierComponent implements OnInit {
 
         this.activatedRoute.params.subscribe((params: Params) => {
             let supplierId: number = params["id"];
-            this.getSupplierByID(supplierId);
+            // retrieving supplier - than show view
+            this.activatedRoute.data
+                .subscribe((data: { supplier: any }) => {
+                    this.supplier = new SupplierModel(data.supplier);
+                });
         });
     }
 
@@ -86,7 +91,7 @@ export class ViewSupplierComponent implements OnInit {
     getValidationRules(): void {
         this.dataContextService.httpGet(URLEndPoints.SUPPLIER_VALIDATION_RULES, null)
             .subscribe((resultData: any) => {
-                this.supplier = new SupplierModel(resultData.data);
+                //this.supplier = new SupplierModel(resultData.data);
                 this.validationRules = resultData.validationRules;
             });
     }
@@ -106,11 +111,13 @@ export class ViewSupplierComponent implements OnInit {
     addSupplier(value: any): void {
         this.supplier = new SupplierModel(value);
         this.isAdding = true;
+        this.changeDetectorRef.detectChanges();
     }
 
     editSupplier(): void {
         this.beforeEditSupplier = this.supplier;
         this.isEditable = true;
+        this.changeDetectorRef.detectChanges();
     }
 
     cancelOpertation(): void {

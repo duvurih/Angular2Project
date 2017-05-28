@@ -358,9 +358,11 @@
     <TypeScriptCompile Include="app\features\category\categoryitem.component.ts" />
     <TypeScriptCompile Include="app\features\customer\customerlist.component.ts" />
     <TypeScriptCompile Include="app\features\dashboard\dashboard.component.ts" />
+    <TypeScriptCompile Include="app\features\product\product-resolver.service.ts" />
     <TypeScriptCompile Include="app\features\product\productslist.component.ts" />
     <TypeScriptCompile Include="app\features\product\viewproduct.component.ts" />
     <TypeScriptCompile Include="app\features\sidebar\sidebar.component.ts" />
+    <TypeScriptCompile Include="app\features\supplier\supplier-resolver.service.ts" />
     <TypeScriptCompile Include="app\features\supplier\supplierlist.component.ts" />
     <TypeScriptCompile Include="app\features\supplier\viewsupplier.component.ts" />
     <TypeScriptCompile Include="app\features\topbar\topbar.component.ts" />

@@ -9,7 +9,7 @@ import "rxjs/add/operator/debounceTime";
 export class DataContextService {
     constructor(private _http: Http) { }
 
-    httpGet(url: any, parameters?: Object[]): any {
+    httpGet(url: string, parameters?: Object[]): Observable<any> {
         let observable: any;
         url = `./${url}`;
         if (parameters != undefined) {
@@ -24,7 +24,7 @@ export class DataContextService {
         return observable;
     }
 
-    httpPost(url: any, dataObject: any, fullUrl: boolean = false): any {
+    httpPost(url: string, dataObject: any, fullUrl: boolean = false): Observable<any> {
         if (fullUrl === false) {
             url = `./${url}`;
         }
@@ -32,6 +32,22 @@ export class DataContextService {
         _headers.append("Content-Type", "application/json");
         _headers.append("Access-Control-Allow-Origin", location.origin);
         const observable = this._http.post(url, JSON.stringify(dataObject), { headers: _headers }).map(response => response.json());
+        return observable;
+    }
+
+    httpPut(url: string, id: number, model: any): Observable<any> {
+        const _headers = new Headers();
+        _headers.append("Content-Type", "application/json");
+        _headers.append("Access-Control-Allow-Origin", location.origin);
+        const observable = this._http.put(url + id, JSON.stringify(model), { headers: _headers }).map(response => response.json());
+        return observable;
+    }
+
+    httpDelete(url: string, id: number): Observable<any> {
+        const _headers = new Headers();
+        _headers.append("Content-Type", "application/json");
+        _headers.append("Access-Control-Allow-Origin", location.origin);
+        const observable = this._http.delete(url + id, { headers: _headers }).map(response => response.json());
         return observable;
     }
 

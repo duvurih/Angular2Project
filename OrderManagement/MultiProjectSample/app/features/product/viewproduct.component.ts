@@ -58,7 +58,7 @@ export class ViewProductComponent implements OnInit {
         private dataContextService: DataContextService,
         private referenceDataService: ReferenceDataService,
         private changeDetectorRef: ChangeDetectorRef
-    ) { }
+    ) {}
 
     // initialization methods
     ngOnInit(): void {
@@ -82,7 +82,11 @@ export class ViewProductComponent implements OnInit {
 
         this.activatedRoute.params.subscribe((params: Params) => {
             let productId: number = params["id"];
-            this.getProductByID(productId);
+            //retrieving product - than show view
+            this.activatedRoute.data
+                .subscribe((data: { product: any }) => {
+                    this.product = new ProductModel(data.product)
+                });
         });
     }
 
@@ -95,13 +99,6 @@ export class ViewProductComponent implements OnInit {
             });
     }
 
-    getProductByID(productId: number): void {
-        this.dataContextService.httpGet(URLEndPoints.PRODUCT_GET_PRODUCT_BY_ID + productId, null)
-            .subscribe((resultData: any) => {
-                this.product = new ProductModel(resultData);
-                //this.product = resultData;
-            });
-    }
 
     setFilterCriteria(columnName: string, idValue: string): any {
         let caterogyNamefilter: FilterCriteria = { criteriaColumn: columnName, criteriaValue: idValue };
@@ -124,8 +121,11 @@ export class ViewProductComponent implements OnInit {
         this.product = this.beforeEditProduct;
         this.isEditable = false;
         this.isAdding = false;
+        this.redirectToProdctList();
+    }
+
+    redirectToProdctList(): void {
         this.router.navigateByUrl("viewProductsList");
-        this.changeDetectorRef.detectChanges();
     }
 
     saveProduct(value: any): void {

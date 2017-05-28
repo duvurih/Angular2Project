@@ -46,7 +46,7 @@ namespace MultiProjectSample.Models.Mappings
                 .ForMember(vm => vm.CompanyName, map => map.MapFrom(m => m.CompanyName))
                 .ForMember(vm => vm.ContactName, map => map.MapFrom(m => m.ContactName))
                 .ForMember(vm => vm.ContactTitle, map => map.MapFrom(m => m.ContactTitle))
-                .ForMember(vm => vm.Address, map => map.MapFrom(c => new BaseAddressModel { Address = c.Address, City = c.City, Region = c.Region, Country = c.Country, PostalCode = c.Country }))
+                .ForMember(vm => vm.Address, map => map.MapFrom(c => new BaseAddressModel { Address = c.Address, City = c.City, Region = c.Region, Country = c.Country, PostalCode = c.PostalCode }))
                 .ForMember(vm => vm.Communication, map => map.MapFrom(c => new BaseCommunicationModel { Phone = c.Phone, Fax = c.Fax, HomePage = c.HomePage }))
             .ReverseMap();
 
