@@ -76,10 +76,10 @@ export class SuppliersListComponent {
             });
     }
 
-    deleteProduct(supplierId: number): void {
-        var product:any = this.suppliers.filter(item => item["supplierID"] === supplierId);
-        if (product.length === 1) {
-            var supplierData:SupplierModel = new SupplierModel(product[0]);
+    deleteSupplier(supplierId: number): void {
+        var supplier:any = this.suppliers.filter((item:any) => item["supplierID"] === supplierId);
+        if (supplier.length === 1) {
+            var supplierData:SupplierModel = new SupplierModel(supplier[0]);
             this.dataContextService.httpPost(URLEndPoints.SUPPLIER_DELETE, supplierData)
                 .subscribe((resultData: any) => {
                     this.resultResponse = resultData;

@@ -14,57 +14,74 @@ namespace MultiProjectSample.Models.Mappings
 
         public SupplierMappingProfile()
         {
-            //CreateMap<SupplierModel, Supplier>()
-            //    .ForMember(vm => vm.SupplierID, map => map.MapFrom(m => m.SupplierID))
-            //    .ForMember(vm => vm.CompanyName, map => map.MapFrom(m => m.CompanyName))
-            //    .ForMember(vm => vm.ContactName, map => map.MapFrom(m => m.ContactName))
-            //    .ForMember(vm => vm.ContactTitle, map => map.MapFrom(m => m.ContactTitle))
-            //    .ForMember(vm => vm.City, map => map.MapFrom(m => m.Address.City))
-            //    .ForMember(vm => vm.Region, map => map.MapFrom(m => m.Address.Region))
-            //    .ForMember(vm => vm.PostalCode, map => map.MapFrom(m => m.Address.PostalCode))
-            //    .ForMember(vm => vm.Country, map => map.MapFrom(m => m.Address.Country))
-            //    .ForMember(vm => vm.Phone, map => map.MapFrom(m => m.Communication.Phone))
-            //    .ForMember(vm => vm.Fax, map => map.MapFrom(m => m.Communication.Fax))
-            //    .ForMember(vm => vm.HomePage, map => map.MapFrom(m => m.Communication.HomePage))
-            //.ReverseMap();
+            CreateMap<BaseAddressModel, Supplier>()
+                    .ForMember(vm => vm.Address, map => map.MapFrom(m => m.Address))
+                    .ForMember(vm => vm.City, map => map.MapFrom(m => m.City))
+                    .ForMember(vm => vm.Region, map => map.MapFrom(m => m.Region))
+                    .ForMember(vm => vm.Country, map => map.MapFrom(m => m.Country))
+                    .ForMember(vm => vm.PostalCode, map => map.MapFrom(m => m.PostalCode))
+                    .ForMember(vm => vm.SupplierID, map => map.Ignore())
+                    .ForMember(vm => vm.CompanyName, map => map.Ignore())
+                    .ForMember(vm => vm.ContactName, map => map.Ignore())
+                    .ForMember(vm => vm.ContactTitle, map => map.Ignore())
+                    .ForMember(vm => vm.Phone, map => map.Ignore())
+                    .ForMember(vm => vm.Fax, map => map.Ignore())
+                    .ForMember(vm => vm.HomePage, map => map.Ignore())
+                    .ForMember(vm => vm.Products, map => map.Ignore())
+            .ReverseMap();
 
-            //CreateMap<SupplierModel, BaseAddressModel>()
-            //    .ForMember(vm => vm.City, map => map.MapFrom(m => m.Address.City))
-            //    .ForMember(vm => vm.Region, map => map.MapFrom(m => m.Address.Region))
-            //    .ForMember(vm => vm.PostalCode, map => map.MapFrom(m => m.Address.PostalCode))
-            //    .ForMember(vm => vm.Country, map => map.MapFrom(m => m.Address.Country))
-            //.ReverseMap();
-
-            //CreateMap<SupplierModel, BaseCommunicationModel>()
-            //    .ForMember(vm => vm.Phone, map => map.MapFrom(m => m.Communication.Phone))
-            //    .ForMember(vm => vm.Fax, map => map.MapFrom(m => m.Communication.Fax))
-            //    .ForMember(vm => vm.HomePage, map => map.MapFrom(m => m.Communication.HomePage))
-            //.ReverseMap();
+            CreateMap<BaseCommunicationModel, Supplier>()
+               .ForMember(vm => vm.Phone, map => map.MapFrom(m => m.Phone))
+               .ForMember(vm => vm.Fax, map => map.MapFrom(m => m.Fax))
+               .ForMember(vm => vm.HomePage, map => map.MapFrom(m => m.HomePage))
+               .ForMember(vm => vm.SupplierID, map => map.Ignore())
+               .ForMember(vm => vm.CompanyName, map => map.Ignore())
+               .ForMember(vm => vm.ContactName, map => map.Ignore())
+               .ForMember(vm => vm.ContactTitle, map => map.Ignore())
+               .ForMember(vm => vm.Address, map => map.Ignore())
+               .ForMember(vm => vm.City, map => map.Ignore())
+               .ForMember(vm => vm.Region, map => map.Ignore())
+               .ForMember(vm => vm.Country, map => map.Ignore())
+               .ForMember(vm => vm.PostalCode, map => map.Ignore())
+               .ForMember(vm => vm.Products, map => map.Ignore())
+            .ReverseMap();
 
             CreateMap<Supplier, SupplierModel>()
+                 .ForMember(vm => vm.SupplierID, map => map.MapFrom(m => m.SupplierID))
+                 .ForMember(vm => vm.CompanyName, map => map.MapFrom(m => m.CompanyName))
+                 .ForMember(vm => vm.ContactName, map => map.MapFrom(m => m.ContactName))
+                 .ForMember(vm => vm.ContactTitle, map => map.MapFrom(m => m.ContactTitle))
+                 .ForMember(vm => vm.AddressModel, map => map.MapFrom(c => new BaseAddressModel
+                 {
+                     Address = c.Address,
+                     City = c.City,
+                     Region = c.Region,
+                     Country = c.Country,
+                     PostalCode =
+                     c.PostalCode
+                 }))
+                 .ForMember(vm => vm.CommunicationModel, map => map.MapFrom(c => new BaseCommunicationModel
+                 {
+                     Phone = c.Phone,
+                     Fax = c.Fax,
+                     HomePage = c.HomePage
+                 }))
+                 .ForAllOtherMembers(x => x.Ignore());
+
+            CreateMap<SupplierModel, Supplier>()
                 .ForMember(vm => vm.SupplierID, map => map.MapFrom(m => m.SupplierID))
                 .ForMember(vm => vm.CompanyName, map => map.MapFrom(m => m.CompanyName))
                 .ForMember(vm => vm.ContactName, map => map.MapFrom(m => m.ContactName))
                 .ForMember(vm => vm.ContactTitle, map => map.MapFrom(m => m.ContactTitle))
-                .ForMember(vm => vm.Address, map => map.MapFrom(c => new BaseAddressModel { Address = c.Address, City = c.City, Region = c.Region, Country = c.Country, PostalCode = c.PostalCode }))
-                .ForMember(vm => vm.Communication, map => map.MapFrom(c => new BaseCommunicationModel { Phone = c.Phone, Fax = c.Fax, HomePage = c.HomePage }))
-            .ReverseMap();
-
-
-
-            //CreateMap<Supplier, SupplierModel>()
-            //      .ForMember(vm => vm.SupplierID, map => map.MapFrom(m => m.SupplierID))
-            //      .ForMember(vm => vm.CompanyName, map => map.MapFrom(m => m.CompanyName))
-            //      .ForMember(vm => vm.ContactName, map => map.MapFrom(m => m.ContactName))
-            //      .ForMember(vm => vm.ContactTitle, map => map.MapFrom(m => m.ContactTitle))
-            //      .ForMember(vm => vm.Address.City, map => map.MapFrom(m => m.City))
-            //      .ForMember(vm => vm.Address.Region, map => map.MapFrom(m => m.Region))
-            //      .ForMember(vm => vm.Address.PostalCode, map => map.MapFrom(m => m.PostalCode))
-            //      .ForMember(vm => vm.Address.Country, map => map.MapFrom(m => m.Country))
-            //      .ForMember(vm => vm.Communication.Phone, map => map.MapFrom(m => m.Phone))
-            //      .ForMember(vm => vm.Communication.Fax, map => map.MapFrom(m => m.Fax))
-            //      .ForMember(vm => vm.Communication.HomePage, map => map.MapFrom(m => m.HomePage))
-            //.ReverseMap();
+                .ForMember(vm => vm.Address, map => map.MapFrom(m => m.AddressModel.Address))
+                .ForMember(vm => vm.City, map => map.MapFrom(m => m.AddressModel.City))
+                .ForMember(vm => vm.Region, map => map.MapFrom(m => m.AddressModel.Region))
+                .ForMember(vm => vm.Country, map => map.MapFrom(m => m.AddressModel.Country))
+                .ForMember(vm => vm.PostalCode, map => map.MapFrom(m => m.AddressModel.PostalCode))
+                .ForMember(vm => vm.Phone, map => map.MapFrom(m => m.CommunicationModel.Phone))
+                .ForMember(vm => vm.Fax, map => map.MapFrom(m => m.CommunicationModel.Fax))
+                .ForMember(vm => vm.HomePage, map => map.MapFrom(m => m.CommunicationModel.HomePage))
+                .ForAllOtherMembers(x => x.Ignore());
         }
     }
 }

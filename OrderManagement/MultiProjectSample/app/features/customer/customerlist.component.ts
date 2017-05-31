@@ -4,6 +4,9 @@ import { Component, trigger, state, style, transition, animate } from "@angular/
 // importing data services
 import { DataContextService } from "../../services/datacontext.service";
 
+// importing models
+import { CustomerModel } from "../../models/customer.model";
+
 // importing url endpoints
 import { URLEndPoints } from "../../common/urlendpoints.component";
 
@@ -33,6 +36,7 @@ export class CustomersListComponent {
 
     // initializing variables
     public customers: Array<any> = [];
+    private resultResponse: any;
 
     public columns: Array<any> = [
         { title: "Customer ID", name: "customerID", sort: false },
@@ -56,7 +60,6 @@ export class CustomersListComponent {
         this.loadAllCustomers();
     }
 
-
     // method implementation
     loadAllCustomers(): any {
         this.dataContextService.httpGet(URLEndPoints.CUSTOMER_GET_ALL_CUSTOMEMRS, null)
@@ -70,5 +73,16 @@ export class CustomersListComponent {
             .subscribe((resultData: any) => {
                 this.customers = resultData;
             });
+    }
+
+    deleteCustomer(customerId: number): void {
+        var customer: any = this.customers.filter((item:any) => item["customerID"] === customerId);
+        if (customer.length === 1) {
+            var customerData: CustomerModel = new CustomerModel(customer[0]);
+            this.dataContextService.httpPost(URLEndPoints.CUSTOMER_DELETE, customerData)
+                .subscribe((resultData: any) => {
+                    this.resultResponse = resultData;
+                });
+        }
     }
 }

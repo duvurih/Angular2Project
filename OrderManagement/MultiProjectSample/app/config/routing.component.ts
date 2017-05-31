@@ -10,12 +10,15 @@ import { ProductsListComponent } from "../features/product/productslist.componen
 import { CategoryCatalogComponent } from "../features/category/categorycatalog.component";
 import { ViewProductComponent } from "../features/product/viewproduct.component";
 import { CustomersListComponent } from "../features/customer/customerlist.component";
+import { ViewCustomerComponent } from "../features/customer/viewcustomer.component";
 import { SuppliersListComponent } from "../features/supplier/supplierlist.component";
 import { ViewSupplierComponent } from "../features/supplier/viewsupplier.component";
+
 
 // importing application specific services
 import { ProductResolverService } from "../features/product/product-resolver.service";
 import { SupplierResolverService } from "../features/supplier/supplier-resolver.service";
+import { CustomerResolverService } from "../features/customer/customer-resolver.service";
 
 const mainRoutes: Routes = [
     { path: "login", component: LoginComponent},
@@ -24,6 +27,7 @@ const mainRoutes: Routes = [
     { path: "viewCategoryProducts/:id", component: ProductsListComponent },
     { path: "viewProduct/:id", component: ViewProductComponent, resolve: { product: ProductResolverService} },
     { path: "viewCustomersList", component: CustomersListComponent },
+    { path: "viewCustomer/:id", component: ViewCustomerComponent, resolve: { customer: CustomerResolverService } },
     { path: "viewSuppliersList", component: SuppliersListComponent },
     { path: "viewSupplier/:id", component: ViewSupplierComponent, resolve : { supplier: SupplierResolverService } },
 

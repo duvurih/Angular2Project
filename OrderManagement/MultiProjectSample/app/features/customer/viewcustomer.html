@@ -1,0 +1,161 @@
+﻿<div class="panel panel-primary" id="main-container">
+    <form [formGroup]="customerForm" novalidate (ngSubmit)="saveCustomer(customerForm.value)">
+
+        <div class="panel-heading">
+            <h4><i class="fa fa-id-card-o" aria-hidden="true"></i> Customer Information</h4>
+        </div>
+
+        <div class="panel-footer">
+            <button type="button" class="btn btn-default" (click)="cancelOpertation()">
+                <i class="fa fa-times-circle-o" aria-hidden="true"></i> Close
+            </button>
+            <button type="button" [disabled]="isEditable || isAdding" class="btn btn-default" (click)="editCustomer()">
+                <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit
+            </button>
+            <button type="submit" [disabled]="((!isEditable) && (!isAdding)) || (!customerForm.valid)" class="btn btn-default">
+                <i class="fa fa-floppy-o" aria-hidden="true"></i> Save
+            </button>
+            <button type="button" [disabled]="isEditable || isAdding" class="btn btn-default" (click)="addCustomer(customerForm.value)">
+                <i class="fa fa-plus-circle" aria-hidden="true"></i> Add
+            </button>
+        </div>
+        <div *ngIf="!customerForm.valid && (isEditable || isAdding)">
+            <div class="error-panel">
+                <h4>Error Messages</h4>
+                <validation-messages [control]="customerForm.controls.companyName" [controlname]="'companyName'" [validations]="validationRules"></validation-messages>
+                <validation-messages [control]="customerForm.controls.contactName" [controlname]="'contactName'" [validations]="validationRules"></validation-messages>
+                <validation-messages [control]="customerForm.controls.contactTitle" [controlname]="'contactTitle'" [validations]="validationRules"></validation-messages>
+                <validation-messages [control]="customerForm.controls.address" [controlname]="'address'" [validations]="validationRules"></validation-messages>
+                <validation-messages [control]="customerForm.controls.city" [controlname]="'city'" [validations]="validationRules"></validation-messages>
+                <validation-messages [control]="customerForm.controls.region" [controlname]="'region'" [validations]="validationRules"></validation-messages>
+                <validation-messages [control]="customerForm.controls.postalCode" [controlname]="'postalCode'" [validations]="validationRules"></validation-messages>
+                <validation-messages [control]="customerForm.controls.country" [controlname]="'country'" [validations]="validationRules"></validation-messages>
+                <validation-messages [control]="customerForm.controls.phone" [controlname]="'phone'" [validations]="validationRules"></validation-messages>
+                <validation-messages [control]="customerForm.controls.fax" [controlname]="'fax'" [validations]="validationRules"></validation-messages>
+            </div>
+        </div>
+        <hr />
+        <div class="panel-body">
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <label class="control-label">Customer ID</label>
+                    </div>
+                    <div class="col-sm-8">
+                        <label class="control-label">{{customer.customerID}}</label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <label class="control-label">Company Name</label>
+                    </div>
+                    <div class="col-sm-8">
+                        <label class="control-label" *ngIf="!isEditable && !isAdding">{{customer.companyName}}</label>
+                        <input id="companyName" formControlName="companyName" type="text" class="form-control" placeholder="Company Name" [(ngModel)]="customer.companyName" *ngIf="isEditable || isAdding" />
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <label class="control-label">Contact Name</label>
+                    </div>
+                    <div class="col-sm-8">
+                        <label class="control-label" *ngIf="!isEditable && !isAdding">{{customer.contactName}}</label>
+                        <input id="contactName" formControlName="contactName" type="text" class="form-control" placeholder="Contact Name" [(ngModel)]="customer.contactName" *ngIf="isEditable || isAdding" />
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <label class="control-label">Contact Title</label>
+                    </div>
+                    <div class="col-sm-8">
+                        <label class="control-label" *ngIf="!isEditable && !isAdding">{{customer.contactTitle}}</label>
+                        <input id="contactTitle" formControlName="contactTitle" type="text" class="form-control" placeholder="Contact Title" [(ngModel)]="customer.contactTitle" *ngIf="isEditable || isAdding" />
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <label class="control-label">Address</label>
+                    </div>
+                    <div class="col-sm-8">
+                        <label class="control-label" *ngIf="!isEditable && !isAdding">{{customer.addressModel.address}}</label>
+                        <input id="address" formControlName="address" type="text" class="form-control" placeholder="Address" [(ngModel)]="customer.addressModel.address" *ngIf="isEditable || isAdding" />
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <label class="control-label">City</label>
+                    </div>
+                    <div class="col-sm-8">
+                        <label class="control-label" *ngIf="!isEditable && !isAdding">{{customer.addressModel.city}}</label>
+                        <input id="city" formControlName="city" type="text" class="form-control" placeholder="City" [(ngModel)]="customer.addressModel.city" *ngIf="isEditable || isAdding" />
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <label class="control-label">Region</label>
+                    </div>
+                    <div class="col-sm-8">
+                        <label class="control-label" *ngIf="!isEditable && !isAdding">{{customer.addressModel.region}}</label>
+                        <input id="region" formControlName="region" type="text" class="form-control" placeholder="Region" [(ngModel)]="customer.addressModel.region" *ngIf="isEditable || isAdding" />
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <label class="control-label">Postal Code</label>
+                    </div>
+                    <div class="col-sm-8">
+                        <label class="control-label" *ngIf="!isEditable && !isAdding">{{customer.addressModel.postalCode}}</label>
+                        <input id="postalCode" formControlName="postalCode" type="text" class="form-control" placeholder="Postal Code" [(ngModel)]="customer.addressModel.postalCode" *ngIf="isEditable || isAdding" />
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <label class="control-label">Country</label>
+                    </div>
+                    <div class="col-sm-8">
+                        <label class="control-label" *ngIf="!isEditable && !isAdding">{{customer.addressModel.country}}</label>
+                        <input id="country" formControlName="country" type="text" class="form-control" placeholder="Country" [(ngModel)]="customer.addressModel.country" *ngIf="isEditable || isAdding" />
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <label class="control-label">Phone</label>
+                    </div>
+                    <div class="col-sm-8">
+                        <label class="control-label" *ngIf="!isEditable && !isAdding">{{customer.communicationModel.phone}}</label>
+                        <input id="phone" formControlName="phone" type="text" class="form-control" placeholder="Phone Number" [(ngModel)]="customer.communicationModel.phone" *ngIf="isEditable || isAdding" />
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <label class="control-label">Fax</label>
+                    </div>
+                    <div class="col-sm-8">
+                        <label class="control-label" *ngIf="!isEditable && !isAdding">{{customer.communicationModel.fax}}</label>
+                        <input id="fax" formControlName="fax" type="text" class="form-control" placeholder="Fax Number" [(ngModel)]="customer.communicationModel.fax" *ngIf="isEditable || isAdding" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

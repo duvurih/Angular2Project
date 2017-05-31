@@ -3,6 +3,7 @@ using Hk.Application1.Core.Models;
 using Hk.Utilities.Interfaces;
 using MultiProjectSample.Models.Models;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net.Http;
 using System.Web.Http;
 
@@ -26,6 +27,15 @@ namespace MultiProjectSample.Api
         {
             SupplierModel supplierModel = new SupplierModel();
             Dictionary<string, string> supplierValidationRules = supplierModel.GetValidationDefinition(typeof(SupplierModel));
+
+            BaseAddressModel baseAddressModel = new BaseAddressModel();
+            Dictionary<string, string> addressValidationRules = baseAddressModel.GetValidationDefinition(typeof(BaseAddressModel));
+            supplierValidationRules = supplierValidationRules.Concat(addressValidationRules).ToDictionary(x => x.Key, x => x.Value);
+
+            BaseCommunicationModel baseCommunicationModel = new BaseCommunicationModel();
+            Dictionary<string, string> communicationValidationRules = baseAddressModel.GetValidationDefinition(typeof(BaseCommunicationModel));
+            supplierValidationRules = supplierValidationRules.Concat(communicationValidationRules).ToDictionary(x => x.Key, x => x.Value);
+
             var results = new { data = supplierModel, validationRules = supplierValidationRules };
             return OkResponse(results);
         }

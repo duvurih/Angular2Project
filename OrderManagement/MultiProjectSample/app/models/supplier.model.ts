@@ -7,8 +7,8 @@ export class SupplierModel extends BaseModel {
     companyName: string;
     contactName: string;
     contactTitle: string;
-    address: BaseAddress;
-    communication: BaseCommunication;
+    addressModel: BaseAddress;
+    communicationModel: BaseCommunication;
 
     constructor(supplierData: any) {
         super();
@@ -17,7 +17,7 @@ export class SupplierModel extends BaseModel {
         this.companyName = super.checkUndefinedValue(supplierData.companyName);
         this.contactName = super.checkUndefinedValue(supplierData.contactName);
         this.contactTitle = super.checkUndefinedValue(supplierData.contactTitle);
-        this.address = new BaseAddress(supplierData.address);
-        this.communication = new BaseCommunication(supplierData.communication);
+        this.addressModel = new BaseAddress(supplierData.addressModel);
+        this.communicationModel = new BaseCommunication(supplierData.communicationModel);
     }
 }

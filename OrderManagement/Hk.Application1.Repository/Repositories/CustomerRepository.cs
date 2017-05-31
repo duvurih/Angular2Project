@@ -13,9 +13,14 @@ namespace Hk.Application1.Repository.Repositories
         {
         }
 
-        public IEnumerable<Customer> GetAllCustomerProducts(int customerId)
+        public IEnumerable<Customer> GetAllCustomerProducts(string customerId)
         {
             throw new NotImplementedException();
+        }
+
+        public Customer GetCustomerById(string customerId)
+        {
+            return AppContext.Customers.Find(customerId);
         }
 
         public DatabaseContext AppContext

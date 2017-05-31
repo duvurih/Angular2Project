@@ -2,7 +2,7 @@
     public static CATEGORY_GET_ALL_CATEGORIES:string = "CategoryApiWeb/GetAllCategories";
 
     public static CUSTOMER_GET_ALL_CUSTOMEMRS: string = "CustomerApiWeb/GetAllCustomers";
-    public static CUSTOMER_GET_CUSTOMER_BY_ID: string = "CustomerApiWeb/Get/";
+    public static CUSTOMER_GET_CUSTOMER_BY_ID: string = "CustomerApiWeb/GetCustomerById/";
     public static CUSTOMER_VALIDATION_RULES: string = "CustomerApiWeb/ValidationRules";
     public static CUSTOMER_DELETE: string = "CustomerApiWeb/DeleteCustomer/";
     public static CUSTOMER_ADD: string = "CustomerApiWeb/AddCustomer";

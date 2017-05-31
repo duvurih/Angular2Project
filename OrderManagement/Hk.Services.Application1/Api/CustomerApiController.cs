@@ -26,9 +26,12 @@ namespace Hk.Services.Application1.Api
         }
         #endregion
 
-        public void Delete(Customer entity)
+        [Route("DeleteCustomer")]
+        [HttpPost]
+        public bool Delete(Customer entity)
         {
             _iCustomerService.Delete(entity);
+            return true;
         }
 
         public async Task DeleteAsync(int Id)
@@ -51,6 +54,13 @@ namespace Hk.Services.Application1.Api
         public Customer First(Expression<Func<Customer, bool>> where)
         {
             return _iCustomerService.First(where);
+        }
+
+        [Route("GetCustomerById/{id}")]
+        [HttpGet]
+        public Customer GetCustomerById(string id)
+        {
+            return _iCustomerService.GetCustomerById(id);
         }
 
         [Route("Get/{id}")]
@@ -81,7 +91,7 @@ namespace Hk.Services.Application1.Api
             return _iCustomerService.GetAllByFilters(includeProperties);
         }
 
-        public IEnumerable<Customer> GetAllCustomerProducts(int customerId)
+        public IEnumerable<Customer> GetAllCustomerProducts(string customerId)
         {
             return _iCustomerService.GetAllCustomerProducts(customerId);
         }
@@ -95,9 +105,9 @@ namespace Hk.Services.Application1.Api
 
         [Route("AddCustomer")]
         [HttpPost]
-        public void Insert(Customer entity)
+        public Customer Insert(Customer entity)
         {
-            _iCustomerService.Insert(entity);
+            return _iCustomerService.Insert(entity);
         }
 
         public void InsertMultiple(IEnumerable<Customer> entities)
@@ -110,9 +120,12 @@ namespace Hk.Services.Application1.Api
             return _iCustomerService.Single(where);
         }
 
-        public void Update(Customer entity)
+        [Route("UpdateCustomer")]
+        [HttpPost]
+        public bool Update(Customer entity)
         {
             _iCustomerService.Update(entity);
+            return true;
         }
     }
 }

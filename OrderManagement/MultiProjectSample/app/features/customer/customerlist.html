@@ -17,7 +17,7 @@
                     <td>{{customer.contactTitle}}</td>
                     <!--<td><button class="btn btn-primary" (click)="viewProductDetials(product.productID)">View</button></td>-->
                     <td><a href="#topinfo" [routerLink]="['/viewCustomer/', customer.customerID]">View <i class="fa fa-check-circle-o" aria-hidden="true"></i></a></td>
-                    <td><a href="#topinfo" [routerLink]="['/deleteCustomer/', customer.customerID]">Delete <i class="fa fa-times-circle-o" aria-hidden="true"></i></a></td>
+                    <td><a href="#topinfo" (click)="deleteCustomer(customer.customerID)" role="button">Delete <i class="fa fa-times-circle-o" aria-hidden="true"></i></a></td>
                 </tr>
             </tbody>
         </table>

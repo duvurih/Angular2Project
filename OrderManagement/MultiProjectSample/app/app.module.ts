@@ -50,12 +50,15 @@ import { CategoryCatalogComponent } from "./features/category/categorycatalog.co
 import { CategoryItemComponent } from "./features/category/categoryitem.component";
 import { ViewProductComponent } from "./features/product/viewproduct.component";
 import { CustomersListComponent } from "./features/customer/customerlist.component";
+import { ViewCustomerComponent } from "./features/customer/viewcustomer.component";
 import { SuppliersListComponent } from "./features/supplier/supplierlist.component";
 import { ViewSupplierComponent } from "./features/supplier/viewsupplier.component";
+
 
 // application specific services
 import { ProductResolverService } from "./features/product/product-resolver.service";
 import { SupplierResolverService } from "./features/supplier/supplier-resolver.service";
+import { CustomerResolverService } from "./features/customer/customer-resolver.service";
 
 @NgModule({
     imports: [
@@ -82,13 +85,14 @@ import { SupplierResolverService } from "./features/supplier/supplier-resolver.s
         DashboardComponent,
         SidebarComponent,
         TopbarComponent,
-        ProductsListComponent,
         CategoryCatalogComponent,
         CategoryItemComponent,
         SafeHtml,
         ProfileImageDirective,
+        ProductsListComponent,
         ViewProductComponent,
         CustomersListComponent,
+        ViewCustomerComponent,
         SuppliersListComponent,
         ViewSupplierComponent
     ],
@@ -101,7 +105,8 @@ import { SupplierResolverService } from "./features/supplier/supplier-resolver.s
         ReferenceDataService,
         { provide: ErrorHandler, useClass: GenericExceptionHandler },
         SupplierResolverService,
-        ProductResolverService
+        ProductResolverService,
+        CustomerResolverService
     ],
     schemas: [CUSTOM_ELEMENTS_SCHEMA],
     bootstrap: [AppComponent]

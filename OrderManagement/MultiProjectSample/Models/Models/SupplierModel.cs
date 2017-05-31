@@ -16,11 +16,11 @@ namespace MultiProjectSample.Models.Models
         [MaxLength(30, ErrorMessage = "Contact Name can not be more than 30 characters")]
         public string ContactName { get; set; }
 
-        [Required(ErrorMessage = "Contact Name is required")]
-        [MinLength(1, ErrorMessage = "Contact Name must be at least 1 characters")]
-        [MaxLength(30, ErrorMessage = "Contact Name can not be more than 30 characters")]
+        [Required(ErrorMessage = "Contact Title is required")]
+        [MinLength(1, ErrorMessage = "Contact Title must be at least 1 characters")]
+        [MaxLength(30, ErrorMessage = "Contact Title can not be more than 30 characters")]
         public string ContactTitle { get; set; }
-        public BaseAddressModel Address { get; set; }
-        public BaseCommunicationModel Communication { get; set; }
+        public BaseAddressModel AddressModel { get; set; }
+        public BaseCommunicationModel CommunicationModel { get; set; }
     }
 }

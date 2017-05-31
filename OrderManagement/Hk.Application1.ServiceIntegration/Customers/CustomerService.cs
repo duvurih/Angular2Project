@@ -30,5 +30,15 @@ namespace Hk.Application1.Services.Customers
         {
             throw new NotImplementedException();
         }
+
+        public IEnumerable<Customer> GetAllCustomerProducts(string customerId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Customer GetCustomerById(string customerId)
+        {
+            return _iCustomerRepository.GetCustomerById(customerId);
+        }
     }
 }

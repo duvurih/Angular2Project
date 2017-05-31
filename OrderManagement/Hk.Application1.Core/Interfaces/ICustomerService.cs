@@ -6,6 +6,8 @@ namespace Hk.Application1.Core.Interfaces
 {
     public interface ICustomerService : IGenericService<Customer>
     {
-        IEnumerable<Customer> GetAllCustomerProducts(int customerId);
+        IEnumerable<Customer> GetAllCustomerProducts(string customerId);
+
+        Customer GetCustomerById(string customerId);
     }
 }

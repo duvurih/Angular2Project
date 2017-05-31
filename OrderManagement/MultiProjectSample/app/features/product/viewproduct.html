@@ -19,7 +19,7 @@
                 <i class="fa fa-plus-circle" aria-hidden="true"></i> Add
             </button>
         </div>
-        <div *ngIf="productForm.valid || !productForm.pristine">
+        <div *ngIf="!productForm.valid && (isEditable || isAdding)">
             <div class="error-panel">
                 <h4>Error Messages</h4>
                 <validation-messages [control]="productForm.controls.productName" [controlname]="'productName'" [validations]="validationRules"></validation-messages>

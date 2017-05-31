@@ -262,6 +262,7 @@
     <Content Include="app\features\category\categorycatalog.html" />
     <Content Include="app\features\category\categoryitem.html" />
     <Content Include="app\features\customer\customerlist.html" />
+    <Content Include="app\features\customer\viewcustomer.html" />
     <Content Include="app\features\dashboard\dashboard.html" />
     <Content Include="app\features\product\productslist.html" />
     <Content Include="app\features\product\viewproduct.html" />
@@ -356,7 +357,9 @@
     <TypeScriptCompile Include="app\environments\environment.ts" />
     <TypeScriptCompile Include="app\features\category\categorycatalog.component.ts" />
     <TypeScriptCompile Include="app\features\category\categoryitem.component.ts" />
+    <TypeScriptCompile Include="app\features\customer\customer-resolver.service.ts" />
     <TypeScriptCompile Include="app\features\customer\customerlist.component.ts" />
+    <TypeScriptCompile Include="app\features\customer\viewcustomer.component.ts" />
     <TypeScriptCompile Include="app\features\dashboard\dashboard.component.ts" />
     <TypeScriptCompile Include="app\features\product\product-resolver.service.ts" />
     <TypeScriptCompile Include="app\features\product\productslist.component.ts" />
@@ -371,6 +374,7 @@
     <TypeScriptCompile Include="app\models\baseaddress.model.ts" />
     <TypeScriptCompile Include="app\models\basecommunication.model.ts" />
     <TypeScriptCompile Include="app\models\category.model.ts" />
+    <TypeScriptCompile Include="app\models\customer.model.ts" />
     <TypeScriptCompile Include="app\models\filtercriteria.model.ts" />
     <TypeScriptCompile Include="app\models\product.model.ts" />
     <TypeScriptCompile Include="app\models\referencedata.model.ts" />
