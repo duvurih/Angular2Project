@@ -1,0 +1,88 @@
+﻿<modal #viewOrderDetailsModal appendTo="body">
+    <modal-header>
+        <h4><i class="fa fa-id-card-o" aria-hidden="true"></i> Product Order Information</h4>
+    </modal-header>
+    <modal-content>
+        <div *ngIf="orderdetail != undefined">
+            <form [formGroup]="orderForm" novalidate (ngSubmit)="saveOrder(orderForm.value)">
+                <div *ngIf="!orderForm.valid && (isEditable || isAdding)">
+                    <div class="error-panel">
+                        <h4>Error Messages</h4>
+                        <validation-messages [control]="orderForm.controls.productID" [controlname]="'productID'" [validations]="validationRules"></validation-messages>
+                        <validation-messages [control]="orderForm.controls.unitPrice" [controlname]="'unitPrice'" [validations]="validationRules"></validation-messages>
+                        <validation-messages [control]="orderForm.controls.quantity" [controlname]="'quantity'" [validations]="validationRules"></validation-messages>
+                        <validation-messages [control]="orderForm.controls.discount" [controlname]="'discount'" [validations]="validationRules"></validation-messages>
+                    </div>
+                </div>
+                <hr />
+                <div class="panel-body">
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <label class="control-label">Supplier ID</label>
+                            </div>
+                            <div class="col-sm-8">
+                                <label class="control-label">{{orderdetail.orderID}}</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <label class="control-label">Product Name</label>
+                            </div>
+                            <div class="col-sm-8">
+                                <label *ngIf="!isEditable && !isAdding">{{orderdetail.product.productName}}</label>
+                                <input id="productID" formControlName="productID" type="text" class="form-control" placeholder="Product Name" [(ngModel)]="orderdetail.productID" *ngIf="isEditable || isAdding" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <label class="control-label">Unit Price</label>
+                            </div>
+                            <div class="col-sm-8">
+                                <label *ngIf="!isEditable && !isAdding">{{orderdetail.unitPrice}}</label>
+                                <input id="unitPrice" formControlName="unitPrice" type="text" class="form-control" placeholder="Unit Price" [(ngModel)]="orderdetail.unitPrice" *ngIf="isEditable || isAdding" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <label class="control-label">Quantity</label>
+                            </div>
+                            <div class="col-sm-8">
+                                <label *ngIf="!isEditable && !isAdding">{{orderdetail.quantity}}</label>
+                                <input id="quantity" formControlName="quantity" type="text" class="form-control" placeholder="Quantity" [(ngModel)]="orderdetail.quantity" *ngIf="isEditable || isAdding" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <label class="control-label">Discount</label>
+                            </div>
+                            <div class="col-sm-8">
+                                <label *ngIf="!isEditable && !isAdding">{{orderdetail.discount}}</label>
+                                <input id="discount" formControlName="discount" type="text" class="form-control" placeholder="Discount" [(ngModel)]="orderdetail.discount" *ngIf="isEditable || isAdding" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </modal-content>
+    <modal-footer>
+        <button type="button" class="btn btn-default" (click)="close()">
+            <i class="fa fa-times-circle-o" aria-hidden="true"></i> Close
+        </button>
+        <button type="button" [disabled]="isEditable || isAdding" class="btn btn-default" (click)="editOrder()">
+            <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit
+        </button>
+        <button type="submit" [disabled]="((!isEditable) && (!isAdding)) || (!orderForm.valid)" class="btn btn-default">
+            <i class="fa fa-floppy-o" aria-hidden="true"></i> Save
+        </button>
+    </modal-footer>
+</modal>

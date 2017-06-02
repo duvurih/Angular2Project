@@ -31,6 +31,7 @@ namespace MultiProjectSample.App_Start
                 m.AddProfile<ProductMappingProfile>();
                 m.AddProfile<CustomerMappingProfile>();
                 m.AddProfile<SupplierMappingProfile>();
+                m.AddProfile<OrderMappingProfile>();
             });
             //Mapper = mapperConfiguration.CreateMapper();
             Mapper.AssertConfigurationIsValid();

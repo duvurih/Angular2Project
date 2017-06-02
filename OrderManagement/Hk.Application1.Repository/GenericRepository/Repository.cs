@@ -48,7 +48,7 @@ namespace Hk.Application1.Repository.GenericRepository
             return _context.Set<TEntity>().Where(predicate);
         }
 
-        public TEntity Get(int id)
+        public virtual TEntity Get(int id)
         {
             return _context.Set<TEntity>().Find(id);
         }

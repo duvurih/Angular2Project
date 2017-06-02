@@ -223,6 +223,7 @@
     <Compile Include="Api\BaseApiController.cs" />
     <Compile Include="Api\CategoryApiController.cs" />
     <Compile Include="Api\CustomerApiController.cs" />
+    <Compile Include="Api\OrderApiController.cs" />
     <Compile Include="Api\ProductApiController.cs" />
     <Compile Include="Api\SupplierApiController.cs" />
     <Compile Include="App_Start\AutoMapperConfiguration.cs" />
@@ -243,6 +244,7 @@
     <Compile Include="IoC\WindsorControllerFactory.cs" />
     <Compile Include="Models\Mappings\CategoryMappingProfile.cs" />
     <Compile Include="Models\Mappings\CustomerMappingProfile.cs" />
+    <Compile Include="Models\Mappings\OrderMappingProfile.cs" />
     <Compile Include="Models\Mappings\ProductMappingProfile.cs" />
     <Compile Include="Models\Mappings\SupplierMappingProfile.cs" />
     <Compile Include="Models\Models\BaseAddressModel.cs" />
@@ -250,6 +252,8 @@
     <Compile Include="Models\Models\BaseModel.cs" />
     <Compile Include="Models\Models\CategoryModel.cs" />
     <Compile Include="Models\Models\CustomerModel.cs" />
+    <Compile Include="Models\Models\OrderDetailsModel.cs" />
+    <Compile Include="Models\Models\OrderModel.cs" />
     <Compile Include="Models\Models\ProductModel.cs" />
     <Compile Include="Models\Models\SupplierModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -264,6 +268,10 @@
     <Content Include="app\features\customer\customerlist.html" />
     <Content Include="app\features\customer\viewcustomer.html" />
     <Content Include="app\features\dashboard\dashboard.html" />
+    <Content Include="app\features\order\orderdetaillist.html" />
+    <Content Include="app\features\order\orderlist.html" />
+    <Content Include="app\features\order\vieworder.html" />
+    <Content Include="app\features\order\vieworderdetail.html" />
     <Content Include="app\features\product\productslist.html" />
     <Content Include="app\features\product\viewproduct.html" />
     <Content Include="app\features\sidebar\sidebar.html" />
@@ -361,6 +369,11 @@
     <TypeScriptCompile Include="app\features\customer\customerlist.component.ts" />
     <TypeScriptCompile Include="app\features\customer\viewcustomer.component.ts" />
     <TypeScriptCompile Include="app\features\dashboard\dashboard.component.ts" />
+    <TypeScriptCompile Include="app\features\order\order-resolver.service.ts" />
+    <TypeScriptCompile Include="app\features\order\orderdetaillist.component.ts" />
+    <TypeScriptCompile Include="app\features\order\orderlist.component.ts" />
+    <TypeScriptCompile Include="app\features\order\vieworder.component.ts" />
+    <TypeScriptCompile Include="app\features\order\vieworderdetail.component.ts" />
     <TypeScriptCompile Include="app\features\product\product-resolver.service.ts" />
     <TypeScriptCompile Include="app\features\product\productslist.component.ts" />
     <TypeScriptCompile Include="app\features\product\viewproduct.component.ts" />
@@ -376,6 +389,8 @@
     <TypeScriptCompile Include="app\models\category.model.ts" />
     <TypeScriptCompile Include="app\models\customer.model.ts" />
     <TypeScriptCompile Include="app\models\filtercriteria.model.ts" />
+    <TypeScriptCompile Include="app\models\order.details.model.ts" />
+    <TypeScriptCompile Include="app\models\order.master.model.ts" />
     <TypeScriptCompile Include="app\models\product.model.ts" />
     <TypeScriptCompile Include="app\models\referencedata.model.ts" />
     <TypeScriptCompile Include="app\models\supplier.model.ts" />

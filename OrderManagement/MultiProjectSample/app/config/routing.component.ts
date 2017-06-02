@@ -13,12 +13,14 @@ import { CustomersListComponent } from "../features/customer/customerlist.compon
 import { ViewCustomerComponent } from "../features/customer/viewcustomer.component";
 import { SuppliersListComponent } from "../features/supplier/supplierlist.component";
 import { ViewSupplierComponent } from "../features/supplier/viewsupplier.component";
-
+import { OrdersListComponent } from "../features/order/orderlist.component";
+import { ViewOrderComponent } from "../features/order/vieworder.component";
 
 // importing application specific services
 import { ProductResolverService } from "../features/product/product-resolver.service";
 import { SupplierResolverService } from "../features/supplier/supplier-resolver.service";
 import { CustomerResolverService } from "../features/customer/customer-resolver.service";
+import { OrderResolverService } from "../features/order/order-resolver.service";
 
 const mainRoutes: Routes = [
     { path: "login", component: LoginComponent},
@@ -29,7 +31,10 @@ const mainRoutes: Routes = [
     { path: "viewCustomersList", component: CustomersListComponent },
     { path: "viewCustomer/:id", component: ViewCustomerComponent, resolve: { customer: CustomerResolverService } },
     { path: "viewSuppliersList", component: SuppliersListComponent },
-    { path: "viewSupplier/:id", component: ViewSupplierComponent, resolve : { supplier: SupplierResolverService } },
+    { path: "viewSupplier/:id", component: ViewSupplierComponent, resolve: { supplier: SupplierResolverService } },
+    { path: "viewOrdersList", component: OrdersListComponent },
+    { path: "viewOrder/:id", component: ViewOrderComponent, resolve: { order: OrderResolverService }},
+
 
     // redirects
     // { path: "", redirectTo: "/dashboard", pathMatch: "full"},

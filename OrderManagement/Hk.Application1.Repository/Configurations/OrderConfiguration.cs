@@ -36,7 +36,6 @@ namespace Hk.Application1.Repository.Configurations
             this.ToTable("Orders");
             this.Property(t => t.OrderID).HasColumnName("OrderID");
             this.Property(t => t.CustomerID).HasColumnName("CustomerID");
-            this.Property(t => t.EmployeeID).HasColumnName("EmployeeID");
             this.Property(t => t.OrderDate).HasColumnName("OrderDate");
             this.Property(t => t.RequiredDate).HasColumnName("RequiredDate");
             this.Property(t => t.ShippedDate).HasColumnName("ShippedDate");

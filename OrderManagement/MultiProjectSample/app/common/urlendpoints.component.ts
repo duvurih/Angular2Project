@@ -23,4 +23,13 @@
     public static SUPPLIER_ADD: string = "SupplierApiWeb/AddSupplier";
     public static SUPPLIER_UPDATE: string = "SupplierApiWeb/UpdateSupplier";
 
+    public static ORDER_GET_ALL_ORDERS: string = "OrderApiWeb/GetAllOrders";
+    public static ORDER_GET_ORDER_BY_ID: string = "OrderApiWeb/Get/";
+    public static ORDER_VALIDATION_RULES: string = "OrderApiWeb/OrderValidationRules";
+    public static ORDER_DELETE: string = "OrderApiWeb/DeleteOrder/";
+    public static ORDER_ADD: string = "OrderApiWeb/AddOrder";
+    public static ORDER_UPDATE: string = "OrderApiWeb/UpdateOrder";
+    public static ORDER_DETAIL_VALIDATION_RULES: string = "OrderApiWeb/OrderDetailValidationRules";
+    public static ORDER_DETAIL_DELETE: string = "OrderApiWeb/DeleteOrderDetail/";
+
 }

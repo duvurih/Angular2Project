@@ -212,3 +212,33 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 
 .shortRow {
   height: 10px !important; }
+
+.modal-backdrop {
+  background-color: #000;
+  opacity: .6;
+  position: sticky; }
+
+.modal .modal-dialog .modal-content {
+  border-radius: 7px; }
+  .modal .modal-dialog .modal-content .modal-header {
+    background: #756e6e;
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+    padding: 2px 15px 2px 15px;
+    position: relative; }
+    .modal .modal-dialog .modal-content .modal-header h4 {
+      color: #fff;
+      font-size: 1.4em;
+      font-weight: normal;
+      text-decoration: none; }
+    .modal .modal-dialog .modal-content .modal-header .close {
+      margin-top: 7px; }
+      .modal .modal-dialog .modal-content .modal-header .close span {
+        font-size: 1.5em; }
+  .modal .modal-dialog .modal-content .modal-body {
+    background: #fff; }
+  .modal .modal-dialog .modal-content .modal-footer {
+    background: #eee;
+    border-bottom-left-radius: 7px;
+    border-bottom-right-radius: 7px;
+    padding: 8px 10px 8px; }

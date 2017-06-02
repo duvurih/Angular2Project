@@ -45,6 +45,7 @@
     <Compile Include="Common\SubscriberService.cs" />
     <Compile Include="Interfaces\ICategoryService.cs" />
     <Compile Include="Interfaces\ICustomerService.cs" />
+    <Compile Include="Interfaces\IOrderService.cs" />
     <Compile Include="Interfaces\IProductService.cs" />
     <Compile Include="Interfaces\IPublisherService.cs" />
     <Compile Include="Interfaces\ISubscriberService.cs" />

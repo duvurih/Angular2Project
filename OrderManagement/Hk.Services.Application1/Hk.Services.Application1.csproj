@@ -164,6 +164,7 @@
   <ItemGroup>
     <Compile Include="Api\CategoryApiController.cs" />
     <Compile Include="Api\CustomerApiController.cs" />
+    <Compile Include="Api\OrderApiController.cs" />
     <Compile Include="Api\ProductApiController.cs" />
     <Compile Include="Api\SupplierApiController.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />

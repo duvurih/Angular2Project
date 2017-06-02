@@ -1,0 +1,26 @@
+﻿<div id="cardstack" class="row card-stack">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Order ID</th>
+                <th>Product Name</th>
+                <th>Unit Price</th>
+                <th>Quantity</th>
+                <th>Discount</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let orderdetail of orderdetails">
+                <td>{{orderdetail.orderID}}</td>
+                <td>{{orderdetail.product.productName}}</td>
+                <td>{{orderdetail.unitPrice}}</td>
+                <td>{{orderdetail.quantity}}</td>
+                <td>{{orderdetail.discount}}</td>
+                <td><a *ngIf="isViewOrderDetail" href="javascript:void(0);" (click)="showOrderDetail(orderdetail.orderID, orderdetail.productID)">View <i class="fa fa-check-circle-o" aria-hidden="true"></i></a></td>
+                <td><a href="#topinfo" (click)="deleteOrderDetail(orderdetail.orderID, orderdetail.productID)" role="button">Delete <i class="fa fa-times-circle-o" aria-hidden="true"></i></a></td>
+            </tr>
+        </tbody>
+    </table>
+    <!--<ngtable [columns]="columns" [data]="products" [config]="config"></ngtable>-->
+</div>
+<vieworderdetail #viewOrderDetailComponent [orderdetail]="selectedOrder" [showView]="isOrderDetailsDataLoaded" (orderUpdated)="onUpdatedOrder($event)"></vieworderdetail>

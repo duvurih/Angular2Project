@@ -11,10 +11,11 @@ import { Router, Resolve, RouterStateSnapshot, ActivatedRouteSnapshot } from "@a
 
 
 // ng2-bootstrap
+import { ModalModule } from "ng2-modal";
 import { Ng2BootstrapModule } from "ng2-bootstrap";
 import { PaginationModule } from "ng2-bootstrap";
 import { DatepickerModule } from "ng2-bootstrap";
-import { ModalModule } from "ng2-bootstrap";
+// import { ModalModule } from "ng2-bootstrap";
 import { ProgressbarModule } from "ng2-bootstrap";
 import { TimepickerModule } from "ng2-bootstrap";
 import { Ng2PageScrollModule } from "ng2-page-scroll";
@@ -53,12 +54,17 @@ import { CustomersListComponent } from "./features/customer/customerlist.compone
 import { ViewCustomerComponent } from "./features/customer/viewcustomer.component";
 import { SuppliersListComponent } from "./features/supplier/supplierlist.component";
 import { ViewSupplierComponent } from "./features/supplier/viewsupplier.component";
-
+import { OrdersListComponent } from "./features/order/orderlist.component";
+import { ViewOrderComponent } from "./features/order/vieworder.component";
+import { OrderDetailsListComponent } from "./features/order/orderdetaillist.component";
+import { ViewOrderDetailComponent } from "./features/order/vieworderdetail.component";
 
 // application specific services
 import { ProductResolverService } from "./features/product/product-resolver.service";
 import { SupplierResolverService } from "./features/supplier/supplier-resolver.service";
 import { CustomerResolverService } from "./features/customer/customer-resolver.service";
+import { OrderResolverService } from "./features/order/order-resolver.service";
+
 
 @NgModule({
     imports: [
@@ -68,7 +74,8 @@ import { CustomerResolverService } from "./features/customer/customer-resolver.s
         ReactiveFormsModule,
         DatepickerModule,
         Ng2BootstrapModule,
-        ModalModule.forRoot(),
+        ModalModule,
+        //ModalModule.forRoot(),
         ProgressbarModule,
         PaginationModule.forRoot(),
         Ng2PageScrollModule.forRoot(),
@@ -80,21 +87,25 @@ import { CustomerResolverService } from "./features/customer/customer-resolver.s
         DateFormatPipe,
         TableComponent,
         ValidationMessages,
+        SafeHtml,
         AppComponent,
         LoginComponent,
-        DashboardComponent,
         SidebarComponent,
         TopbarComponent,
+        DashboardComponent,
         CategoryCatalogComponent,
         CategoryItemComponent,
-        SafeHtml,
         ProfileImageDirective,
         ProductsListComponent,
         ViewProductComponent,
         CustomersListComponent,
         ViewCustomerComponent,
         SuppliersListComponent,
-        ViewSupplierComponent
+        ViewSupplierComponent,
+        OrdersListComponent,
+        ViewOrderComponent,
+        OrderDetailsListComponent,
+        ViewOrderDetailComponent
     ],
     providers: [
         { provide: LocationStrategy, useClass: HashLocationStrategy },
@@ -106,7 +117,8 @@ import { CustomerResolverService } from "./features/customer/customer-resolver.s
         { provide: ErrorHandler, useClass: GenericExceptionHandler },
         SupplierResolverService,
         ProductResolverService,
-        CustomerResolverService
+        CustomerResolverService,
+        OrderResolverService
     ],
     schemas: [CUSTOM_ELEMENTS_SCHEMA],
     bootstrap: [AppComponent]

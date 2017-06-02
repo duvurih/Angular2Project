@@ -1,0 +1,27 @@
+﻿<div [@flyInOut]="'in'">
+    <div id="cardstack" class="row card-stack">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Order ID</th>
+                    <th>Customer Name</th>
+                    <th>Ordered Date</th>
+                    <th>Shipped Date</th>
+                    <th>Freight</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let order of orders">
+                    <td>{{order.orderID}}</td>
+                    <td>{{order.customerID}}</td>
+                    <td>{{order.orderDate}}</td>
+                    <td>{{order.shippedDate}}</td>
+                    <td>{{order.freight}}</td>
+                    <td><a href="#topinfo" [routerLink]="['/viewOrder/', order.orderID]">View <i class="fa fa-check-circle-o" aria-hidden="true"></i></a></td>
+                    <td><a href="#topinfo" (click)="deleteOrder(order.orderID)" role="button">Delete <i class="fa fa-times-circle-o" aria-hidden="true"></i></a></td>
+                </tr>
+            </tbody>
+        </table>
+        <!--<ngtable [columns]="columns" [data]="products" [config]="config"></ngtable>-->
+    </div>
+</div>

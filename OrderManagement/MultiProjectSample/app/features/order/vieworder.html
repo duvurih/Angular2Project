@@ -1,0 +1,210 @@
+﻿<div class="panel panel-primary" id="main-container">
+    <form [formGroup]="orderForm" novalidate (ngSubmit)="saveSupplier(orderForm.value)">
+
+        <div class="panel-heading">
+            <h4><i class="fa fa-id-card-o" aria-hidden="true"></i> Order Information</h4>
+        </div>
+
+        <div class="panel-footer">
+            <button type="button" class="btn btn-default" (click)="cancelOpertation()">
+                <i class="fa fa-times-circle-o" aria-hidden="true"></i> Close
+            </button>
+            <button type="button" [disabled]="isEditable || isAdding" class="btn btn-default" (click)="editSupplier()">
+                <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit
+            </button>
+            <button type="submit" [disabled]="((!isEditable) && (!isAdding)) || (!orderForm.valid)" class="btn btn-default">
+                <i class="fa fa-floppy-o" aria-hidden="true"></i> Save
+            </button>
+            <button type="button" [disabled]="isEditable || isAdding" class="btn btn-default" (click)="addSupplier(orderForm.value)">
+                <i class="fa fa-plus-circle" aria-hidden="true"></i> Add
+            </button>
+        </div>
+        <div *ngIf="!orderForm.valid && (isEditable || isAdding)">
+            <div class="error-panel">
+                <h4>Error Messages</h4>
+                <validation-messages [control]="orderForm.controls.customerID" [controlname]="'customerID'" [validations]="validationRules"></validation-messages>
+                <validation-messages [control]="orderForm.controls.orderDate" [controlname]="'orderDate'" [validations]="validationRules"></validation-messages>
+                <validation-messages [control]="orderForm.controls.requiredDate" [controlname]="'requiredDate'" [validations]="validationRules"></validation-messages>
+                <validation-messages [control]="orderForm.controls.shippedDate" [controlname]="'shippedDate'" [validations]="validationRules"></validation-messages>
+                <validation-messages [control]="orderForm.controls.freight" [controlname]="'freight'" [validations]="validationRules"></validation-messages>
+                <validation-messages [control]="orderForm.controls.shipName" [controlname]="'shipName'" [validations]="validationRules"></validation-messages>
+                <validation-messages [control]="orderForm.controls.address" [controlname]="'address'" [validations]="validationRules"></validation-messages>
+                <validation-messages [control]="orderForm.controls.city" [controlname]="'city'" [validations]="validationRules"></validation-messages>
+                <validation-messages [control]="orderForm.controls.region" [controlname]="'region'" [validations]="validationRules"></validation-messages>
+                <validation-messages [control]="orderForm.controls.postalCode" [controlname]="'postalCode'" [validations]="validationRules"></validation-messages>
+                <validation-messages [control]="orderForm.controls.country" [controlname]="'country'" [validations]="validationRules"></validation-messages>
+            </div>
+        </div>
+        <hr />
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <label class="control-label">Supplier ID</label>
+                            </div>
+                            <div class="col-sm-8">
+                                <label class="control-label">{{order.orderID}}</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <label class="control-label">Customer Name</label>
+                            </div>
+                            <div class="col-sm-8">
+                                <label *ngIf="!isEditable && !isAdding">{{order.customer.contactName}}</label>
+                                <input id="customerID" formControlName="customerID" type="text" class="form-control" placeholder="Customer Name" [(ngModel)]="order.customerID" *ngIf="isEditable || isAdding" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <label class="control-label">Order Date</label>
+                            </div>
+                            <div class="col-sm-8">
+                                <label *ngIf="!isEditable && !isAdding">{{order.orderDate}}</label>
+                                <input id="orderDate" formControlName="orderDate" type="text" class="form-control" placeholder="Order Date" [(ngModel)]="order.orderDate" *ngIf="isEditable || isAdding" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <label class="control-label">Required Date</label>
+                            </div>
+                            <div class="col-sm-8">
+                                <label *ngIf="!isEditable && !isAdding">{{order.requiredDate}}</label>
+                                <input id="requiredDate" formControlName="requiredDate" type="text" class="form-control" placeholder="Required Date" [(ngModel)]="order.requiredDate" *ngIf="isEditable || isAdding" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <label class="control-label">Shipped Date</label>
+                            </div>
+                            <div class="col-sm-8">
+                                <label *ngIf="!isEditable && !isAdding">{{order.shippedDate}}</label>
+                                <input id="shippedDate" formControlName="shippedDate" type="text" class="form-control" placeholder="Shipped Date" [(ngModel)]="order.shippedDate" *ngIf="isEditable || isAdding" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <label class="control-label">Freight</label>
+                            </div>
+                            <div class="col-sm-8">
+                                <label *ngIf="!isEditable && !isAdding">{{order.freight}}</label>
+                                <input id="freight" formControlName="freight" type="text" class="form-control" placeholder="Freight" [(ngModel)]="order.freight" *ngIf="isEditable || isAdding" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <label class="control-label">Shipping Name</label>
+                            </div>
+                            <div class="col-sm-8">
+                                <label *ngIf="!isEditable && !isAdding">{{order.shipName}}</label>
+                                <input id="shipName" formControlName="shipName" type="text" class="form-control" placeholder="Shipping Name" [(ngModel)]="order.shipName" *ngIf="isEditable || isAdding" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <label class="control-label">Address</label>
+                            </div>
+                            <div class="col-sm-8">
+                                <label *ngIf="!isEditable && !isAdding">{{order.addressModel.address}}</label>
+                                <input id="address" formControlName="address" type="text" class="form-control" placeholder="Address" [(ngModel)]="order.addressModel.address" *ngIf="isEditable || isAdding" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <label class="control-label">City</label>
+                            </div>
+                            <div class="col-sm-8">
+                                <label *ngIf="!isEditable && !isAdding">{{order.addressModel.city}}</label>
+                                <input id="city" formControlName="city" type="text" class="form-control" placeholder="City" [(ngModel)]="order.addressModel.city" *ngIf="isEditable || isAdding" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <label class="control-label">Region</label>
+                            </div>
+                            <div class="col-sm-8">
+                                <label *ngIf="!isEditable && !isAdding">{{order.addressModel.region}}</label>
+                                <input id="region" formControlName="region" type="text" class="form-control" placeholder="Region" [(ngModel)]="order.addressModel.region" *ngIf="isEditable || isAdding" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <label class="control-label">Postal Code</label>
+                            </div>
+                            <div class="col-sm-8">
+                                <label *ngIf="!isEditable && !isAdding">{{order.addressModel.postalCode}}</label>
+                                <input id="postalCode" formControlName="postalCode" type="text" class="form-control" placeholder="Postal Code" [(ngModel)]="order.addressModel.postalCode" *ngIf="isEditable || isAdding" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <label class="control-label">Country</label>
+                            </div>
+                            <div class="col-sm-8">
+                                <label *ngIf="!isEditable && !isAdding">{{order.addressModel.country}}</label>
+                                <input id="country" formControlName="country" type="text" class="form-control" placeholder="Country" [(ngModel)]="order.addressModel.country" *ngIf="isEditable || isAdding" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <orderdetaillist [orderdetails]="order.orderDetails"></orderdetaillist>
+        </div>
+    </form>
+</div>

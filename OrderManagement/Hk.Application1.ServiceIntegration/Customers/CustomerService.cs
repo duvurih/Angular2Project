@@ -1,6 +1,7 @@
 ﻿using Hk.Application1.Core.Interfaces;
 using Hk.Application1.Core.Models;
 using Hk.Application1.Repository.Interface;
+using Hk.Application1.Repository.Repositories;
 using Hk.Utilities.GenericComponents;
 using Hk.Utilities.Interfaces;
 using System;
@@ -39,6 +40,39 @@ namespace Hk.Application1.Services.Customers
         public Customer GetCustomerById(string customerId)
         {
             return _iCustomerRepository.GetCustomerById(customerId);
+        }
+
+
+        public override Customer Insert(Customer entity)
+        {
+            var repository = _unitOfWork.GetRepository<CustomerRepository, Customer>();
+            repository.Insert(entity);
+            _unitOfWork.SaveChanges();
+            return entity;
+        }
+
+        public override void InsertMultiple(IEnumerable<Customer> entities)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void Update(Customer entity)
+        {
+            var repository = _unitOfWork.GetRepository<CustomerRepository, Customer>();
+            repository.Update(entity);
+            _unitOfWork.SaveChanges();
+        }
+
+        public override void Delete(Customer entity)
+        {
+            var repository = _unitOfWork.GetRepository<CustomerRepository, Customer>();
+            repository.Delete(entity);
+            _unitOfWork.SaveChanges();
+        }
+
+        public override void DeleteMultiple(IEnumerable<Customer> entities)
+        {
+            throw new NotImplementedException();
         }
     }
 }

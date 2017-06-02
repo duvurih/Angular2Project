@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="ICategoryRepository.cs" />
     <Compile Include="ICustomerRepository.cs" />
+    <Compile Include="IOrderRepository.cs" />
     <Compile Include="IProductRepository.cs" />
     <Compile Include="ISupplierRepository.cs" />
     <Compile Include="IUnitOfWork.cs" />
