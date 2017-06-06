@@ -29,6 +29,8 @@ namespace Hk.Application1.Data.Models
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            var instance = System.Data.Entity.SqlServer.SqlProviderServices.Instance;
+
             modelBuilder.Configurations.Add(new CategoryConfiguration());
             modelBuilder.Configurations.Add(new CustomerConfiguration());
             modelBuilder.Configurations.Add(new Order_DetailConfiguration());
