@@ -46,7 +46,7 @@ Side Menu | Edit Product | Edit Supplier | Edit Customer | Edit Category | Edit 
 Dashboard Items | Add Product | Add Supplier | Add Customer | Add Category | Add Order |  
 
 # Project Setup:
-1. Environment Setup
+Environment Setup
 - Visual Studio 2015
 - SQL Server 2014
 - NodeJS v7.9.0
@@ -54,7 +54,7 @@ Dashboard Items | Add Product | Add Supplier | Add Customer | Add Category | Add
 - Typescript v2.2.1
 - Gulp
 
-2. Project Setup
+Project Setup
 - Clone or Download the Project
 - Open the Project in Visual Studio
 - Goto MultiProjectSample Folder from command prompt and execute following commands
