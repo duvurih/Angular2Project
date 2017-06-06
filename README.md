@@ -57,7 +57,7 @@ Dashboard Items | Add Product | Add Supplier | Add Customer | Add Category | Add
 2. Project Setup
 - Clone or Download the Project
 - Open the Project in Visual Studio
-- Goto MultiProjectSample Folder from command prompt and install following commands
+- Goto MultiProjectSample Folder from command prompt and execute following commands
   - bower install
   - npm install
 - Now project should have resolved and compiled successfully
