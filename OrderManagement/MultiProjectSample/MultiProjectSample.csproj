@@ -223,6 +223,7 @@
     <Compile Include="Api\BaseApiController.cs" />
     <Compile Include="Api\CategoryApiController.cs" />
     <Compile Include="Api\CustomerApiController.cs" />
+    <Compile Include="Api\GoogleMapApiController.cs" />
     <Compile Include="Api\OrderApiController.cs" />
     <Compile Include="Api\ProductApiController.cs" />
     <Compile Include="Api\SupplierApiController.cs" />
@@ -260,12 +261,18 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\app.html" />
+    <Content Include="app\common\autocomplete.html" />
     <Content Include="app\common\modal-common.html" />
     <Content Include="app\common\table-component.html" />
     <Content Include="app\common\validation-component.html" />
     <Content Include="app\features\category\categorycatalog.html" />
     <Content Include="app\features\category\categoryitem.html" />
+    <Content Include="app\features\customer\customerinfo.html" />
     <Content Include="app\features\customer\customerlist.html" />
+    <Content Include="app\features\customer\customersearch.html" />
+    <Content Include="app\common\location.html" />
+    <Content Include="app\features\customer\customersonmap.html" />
     <Content Include="app\features\customer\viewcustomer.html" />
     <Content Include="app\features\dashboard\dashboard.html" />
     <Content Include="app\features\order\orderdetaillist.html" />
@@ -273,11 +280,15 @@
     <Content Include="app\features\order\vieworder.html" />
     <Content Include="app\features\order\vieworderdetail.html" />
     <Content Include="app\features\product\productslist.html" />
+    <Content Include="app\features\product\productstats.html" />
     <Content Include="app\features\product\viewproduct.html" />
-    <Content Include="app\features\sidebar\sidebar.html" />
+    <Content Include="app\layout\sidebar\sidebar.html" />
     <Content Include="app\features\supplier\supplierlist.html" />
     <Content Include="app\features\supplier\viewsupplier.html" />
-    <Content Include="app\features\topbar\topbar.html" />
+    <Content Include="app\layout\topbar\topbar.html" />
+    <Content Include="app\layout\tabs\tab.html" />
+    <Content Include="app\layout\tabs\tabs.html" />
+    <Content Include="app\layout\widget\widget.html" />
     <Content Include="app\public\login\login.html" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -287,6 +298,7 @@
     <Content Include="Content\images\Database Model.png" />
     <Content Include="Content\images\HighLevelBusinessContext.png" />
     <Content Include="Content\images\HighLevelContext.png" />
+    <Content Include="Content\images\userimage.png" />
     <Content Include="Content\Site-mobile.css" />
     <Content Include="Content\Site.css" />
     <Content Include="favicon.ico" />
@@ -352,6 +364,8 @@
   <ItemGroup>
     <TypeScriptCompile Include="app\app.component.ts" />
     <TypeScriptCompile Include="app\app.module.ts" />
+    <TypeScriptCompile Include="app\common\autocomplete.component.ts" />
+    <TypeScriptCompile Include="app\common\base.component.ts" />
     <TypeScriptCompile Include="app\common\directives.component.ts" />
     <TypeScriptCompile Include="app\common\modal.component.ts" />
     <TypeScriptCompile Include="app\common\pipe.component.ts" />
@@ -366,7 +380,11 @@
     <TypeScriptCompile Include="app\features\category\categorycatalog.component.ts" />
     <TypeScriptCompile Include="app\features\category\categoryitem.component.ts" />
     <TypeScriptCompile Include="app\features\customer\customer-resolver.service.ts" />
+    <TypeScriptCompile Include="app\features\customer\customerinfo.component.ts" />
     <TypeScriptCompile Include="app\features\customer\customerlist.component.ts" />
+    <TypeScriptCompile Include="app\common\location.component.ts" />
+    <TypeScriptCompile Include="app\features\customer\customersearch.component.ts" />
+    <TypeScriptCompile Include="app\features\customer\customersonmap.component.ts" />
     <TypeScriptCompile Include="app\features\customer\viewcustomer.component.ts" />
     <TypeScriptCompile Include="app\features\dashboard\dashboard.component.ts" />
     <TypeScriptCompile Include="app\features\order\order-resolver.service.ts" />
@@ -375,13 +393,18 @@
     <TypeScriptCompile Include="app\features\order\vieworder.component.ts" />
     <TypeScriptCompile Include="app\features\order\vieworderdetail.component.ts" />
     <TypeScriptCompile Include="app\features\product\product-resolver.service.ts" />
+    <TypeScriptCompile Include="app\features\product\productlist-resolver.service.ts" />
     <TypeScriptCompile Include="app\features\product\productslist.component.ts" />
+    <TypeScriptCompile Include="app\features\product\productstats.component.ts" />
     <TypeScriptCompile Include="app\features\product\viewproduct.component.ts" />
-    <TypeScriptCompile Include="app\features\sidebar\sidebar.component.ts" />
+    <TypeScriptCompile Include="app\layout\sidebar\sidebar.component.ts" />
     <TypeScriptCompile Include="app\features\supplier\supplier-resolver.service.ts" />
     <TypeScriptCompile Include="app\features\supplier\supplierlist.component.ts" />
     <TypeScriptCompile Include="app\features\supplier\viewsupplier.component.ts" />
-    <TypeScriptCompile Include="app\features\topbar\topbar.component.ts" />
+    <TypeScriptCompile Include="app\layout\topbar\topbar.component.ts" />
+    <TypeScriptCompile Include="app\layout\tabs\tab.component.ts" />
+    <TypeScriptCompile Include="app\layout\tabs\tabs.component.ts" />
+    <TypeScriptCompile Include="app\layout\widget\widget.component.ts" />
     <TypeScriptCompile Include="app\main.ts" />
     <TypeScriptCompile Include="app\models\base.model.ts" />
     <TypeScriptCompile Include="app\models\baseaddress.model.ts" />
@@ -398,6 +421,7 @@
     <TypeScriptCompile Include="app\rxjs-operators.ts" />
     <TypeScriptCompile Include="app\services\auth.service.ts" />
     <TypeScriptCompile Include="app\services\authcheck.service.ts" />
+    <TypeScriptCompile Include="app\services\data-resolver.service.ts" />
     <TypeScriptCompile Include="app\services\datacontext.service.ts" />
     <TypeScriptCompile Include="app\services\referencedata.service.ts" />
     <TypeScriptCompile Include="app\services\validation.service.ts" />

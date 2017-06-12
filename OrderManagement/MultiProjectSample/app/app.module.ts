@@ -12,17 +12,22 @@ import { Router, Resolve, RouterStateSnapshot, ActivatedRouteSnapshot } from "@a
 
 // ng2-bootstrap
 import { ModalModule } from "ng2-modal";
-import { Ng2BootstrapModule } from "ng2-bootstrap";
+import { Ng2BootstrapModule, TypeaheadModule, ComponentLoaderFactory, PositioningService } from "ng2-bootstrap";
 import { PaginationModule } from "ng2-bootstrap";
 import { DatepickerModule } from "ng2-bootstrap";
 // import { ModalModule } from "ng2-bootstrap";
 import { ProgressbarModule } from "ng2-bootstrap";
 import { TimepickerModule } from "ng2-bootstrap";
 import { Ng2PageScrollModule } from "ng2-page-scroll";
+import { Ng2TableModule } from "ng2-table/ng2-table";
+import { AgmCoreModule } from "@agm/core";
+// import { AgmCoreModule } from "angular2-google-maps/core";
 
 // importing common components
 import { TableComponent } from "./common/table.component";
 import { ValidationMessages } from "./common/validation.component";
+import { AutoCompleteComponent } from "./common/autocomplete.component";
+import { LocationComponent } from "./common/location.component";
 
 // importing pipe and directive components
 import { NameFilterPipe, DateFormatPipe, SafeHtml } from "./common/pipe.component";
@@ -40,26 +45,41 @@ import { DataContextService } from "./services/datacontext.service";
 import { ValidationService } from "./services/validation.service";
 import { ReferenceDataService } from "./services/referencedata.service";
 
+// layout components
+import { SidebarComponent } from "./layout/sidebar/sidebar.component";
+import { TopbarComponent } from "./layout/topbar/topbar.component";
+import { WidgetComponent } from "./layout/widget/widget.component";
+import { TabComponent } from "./layout/tabs/tab.component";
+import { TabsComponent } from "./layout/tabs/tabs.component";
+
 // application components
 import { AppComponent } from "./app.component";
 import { LoginComponent } from "./public/login/login.component";
 import { DashboardComponent } from "./features/dashboard/dashboard.component";
-import { SidebarComponent } from "./features/sidebar/sidebar.component";
-import { TopbarComponent } from "./features/topbar/topbar.component";
-import { ProductsListComponent } from "./features/product/productslist.component";
+
 import { CategoryCatalogComponent } from "./features/category/categorycatalog.component";
 import { CategoryItemComponent } from "./features/category/categoryitem.component";
+
+import { ProductsListComponent } from "./features/product/productslist.component";
 import { ViewProductComponent } from "./features/product/viewproduct.component";
+import { ProductStatsComponent } from "./features/product/productstats.component";
+
 import { CustomersListComponent } from "./features/customer/customerlist.component";
 import { ViewCustomerComponent } from "./features/customer/viewcustomer.component";
+import { CustomerSearchComponent } from "./features/customer/customersearch.component";
+import { CustomerInfoComponent } from "./features/customer/customerinfo.component";
+import { CustomersOnMapComponent } from "./features/customer/customersonmap.component";
+
 import { SuppliersListComponent } from "./features/supplier/supplierlist.component";
 import { ViewSupplierComponent } from "./features/supplier/viewsupplier.component";
+
 import { OrdersListComponent } from "./features/order/orderlist.component";
 import { ViewOrderComponent } from "./features/order/vieworder.component";
 import { OrderDetailsListComponent } from "./features/order/orderdetaillist.component";
 import { ViewOrderDetailComponent } from "./features/order/vieworderdetail.component";
 
 // application specific services
+import { ProductListResolverService } from "./features/product/productlist-resolver.service";
 import { ProductResolverService } from "./features/product/product-resolver.service";
 import { SupplierResolverService } from "./features/supplier/supplier-resolver.service";
 import { CustomerResolverService } from "./features/customer/customer-resolver.service";
@@ -73,9 +93,12 @@ import { OrderResolverService } from "./features/order/order-resolver.service";
         FormsModule,
         ReactiveFormsModule,
         DatepickerModule,
+        AgmCoreModule.forRoot({ apiKey: 'GOOGLE_API_KEY' }),
         Ng2BootstrapModule,
+        Ng2TableModule,
         ModalModule,
         //ModalModule.forRoot(),
+        TypeaheadModule,
         ProgressbarModule,
         PaginationModule.forRoot(),
         Ng2PageScrollModule.forRoot(),
@@ -87,7 +110,11 @@ import { OrderResolverService } from "./features/order/order-resolver.service";
         DateFormatPipe,
         TableComponent,
         ValidationMessages,
+        AutoCompleteComponent,
         SafeHtml,
+        WidgetComponent,
+        TabComponent,
+        TabsComponent,
         AppComponent,
         LoginComponent,
         SidebarComponent,
@@ -98,16 +125,23 @@ import { OrderResolverService } from "./features/order/order-resolver.service";
         ProfileImageDirective,
         ProductsListComponent,
         ViewProductComponent,
+        ProductStatsComponent,
         CustomersListComponent,
         ViewCustomerComponent,
+        CustomerSearchComponent,
+        CustomerInfoComponent,
+        CustomersOnMapComponent,
         SuppliersListComponent,
         ViewSupplierComponent,
         OrdersListComponent,
         ViewOrderComponent,
         OrderDetailsListComponent,
-        ViewOrderDetailComponent
+        ViewOrderDetailComponent,
+        LocationComponent
     ],
     providers: [
+        ComponentLoaderFactory,
+        PositioningService,
         { provide: LocationStrategy, useClass: HashLocationStrategy },
         AuthService,
         AuthCheckActivator,
@@ -116,6 +150,7 @@ import { OrderResolverService } from "./features/order/order-resolver.service";
         ReferenceDataService,
         { provide: ErrorHandler, useClass: GenericExceptionHandler },
         SupplierResolverService,
+        ProductListResolverService,
         ProductResolverService,
         CustomerResolverService,
         OrderResolverService

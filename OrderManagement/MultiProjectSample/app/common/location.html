@@ -1,0 +1,8 @@
+﻿<agm-map [latitude]="lat" [longitude]="lng">
+    <agm-marker [latitude]="lat" [longitude]="lng" [title]="company">
+        <agm-info-window>
+            <ng-content select="[info-window]"></ng-content>
+        </agm-info-window>
+    </agm-marker>
+    <agm-circle [latitude]="lat" [longitude]="lng" [radius]="20000" [fillColor]="'red'"></agm-circle> 
+</agm-map>

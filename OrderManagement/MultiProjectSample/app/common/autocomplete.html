@@ -1,0 +1,13 @@
+﻿<div class="remove-margin form-group auto-complete">
+    <input [(ngModel)]="asyncSetValue"
+           [typeahead]="autoCompleteRef"
+           (typeaheadLoading)="changeTypeaheadLoading($event)"
+           (typeaheadNoResults)="changeTypeaheadNoResults($event)"
+           (typeaheadOnSelect)="autoCompleteOnSelect($event)"
+           [typeaheadOptionsLimit]="10"
+           [typeaheadMinLength]="3"
+           [typeaheadOptionField]="asyncDisplayText"
+           [id]="inputId"
+           [class]="inputClass"
+           [placeholder]="inputPlaceHolder">
+</div>

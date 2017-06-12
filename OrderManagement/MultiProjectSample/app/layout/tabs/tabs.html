@@ -1,0 +1,6 @@
+﻿<div class="tabs-bar">
+    <a href="javascript:;" [class.is-active]="tab.isActive" class="tab" *ngFor="let tab of tabs" (click)="selectTab(tab)">
+        {{tab.title}}
+    </a>
+</div>
+<ng-content></ng-content>

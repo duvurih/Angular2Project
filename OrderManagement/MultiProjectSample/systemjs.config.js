@@ -31,7 +31,9 @@
             'ng2-table': 'npm:ng2-table',
             'ng2-modal': 'npm:ng2-modal',
             'ng2-page-scroll': 'npm:ng2-page-scroll',
-            'symbol-observable': 'npm:symbol-observable'
+            'symbol-observable': 'npm:symbol-observable',
+            // 'angular2-google-maps': 'npm:angular2-google-maps/core'
+            '@agm/core': 'npm:@agm/core/core.umd.js'
         },
         // packages tells the System loader how to load when no filename and/or no extension
         packages: {

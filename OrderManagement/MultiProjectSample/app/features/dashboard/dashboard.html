@@ -1,18 +1,62 @@
 ﻿<div [@flyInOut]="'in'">
     <div class="container-fluid" id="main-layout-container">
         <div class="row">
-            <div class="col-xl-10">
-                <topbar></topbar>
+            <div class="col-sm-6">
+                <widget>
+                    <span widget-title>Statistics</span>
+                    <div widget-body>
+                        <tabs-set>
+                            <tab-element title="Products">
+                                <productstats></productstats>
+                            </tab-element>
+                            <tab-element title="Supplier">
+                                <ul>
+                                    <li>Supplier 1</li>
+                                    <li>Supplier 2</li>
+                                    <li>Supplier 3</li>
+                                    <li>Supplier 4</li>
+                                    <li>Supplier 5</li>
+                                </ul>
+                            </tab-element>
+                            <tab-element title="Customers">
+                                <ul>
+                                    <li>Customer 1</li>
+                                    <li>Customer 2</li>
+                                    <li>Customer 3</li>
+                                    <li>Customer 4</li>
+                                    <li>Customer 5</li>
+                                </ul>
+                            </tab-element>
+                        </tabs-set>
+                    </div>
+                </widget>
+            </div>
+            <div class="col-sm-6">
+                <widget>
+                    <span widget-title>Customer Search</span>
+                    <div widget-body>
+                        <customersearch></customersearch>
+                    </div>
+                </widget>
             </div>
         </div>
+        <br />
         <div class="row">
-            <div class="col-md-2 col-xl-2">
-                <sidebar>Loading sidebar....</sidebar>
+            <div class="col-sm-6">
+                <widget>
+                    <span widget-title>Graph</span>
+                    <div widget-body>
+                        Display Highlights
+                    </div>
+                </widget>
             </div>
-            <div class="col-md-10 col-xl-10">
-                <!--<productslist [products]="products" ></productslist>-->
-                <!--<category-catalog></category-catalog>-->
-                <router-outlet></router-outlet>
+            <div class="col-sm-6">
+                <widget>
+                    <span widget-title>News</span>
+                    <div widget-body>
+                        Display News
+                    </div>
+                </widget>
             </div>
         </div>
     </div>

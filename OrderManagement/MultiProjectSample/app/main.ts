@@ -7,6 +7,5 @@ if (environment.production) {
     enableProdMode();
 }
 
-platformBrowserDynamic().bootstrapModule(AppModule);
 const platform = platformBrowserDynamic();
 platform.bootstrapModule(AppModule);

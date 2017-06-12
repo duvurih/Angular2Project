@@ -1,0 +1,79 @@
+﻿<div class="sidebar hidden-sm hidden-xs">
+    <div class="sidebar-heading expanded" data-toggle="collapse" data-target="#sidebar" role="button" aria-expanded="true">
+        <span>Navigation</span>
+    </div>
+    <div class="sidebar-main-item collapse in" id="sidebar" aria-expanded="true">
+        <ul>
+            <li id="li-0" class="sidebar-main-item">
+                <span>
+                    <i class="suffix glyphicon glyphicon-briefcase" aria-hidden="true"></i> My Favourites
+                </span>
+                <div class="sidebar-sub-item">
+                    <ul>
+                        <li selected="selected"><a>My Item 1</a></li>
+                        <li><a>My Item 2</a></li>
+                        <li><a>My Item 3</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li id="li-1" class="sidebar-main-item">
+                <span>
+                    <i class="fa fa-object-ungroup" aria-hidden="true"></i> Categories
+                </span>
+                <div class="sidebar-sub-item">
+                    <ul>
+                        <li><a [routerLink]="['/viewCategories']">Categories</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li id="li-1" class="sidebar-main-item">
+                <span>
+                    <i class="fa fa-user-circle" aria-hidden="true"></i> Customers
+                </span>
+                <div class="sidebar-sub-item">
+                    <ul>
+                        <li><a [routerLink]="['/viewCustomersList']">Customers</a></li>
+                        <li><a [routerLink]="['/customerOnMap']">Customers on Map</a></li>
+                        <li><a [routerLink]="['/searchCustomer']">Search Customer</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li id="li-2" class="sidebar-main-item">
+                <span>
+                    <i class="fa fa-cubes" aria-hidden="true"></i> Products
+                </span>
+                <div class="sidebar-sub-item">
+                    <ul>
+                        <li><a [routerLink]="['/viewProductsList']">Products</a></li>
+                        <li><a [routerLink]="['/addProduct']">Add Product</a></li>
+                        <li><a [routerLink]="['/searchProduct']">Search Product</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li id="li-3" class="sidebar-main-item">
+                <span>
+                    <i class="fa fa-user" aria-hidden="true"></i> Suppliers
+                </span>
+                <div class="sidebar-sub-item">
+                    <ul>
+                        <li><a [routerLink]="['/viewSuppliersList']">Suppliers</a></li>
+                        <li><a [routerLink]="['/addSupplier']">Add Supplier</a></li>
+                        <li><a [routerLink]="['/searchSupplier']">Search Supplier</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li id="li-4" class="sidebar-main-item">
+                <span>
+                    <i class="fa fa-user" aria-hidden="true"></i> Orders
+                </span>
+                <div class="sidebar-sub-item">
+                    <ul>
+                        <li><a [routerLink]="['/viewOrdersList']">Orders</a></li>
+                        <li><a [routerLink]="['/addOrder']">Add Order</a></li>
+                        <li><a [routerLink]="['/searchOrder']">Search Order</a></li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>

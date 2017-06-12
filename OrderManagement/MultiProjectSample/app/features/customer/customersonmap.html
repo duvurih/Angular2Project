@@ -1,0 +1,9 @@
+﻿<div class="row">
+    <div class="col-sm-12">
+        <location [address]="customerFullAddress" [company]="selectedCustomer" (address)="getLocationByAddress()">
+            <div info-window>
+                <span>{{selectedCustomer}}</span>
+            </div>
+        </location>
+    </div>
+</div>

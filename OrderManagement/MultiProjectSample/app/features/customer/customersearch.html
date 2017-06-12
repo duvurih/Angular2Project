@@ -1,0 +1,36 @@
+﻿<div [@flyInOut]="'in'">
+    <div id="cardstack" class="row card-stack">
+        <form [formGroup]="customerSearchFrm" class="remove-margin">
+            <div class="form-group input-group remove-margin">
+                <input type="hidden" class="form-control" id="customerSearch" formControlName="customerSearch" placeholder="Search by Customer Name">
+                <auto-complete [inputId]="'customerSearch'" [inputClass]="'form-control'" [inputPlaceHolder]="'Search Customer'"
+                                [searchUrl]="'CustomerApiWeb/SearchCustomer'" [asyncDisplayText]="'companyName'"
+                                [asyncSetValue]="customerSearchFrm.controls.customerSearch.value" (emitSelectedObj)="viewSelectedCustomer($event)"></auto-complete>
+                <!--<div class="input-group-addon"><i class="fa fa-search" aria-hidden="true"></i></div>-->
+            </div>
+        </form>
+    </div>
+
+    <div id="searchresult" class="row card-stack">
+        <div class="widget">
+            <div class="row" style="font-size:smaller">
+                <div class="col-sm-1">
+                    <img class="img-rounded" width="50" height="50" src="../../../Content/images/userimage.png" alt="user">
+                </div>
+                <div class="col-sm-11">
+                    <customerinfo [customer]="customer" [isSearchResult]="isSearchResult"></customerinfo>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <location [address]="customerFullAddress" [company]="selectedCustomer" (address)="getLocationByAddress()">
+                        <div info-window>
+                            <span>{{selectedCustomer}}</span>
+                        </div>
+                    </location>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

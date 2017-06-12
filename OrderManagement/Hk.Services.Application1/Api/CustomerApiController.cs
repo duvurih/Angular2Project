@@ -127,5 +127,20 @@ namespace Hk.Services.Application1.Api
             _iCustomerService.Update(entity);
             return true;
         }
+
+        [Route("SearchCustomer/{searchPhrase}")]
+        [HttpGet]
+        public async Task<IEnumerable<Customer>> SearchCustomer(string searchPhrase)
+        {
+            IEnumerable<Customer> customers = null;
+            await Task.Run(() =>
+            {
+                // string customerName = searchPhrase.ToString();
+                customers = _iCustomerService.Find(x => x.CompanyName.Contains(searchPhrase));
+                return customers;
+
+            });
+            return customers;
+        }
     }
 }

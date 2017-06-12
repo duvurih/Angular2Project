@@ -38,11 +38,15 @@ export class ProductsListComponent {
     // initializing variables
     public products: Array<any> = [];
     private resultResponse: any;
+    private actionEdit = '<a class="action-btn edit" href="#topinfo" [routerLink]="["/viewProduct/", product.productID]"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>';
+    private actionDelete = '<a class="action-btn remove"><i class="fa fa-trash-o" aria-hidden="true"></i></a>';
 
     public columns: Array<any> = [
         { title: "Product ID", name: "productID", sort:false },
         { title: "Product Name", name: "productName", sort: "asc"},
-        { title: "Unit Price ($)", name: "unitPrice", sort:"desc" }
+        { title: "Unit Price ($)", name: "unitPrice", sort: "desc" },
+        { title: '', name: 'actionEdit', sort: false, className: 'accepter-col-action' },
+        { title: '', name: 'actionDelete', sort: false, className: 'accepter-col-action' }
     ];
 
     public config: any = {
@@ -56,6 +60,7 @@ export class ProductsListComponent {
         private router: Router,
         private activatedRoute: ActivatedRoute,
         private dataContextService: DataContextService) {
+
     }
 
     // initialization methods
@@ -68,20 +73,16 @@ export class ProductsListComponent {
             if (categoryId !== undefined) {
                 this.loadProductsByCategory(categoryId);
             } else {
-                this.loadAllProducts();
+                this.activatedRoute.data
+                    .subscribe((data: { products: any }) => {
+                        this.products = data.products
+                    });
             }
         });
     }
 
 
     // method implementation
-    loadAllProducts():any {
-        this.dataContextService.httpGet(URLEndPoints.PRODUCT_GET_ALL_PRODUCTS, null)
-            .subscribe((resultData: any) => {
-                this.products = resultData;
-            });
-    }
-
     loadProductsByCategory(id:number): any {
         this.dataContextService.httpGet(URLEndPoints.PRODUCT_GET_PRODUCT_BY_CATEGORY + id , null)
             .subscribe((resultData: any) => {

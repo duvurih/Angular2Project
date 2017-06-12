@@ -5,6 +5,7 @@ using MultiProjectSample.Models.Models;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
+using System.Threading.Tasks;
 using System.Web.Http;
 
 namespace MultiProjectSample.Api
@@ -85,6 +86,22 @@ namespace MultiProjectSample.Api
             Customer customerData = Mapper.Map<CustomerModel, Customer>(entity);
             bool response = _iServiceApiManager.PostAsync<bool>("customerapi", "DeleteCustomer", customerData);
             return OkResponse(response);
+        }
+
+        [HttpPost]
+        [Route("SearchCustomer")]
+        public async Task<HttpResponseMessage> SearchCustomer([FromBody] string searchPhrase)
+        {
+            HttpResponseMessage response = null;
+            await Task.Run(() =>
+            {
+                Dictionary<string, string> apiParams = new Dictionary<string, string>();
+                apiParams.Add("search", searchPhrase);
+
+                IEnumerable<Customer> customerData = _iServiceApiManager.GetAsync<IEnumerable<Customer>>("customerapi", "SearchCustomer", apiParams);
+                response = OkResponse(customerData);
+            });
+            return response;
         }
     }
 }

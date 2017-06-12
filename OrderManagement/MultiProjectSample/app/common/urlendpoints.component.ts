@@ -32,4 +32,5 @@
     public static ORDER_DETAIL_VALIDATION_RULES: string = "OrderApiWeb/OrderDetailValidationRules";
     public static ORDER_DETAIL_DELETE: string = "OrderApiWeb/DeleteOrderDetail/";
 
+    public static GOOGLE_MAP_API_GET_LOCATION: string = "GoogleMapApiWeb/GetGoogleMapLocation";
 }

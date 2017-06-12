@@ -29,8 +29,6 @@ import { DataContextService } from "../../services/datacontext.service";
 export class DashboardComponent implements OnInit {
 
     // initializing variables
-    public settings: any = [];
-    visible = false;
 
     // constuctor
     constructor(
@@ -38,18 +36,10 @@ export class DashboardComponent implements OnInit {
 
     // initialization methods
     ngOnInit(): void {
-
-        this.loadAllSettings();
+        console.log("Dashboard Component");
     }
 
 
-    // method implementation
-    loadAllSettings():any {
-        // this.dataContextService.httpGet("CategoryApiWeb/GetAllCategories", null)
-        //    .subscribe((resultData:any) => {
-        //        this.products = resultData;
-        // });
-    }
 
 
 }

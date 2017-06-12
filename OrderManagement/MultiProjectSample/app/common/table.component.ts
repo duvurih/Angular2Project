@@ -1,15 +1,17 @@
 ﻿import { Component, OnInit, Input, Output, EventEmitter, OnChanges } from "@angular/core";
 import { ChangeDetectionStrategy } from "@angular/core";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
-import { Ng2TableModule } from "ng2-table/components/ng-table-module";
-import { PaginationModule } from "ng2-bootstrap";
+// import { Ng2TableModule } from "ng2-table/components/ng-table-module";
+import { Ng2TableModule } from "ng2-table/ng2-table";
+import { NgTableComponent, NgTableFilteringDirective, NgTablePagingDirective, NgTableSortingDirective } from "ng2-table/ng2-table";
+// import { PaginationModule } from "ng2-bootstrap";
 
 @Component({
     selector: "ngtable",
     templateUrl: "app/common/table-component.html",
     changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class TableComponent implements OnInit {
+export class TableComponent implements OnInit, OnChanges {
     public rows: Array<any> = [];
     @Input() columns: Array<any> = [];
     @Input() data: Array<any> = [];
