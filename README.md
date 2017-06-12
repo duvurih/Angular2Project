@@ -45,4 +45,22 @@ Top Menu | View Product | View Supplier | View Customer | View Category | View O
 Side Menu | Edit Product | Edit Supplier | Edit Customer | Edit Category | Edit Order |  Navigate Search Results
 Dashboard Items | Add Product | Add Supplier | Add Customer | Add Category | Add Order |  
 
+# Project Setup:
+Environment Setup
+- Visual Studio 2015
+- SQL Server 2014
+- NodeJS v7.9.0
+- npm v4.5.0
+- Typescript v2.2.1
+- Gulp
 
+Project Setup
+- Clone or Download the Project
+- Open the Project in Visual Studio
+- Goto MultiProjectSample Folder from command prompt and execute following commands
+  - bower install
+  - npm install
+- Now project should have resolved and compiled successfully
+- Create a empty database in SQL Server with name OrderMgmt
+- Publish the database by right clicking on database project in visual studio
+- Change the database name/user name/password in the web.config file
