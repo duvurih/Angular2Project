@@ -1,6 +1,11 @@
 # Angular2Project
 Angular 2 + Web API + Entity Framework + SQL Server + DI + Responsive Design
 
+# Deployed in Amazon AWS
+- This application is deployed in Amazon AWS
+  - Steps for Deployment........
+- The Application Url is http://.........../
+
 # Scope of Work:
 1. Products, Categories, Suppliers
 2. Order Management
