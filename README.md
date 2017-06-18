@@ -6,7 +6,7 @@ Angular 2 + Web API + Entity Framework + SQL Server + DI + Responsive Design
   - Steps for Deployment........
 - The Application Url is http://.........../
 
-# Views:
+# Virtual Demo:
 ![alt text](https://github.com/duvurih/Angular2Project/blob/master/OrderManagement/MultiProjectSample/Content/images/ProductsViewNavigation.gif)
 
 # Scope of Work:
