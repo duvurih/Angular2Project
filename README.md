@@ -6,12 +6,12 @@ Angular 2 + Web API + Entity Framework + SQL Server + DI + Responsive Design
   - Steps for Deployment........
 - The Application Url is http://.........../
 
+# Views:
+![alt text](https://github.com/duvurih/Angular2Project/blob/master/OrderManagement/MultiProjectSample/Content/images/ProductsViewNavigation.gif)
+
 # Scope of Work:
 1. Products, Categories, Suppliers
 2. Order Management
-
-# Views:
-![alt text](https://github.com/duvurih/Angular2Project/blob/master/OrderManagement/MultiProjectSample/Content/images/ProductsViewNavigation.gif)
 
 # High Level Business Context
 ![alt text](https://github.com/duvurih/Angular2Project/blob/master/OrderManagement/MultiProjectSample/Content/images/HighLevelBusinessContext.png)
