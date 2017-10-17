@@ -34,6 +34,8 @@ Angular 2 + Web API + Entity Framework + SQL Server + DI + Responsive Design
 10. SQL Server Data Tools for Database Comparison and Deployment
 11. Unit Testing Framework
 12. Moq for mocking DI Objects
+13. Angular 2 - HighCharts
+14. Redux
 
 # Class Diagram:
 1. Generic Repositories
