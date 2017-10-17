@@ -1,5 +1,5 @@
 ﻿<div class="remove-margin form-group auto-complete">
-    <input [(ngModel)]="asyncSetValue"
+    <input class="form-control" [(ngModel)]="asyncSetValue"
            [typeahead]="autoCompleteRef"
            (typeaheadLoading)="changeTypeaheadLoading($event)"
            (typeaheadNoResults)="changeTypeaheadNoResults($event)"

@@ -9,7 +9,6 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HttpModule } from "@angular/http";
 import { Router, Resolve, RouterStateSnapshot, ActivatedRouteSnapshot } from "@angular/router";
 
-
 // ng2-bootstrap
 import { ModalModule } from "ng2-modal";
 import { Ng2BootstrapModule, TypeaheadModule, ComponentLoaderFactory, PositioningService } from "ng2-bootstrap";
@@ -21,7 +20,6 @@ import { TimepickerModule } from "ng2-bootstrap";
 import { Ng2PageScrollModule } from "ng2-page-scroll";
 import { Ng2TableModule } from "ng2-table/ng2-table";
 import { AgmCoreModule } from "@agm/core";
-// import { AgmCoreModule } from "angular2-google-maps/core";
 
 // importing common components
 import { TableComponent } from "./common/table.component";
@@ -85,6 +83,14 @@ import { SupplierResolverService } from "./features/supplier/supplier-resolver.s
 import { CustomerResolverService } from "./features/customer/customer-resolver.service";
 import { OrderResolverService } from "./features/order/order-resolver.service";
 
+// importing application module data services
+import { CategoryService } from "./features/category/services/category.service";
+
+// importing module guard
+import { throwIfAlreadyLoaded } from "./modules/module-import-guard";
+
+// importing application modules
+import { StoreModule } from "./redux/store.module";
 
 @NgModule({
     imports: [
@@ -93,7 +99,7 @@ import { OrderResolverService } from "./features/order/order-resolver.service";
         FormsModule,
         ReactiveFormsModule,
         DatepickerModule,
-        AgmCoreModule.forRoot({ apiKey: 'GOOGLE_API_KEY' }),
+        AgmCoreModule.forRoot({ apiKey: 'AIzaSyA1vWp8aa0ohma7Zev45V7T2y5842aOh0I' }),
         Ng2BootstrapModule,
         Ng2TableModule,
         ModalModule,
@@ -103,7 +109,8 @@ import { OrderResolverService } from "./features/order/order-resolver.service";
         PaginationModule.forRoot(),
         Ng2PageScrollModule.forRoot(),
         TimepickerModule,
-        routing
+        routing,
+        StoreModule
     ],
     declarations: [
         NameFilterPipe,
@@ -153,13 +160,16 @@ import { OrderResolverService } from "./features/order/order-resolver.service";
         ProductListResolverService,
         ProductResolverService,
         CustomerResolverService,
-        OrderResolverService
+        OrderResolverService,
+        CategoryService
     ],
     schemas: [CUSTOM_ELEMENTS_SCHEMA],
     bootstrap: [AppComponent]
 })
 export class AppModule {
-    constructor( @Optional() @SkipSelf() parentModule: AppModule) {
-        // throwIfAlreadyLoaded(parentModule, "AppModule")
+    constructor(
+        @Optional() @SkipSelf() parentModule: AppModule
+    ) {
+        throwIfAlreadyLoaded(parentModule, "AppModule");
     }
 }

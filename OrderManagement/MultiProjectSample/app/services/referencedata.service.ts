@@ -1,5 +1,6 @@
 ﻿// importing angular modules
 import { Injectable } from "@angular/core";
+import { NgRedux } from "@angular-redux/store";
 
 // importing data services
 import { DataContextService } from "../services/datacontext.service";
@@ -8,14 +9,24 @@ import { DataContextService } from "../services/datacontext.service";
 import { CategoryModel } from "../models/category.model";
 import { SupplierModel } from "../models/supplier.model";
 
+// importing redux store
+import { IAppState } from "../redux/app-state";
+import { CategoryAction, CategoryActions } from "../features/category/services/category.actions";
+
 @Injectable()
 export class ReferenceDataService {
     public categoryReferenceData: CategoryModel[];
     public supplierReferenceData: SupplierModel[];
 
-    constructor(private dataContextService: DataContextService) {}
+    constructor(
+        private dataContextService: DataContextService,
+        private ngRedux: NgRedux<IAppState>
+    ) {
 
-    retrieveReferenceData():void {
+    }
+
+    retrieveReferenceData(): void {
+        // this.ngRedux.dispatch({ type: RETRIEVE_CATEGORIES_DATA})
         this.retrieveCategoriesData();
         this.retrieveSupplierssData();
     }

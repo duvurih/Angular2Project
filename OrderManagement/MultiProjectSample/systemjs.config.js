@@ -32,8 +32,10 @@
             'ng2-modal': 'npm:ng2-modal',
             'ng2-page-scroll': 'npm:ng2-page-scroll',
             'symbol-observable': 'npm:symbol-observable',
-            // 'angular2-google-maps': 'npm:angular2-google-maps/core'
-            '@agm/core': 'npm:@agm/core/core.umd.js'
+            '@agm/core': 'npm:@agm/core/core.umd.js',
+            '@angular-redux/store': 'npm:@angular-redux/store',
+            '@angular-redux/router': 'npm:@angular-redux/router',
+            'redux': 'npm:redux'
         },
         // packages tells the System loader how to load when no filename and/or no extension
         packages: {
@@ -47,7 +49,10 @@
             'ng2-table': { defaultExtension: 'js' },
             'ng2-modal': { main: 'index.js', defaultExtension: 'js' },
             'ng2-page-scroll': { main: 'bundles/ng2-page-scroll.umd.js', defaultExtension: 'js' },
-            'symbol-observable': { main: 'index.js', defaultExtension: 'js' }
+            'symbol-observable': { main: 'index.js', defaultExtension: 'js' },
+            '@angular-redux/store': { main: 'lib/src/index.js', defaultExtension: 'js' },
+            '@angular-redux/router': { main: 'lib/es5/index.js', defaultExtension: 'js' },
+            redux: { main: 'dist/redux.min.js', defaultExtension: 'js' }
         }
     });
 })(this);

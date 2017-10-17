@@ -1,12 +1,16 @@
 ﻿// importing angular core
 import { Component, OnInit } from "@angular/core";
+import { NgRedux, dispatch, select, select$ } from '@angular-redux/store';
+import { Observable } from 'rxjs/Observable';
 
 // importing data services
-import { DataContextService } from "../../services/datacontext.service";
+import { CategoryService } from "./services/category.service";
 
-// importing url endpoints
-import { URLEndPoints } from "../../common/urlendpoints.component";
+// importing redux actions
+import { CategoryAction, CategoryActions } from "./services/category.actions";
 
+// importing data models
+import { CategoryModel, ICategory, ICategoryList, CategoryType } from "../../models/category.model";
 
 @Component({
     selector: "category-catalog",
@@ -15,24 +19,36 @@ import { URLEndPoints } from "../../common/urlendpoints.component";
 export class CategoryCatalogComponent implements OnInit {
 
     // initializing variables
-    public productCategories: any = [];
+    // public productCategories: any = [];
+
+    @select() readonly productCategories$: Observable<ICategory>;
 
     // constuctor
     constructor(
-        private dataContextService: DataContextService) {
+        private categoryService: CategoryService,
+        private categoryActions: CategoryActions
+    ) {
     }
 
     // initialization methods
-    ngOnInit():any {
-        this.loadAllProductCategories();
+    ngOnInit(): any {
+        // https://www.pluralsight.com/guides/front-end-javascript/ui-state-management-with-redux-in-angular-4
+
+        // https://www.youtube.com/watch?v=YxK4UW4UfCk
+        // https://www.youtube.com/watch?v=s4xr2avwv3s
+        // this.categoryActions.loadCategories("LOAD_CATEGORIES");
+
+        // this.categoryService.loadAllProductCategories()
+        //   .subscribe((resultData: any) => {
+        //       this.productCategories = resultData;
+        //   });
+
+        // this.productCategories = this.categoryService.loadAll
+        //    .subscribe((resultData: any) => {
+        //        this.productCategories = resultData;
+        //    });
     }
 
 
-    // method implementation
-    loadAllProductCategories():any {
-        this.dataContextService.httpGet(URLEndPoints.CATEGORY_GET_ALL_CATEGORIES, null)
-            .subscribe((resultData: any) => {
-                this.productCategories = resultData;
-            });
-    }
+
 }

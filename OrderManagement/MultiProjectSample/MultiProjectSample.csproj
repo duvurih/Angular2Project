@@ -377,6 +377,8 @@
     <TypeScriptCompile Include="app\config\exceptionhandler.component.ts" />
     <TypeScriptCompile Include="app\config\routing.component.ts" />
     <TypeScriptCompile Include="app\environments\environment.ts" />
+    <TypeScriptCompile Include="app\features\category\services\category.actions.ts" />
+    <TypeScriptCompile Include="app\features\category\services\category.service.ts" />
     <TypeScriptCompile Include="app\features\category\categorycatalog.component.ts" />
     <TypeScriptCompile Include="app\features\category\categoryitem.component.ts" />
     <TypeScriptCompile Include="app\features\customer\customer-resolver.service.ts" />
@@ -417,7 +419,11 @@
     <TypeScriptCompile Include="app\models\product.model.ts" />
     <TypeScriptCompile Include="app\models\referencedata.model.ts" />
     <TypeScriptCompile Include="app\models\supplier.model.ts" />
+    <TypeScriptCompile Include="app\modules\module-import-guard.ts" />
     <TypeScriptCompile Include="app\public\login\login.component.ts" />
+    <TypeScriptCompile Include="app\redux\app-state.ts" />
+    <TypeScriptCompile Include="app\features\category\services\category.reducer.ts" />
+    <TypeScriptCompile Include="app\redux\store.module.ts" />
     <TypeScriptCompile Include="app\rxjs-operators.ts" />
     <TypeScriptCompile Include="app\services\auth.service.ts" />
     <TypeScriptCompile Include="app\services\authcheck.service.ts" />
@@ -425,6 +431,8 @@
     <TypeScriptCompile Include="app\services\datacontext.service.ts" />
     <TypeScriptCompile Include="app\services\referencedata.service.ts" />
     <TypeScriptCompile Include="app\services\validation.service.ts" />
+    <TypeScriptCompile Include="app\redux\actions\general.actions.ts" />
+    <TypeScriptCompile Include="app\redux\reducers\store.component.ts" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />

@@ -74,7 +74,7 @@ export class LocationComponent implements DoCheck {
 
         this.lastAddress = this.address;
 
-        this._http.get('https://maps.googleapis.com/maps/api/geocode/json?address=' + this.address + '&key=GOOGLE_API_KEY', null)
+        this._http.get('https://maps.googleapis.com/maps/api/geocode/json?address=' + this.address + '&key=AIzaSyA1vWp8aa0ohma7Zev45V7T2y5842aOh0I', null)
             .subscribe((resultData: any) => {
                 let place: any = JSON.parse(resultData._body);
                 this.lat = place.results[0].geometry.location.lat;

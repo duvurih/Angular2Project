@@ -17,7 +17,7 @@
             </tr>
         </tbody>
     </table>-->
-    <div *ngFor="let productCategory of productCategories" class="col-ms-6 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+    <div *ngFor="let productCategory of productCategories$ | async" class="col-ms-6 col-sm-6 col-md-4 col-lg-3 col-xl-2">
         <category-item [categoryItem]="productCategory"></category-item>
     </div>
 </div>

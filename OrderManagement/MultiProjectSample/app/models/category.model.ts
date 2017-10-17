@@ -1,4 +1,7 @@
-﻿export class CategoryModel {
+﻿// TODO: is there a way to improve this?
+export type CategoryType = string;
+
+export class CategoryModel {
     categoryID: number;
     categoryName: string;
     description: string;
@@ -11,3 +14,17 @@
         this.picture = categoryData.picture;
     }
 }
+
+export interface ICategory {
+    categoryID: number;
+    categoryName: string;
+    description: string;
+    picture: string;
+}
+
+export interface ICategoryList {
+    items: {};
+    loading: boolean;
+    error: any;
+}
+
