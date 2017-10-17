@@ -20,6 +20,7 @@ import { TimepickerModule } from "ng2-bootstrap";
 import { Ng2PageScrollModule } from "ng2-page-scroll";
 import { Ng2TableModule } from "ng2-table/ng2-table";
 import { AgmCoreModule } from "@agm/core";
+import { ChartModule } from "angular2-highcharts";
 
 // importing common components
 import { TableComponent } from "./common/table.component";
@@ -54,6 +55,7 @@ import { TabsComponent } from "./layout/tabs/tabs.component";
 import { AppComponent } from "./app.component";
 import { LoginComponent } from "./public/login/login.component";
 import { DashboardComponent } from "./features/dashboard/dashboard.component";
+import { ChartComponent } from "./features/dashboard/charts.component";
 
 import { CategoryCatalogComponent } from "./features/category/categorycatalog.component";
 import { CategoryItemComponent } from "./features/category/categoryitem.component";
@@ -91,6 +93,7 @@ import { throwIfAlreadyLoaded } from "./modules/module-import-guard";
 
 // importing application modules
 import { StoreModule } from "./redux/store.module";
+declare var require: any;
 
 @NgModule({
     imports: [
@@ -110,7 +113,11 @@ import { StoreModule } from "./redux/store.module";
         Ng2PageScrollModule.forRoot(),
         TimepickerModule,
         routing,
-        StoreModule
+        StoreModule,
+        ChartModule.forRoot(
+            require('highcharts'),
+            require('highcharts/modules/exporting')
+        )
     ],
     declarations: [
         NameFilterPipe,
@@ -127,6 +134,7 @@ import { StoreModule } from "./redux/store.module";
         SidebarComponent,
         TopbarComponent,
         DashboardComponent,
+        ChartComponent,
         CategoryCatalogComponent,
         CategoryItemComponent,
         ProfileImageDirective,

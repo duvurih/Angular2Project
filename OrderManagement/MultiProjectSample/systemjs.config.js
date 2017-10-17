@@ -35,7 +35,9 @@
             '@agm/core': 'npm:@agm/core/core.umd.js',
             '@angular-redux/store': 'npm:@angular-redux/store',
             '@angular-redux/router': 'npm:@angular-redux/router',
-            'redux': 'npm:redux'
+            'redux': 'npm:redux',
+            'angular2-highcharts': 'npm:angular2-highcharts',
+            'highcharts': 'npm:highcharts'
         },
         // packages tells the System loader how to load when no filename and/or no extension
         packages: {
@@ -52,7 +54,9 @@
             'symbol-observable': { main: 'index.js', defaultExtension: 'js' },
             '@angular-redux/store': { main: 'lib/src/index.js', defaultExtension: 'js' },
             '@angular-redux/router': { main: 'lib/es5/index.js', defaultExtension: 'js' },
-            redux: { main: 'dist/redux.min.js', defaultExtension: 'js' }
+            redux: { main: 'dist/redux.min.js', defaultExtension: 'js' },
+            highcharts: { main: 'highcharts.js', defaultExtension: 'js' },
+            'angular2-highcharts': {main: 'index.js', defaultExtension: 'js'}
         }
     });
 })(this);

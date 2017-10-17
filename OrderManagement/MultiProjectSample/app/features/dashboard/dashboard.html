@@ -44,17 +44,17 @@
         <div class="row">
             <div class="col-sm-6">
                 <widget>
-                    <span widget-title>Graph</span>
+                    <span widget-title>Sales</span>
                     <div widget-body>
-                        Display Highlights
+                        <custom-chart [data]="options"></custom-chart>
                     </div>
                 </widget>
             </div>
             <div class="col-sm-6">
                 <widget>
-                    <span widget-title>News</span>
+                    <span widget-title>Stock</span>
                     <div widget-body>
-                        Display News
+                        <custom-chart [data]="optionsSecond"></custom-chart>
                     </div>
                 </widget>
             </div>

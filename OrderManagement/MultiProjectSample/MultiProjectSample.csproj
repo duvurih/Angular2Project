@@ -388,6 +388,7 @@
     <TypeScriptCompile Include="app\features\customer\customersearch.component.ts" />
     <TypeScriptCompile Include="app\features\customer\customersonmap.component.ts" />
     <TypeScriptCompile Include="app\features\customer\viewcustomer.component.ts" />
+    <TypeScriptCompile Include="app\features\dashboard\charts.component.ts" />
     <TypeScriptCompile Include="app\features\dashboard\dashboard.component.ts" />
     <TypeScriptCompile Include="app\features\order\order-resolver.service.ts" />
     <TypeScriptCompile Include="app\features\order\orderdetaillist.component.ts" />
